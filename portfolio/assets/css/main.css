@@ -2443,3 +2443,32 @@ input, select, textarea {
 					}
 
 	}
+	.video-thumbnail {
+    position: relative;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+}
+
+.play-button:after {
+    content: '';
+    position: absolute;
+    left: 26px;
+    top: 20px;
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+    border-color: transparent transparent transparent white;
+}

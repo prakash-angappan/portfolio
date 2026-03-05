@@ -2472,3 +2472,24 @@ input, select, textarea {
     border-width: 15px 0 15px 25px;
     border-color: transparent transparent transparent white;
 }
+
+/* Footer copyright styling */
+
+footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.9em;
+    margin-top: 80px;
+    padding-bottom: 20px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    display: inline-block;
+    margin: 0 10px;
+}

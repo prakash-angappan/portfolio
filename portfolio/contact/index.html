@@ -1,73 +1,327 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>About | Prakash Angappan</title>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="../assets/css/main.css" />
+<title>Contact | Prakash Angappan</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family: Arial, sans-serif;
+color:white;
+background:linear-gradient(-45deg,#0f172a,#1e293b,#020617,#0f172a);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
+min-height:100vh;
+padding-top:80px;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.nav-logo{
+font-size:18px;
+letter-spacing:1px;
+}
+
+.nav-links{
+list-style:none;
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+position:relative;
+}
+
+.nav-links a::after{
+content:'';
+position:absolute;
+bottom:-5px;
+left:0;
+width:0;
+height:2px;
+background:#38bdf8;
+transition:0.3s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:50px;
+letter-spacing:2px;
+}
+
+.section{
+margin-bottom:60px;
+}
+
+.section-title{
+margin-bottom:25px;
+border-bottom:1px solid rgba(255,255,255,0.2);
+padding-bottom:10px;
+}
+
+/* CONTACT CARDS */
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+gap:25px;
+}
+
+.card{
+flex:1;
+min-width:250px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+padding:25px;
+border-radius:12px;
+display:flex;
+align-items:center;
+gap:15px;
+text-decoration:none;
+color:white;
+transition:all 0.35s ease;
+}
+
+.card i{
+font-size:26px;
+color:#38bdf8;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(56,189,248,0.6);
+border-color:#38bdf8;
+}
+
+/* SOCIAL */
+
+.social-row{
+display:flex;
+justify-content:center;
+gap:35px;
+margin-top:30px;
+}
+
+.social-icon{
+font-size:30px;
+color:#cbd5f5;
+transition:all 0.3s ease;
+}
+
+.social-icon:hover{
+transform:scale(1.35) translateY(-6px);
+color:#38bdf8;
+text-shadow:
+0 0 10px #38bdf8,
+0 0 20px #38bdf8,
+0 0 40px #38bdf8;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:60px;
+text-align:center;
+color:#94a3b8;
+font-size:14px;
+}
+
+/* SCROLL ANIMATION */
+
+.hidden{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:700px){
+
+.cards{
+flex-direction:column;
+}
+
+.nav-links{
+gap:15px;
+}
+
+}
+
+</style>
 
 </head>
 
-<body class="is-preload">
 
-<!-- Navigation -->
-<nav id="nav">
-<ul class="container">
+<body>
 
-<li><a href="../">Home</a></li>
-<li><a href="../about/">About</a></li>
-<li><a href="../projects/">Projects</a></li>
-<li><a href="../resume/">Resume</a></li>
-<li><a href="../hobbies/">Hobbies</a></li>
-<li><a href="../games/">Games That Inspired Me</a></li>
-<li><a href="../contact/">Contact</a></li>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="nav-logo">
+Prakash Angappan
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="contact.html">Contact</a></li>
 
 </ul>
+
 </nav>
 
-<!-- About Section -->
-<article class="wrapper style2">
+
 
 <div class="container">
 
-<header>
+<h1 class="hidden">Contact</h1>
 
-<h1>Contact</h1>
+<!-- CONTACT INFO -->
 
-<p>
-Engineering leadership, product development and interactive systems.
-</p>
+<div class="section hidden">
 
-</header>
+<h2 class="section-title">Contact Information</h2>
+
+<div class="cards">
+
+<a class="card" href="mailto:yourmail@email.com">
+
+<i class="fa-solid fa-envelope"></i>
+<span>yourmail@email.com</span>
+
+</a>
+
+<div class="card">
+
+<i class="fa-solid fa-phone"></i>
+<span>+91 XXXXX XXXXX</span>
 
 </div>
 
-</article>
+<a class="card" href="https://linkedin.com/in/yourprofile" target="_blank">
 
-<!-- Footer -->
+<i class="fa-brands fa-linkedin"></i>
+<span>LinkedIn Profile</span>
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- SOCIAL -->
+
+<div class="section hidden">
+
+<h2 class="section-title">Social</h2>
+
+<div class="social-row">
+
+<a href="https://facebook.com/yourprofile" target="_blank">
+<i class="fab fa-facebook social-icon"></i>
+</a>
+
+<a href="https://instagram.com/yourprofile" target="_blank">
+<i class="fab fa-instagram social-icon"></i>
+</a>
+
+<a href="https://steamcommunity.com/id/yourprofile" target="_blank">
+<i class="fab fa-steam social-icon"></i>
+</a>
+
+<a href="https://www.epicgames.com/id/yourprofile" target="_blank">
+<i class="fas fa-gamepad social-icon"></i>
+</a>
+
+</div>
+
+</div>
+
+
 <footer>
-
-<div class="container">
-
-<ul id="copyright">
-
-<li>© Prakash Angappan</li>
-<li>Design based on template from HTML5 UP</li>
-
-</ul>
-
-</div>
-
+© 2026 Prakash Angappan
 </footer>
 
-<!-- Scripts -->
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/browser.min.js"></script>
-<script src="../assets/js/breakpoints.min.js"></script>
-<script src="../assets/js/util.js"></script>
-<script src="../assets/js/main.js"></script>
+</div>
+
+
+
+<script>
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+
+</script>
+
 
 </body>
 </html>

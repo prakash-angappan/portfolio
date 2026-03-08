@@ -1,99 +1,379 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-<title>Prakash Angappan</title>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="assets/css/main.css" />
+<title>Prakash Angappan | Game Developer</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+color:white;
+background:linear-gradient(-45deg,#0f172a,#1e293b,#020617,#0f172a);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
+min-height:100vh;
+}
+
+@keyframes gradientMove{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+/* NAVBAR */
+
+.navbar{
+
+position:fixed;
+top:0;
+width:100%;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+z-index:1000;
+
+}
+
+.nav-logo{
+
+font-size:18px;
+letter-spacing:1px;
+
+}
+
+.nav-links{
+
+list-style:none;
+display:flex;
+gap:30px;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+color:white;
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:'';
+position:absolute;
+bottom:-5px;
+left:0;
+width:0;
+height:2px;
+background:#38bdf8;
+transition:0.3s;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* HERO */
+
+.hero{
+
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+
+}
+
+.hero h1{
+
+font-size:48px;
+margin-bottom:15px;
+text-shadow:
+0 0 10px #38bdf8,
+0 0 20px #38bdf8;
+
+}
+
+.hero h2{
+
+font-weight:normal;
+color:#cbd5f5;
+margin-bottom:25px;
+
+}
+
+.hero p{
+
+max-width:650px;
+line-height:1.6;
+color:#cbd5f5;
+margin-bottom:40px;
+
+}
+
+/* BUTTONS */
+
+.buttons{
+
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+
+}
+
+.btn{
+
+padding:12px 24px;
+border-radius:6px;
+text-decoration:none;
+color:white;
+border:1px solid #38bdf8;
+transition:0.3s;
+
+}
+
+.btn:hover{
+
+background:#38bdf8;
+box-shadow:0 0 15px #38bdf8;
+
+}
+
+/* SECTION */
+
+.section{
+
+max-width:1000px;
+margin:auto;
+padding:80px 20px;
+
+}
+
+.section h2{
+
+text-align:center;
+margin-bottom:40px;
+
+}
+
+/* CARDS */
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+box-shadow:0 0 20px rgba(56,189,248,0.5);
+
+}
+
+/* FOOTER */
+
+footer{
+
+text-align:center;
+padding:30px;
+color:#94a3b8;
+
+}
+
+/* SCROLL ANIMATION */
+
+.hidden{
+
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+
+}
+
+.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+@media(max-width:700px){
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+}
+
+</style>
 
 </head>
 
-<body class="is-preload">
+<body>
 
-<!-- Navigation -->
 
-<nav id="nav">
-<ul class="container">
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="nav-logo">
+
+Prakash Angappan
+
+</div>
+
+<ul class="nav-links">
+
 <li><a href="index.html">Home</a></li>
-<li><a href="about/index.html">About</a></li>
-<li><a href="projects/index.html">Projects</a></li>
-<li><a href="resume/index.html">Resume</a></li>
-<li><a href="hobbies/index.html">Hobbies</a></li>
-<li><a href="games/index.html">Games That Inspired Me</a></li>
-<li><a href="contact/index.html">Contact</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="contact.html">Contact</a></li>
+
 </ul>
+
 </nav>
 
-<!-- Home Section -->
 
-<article id="home" class="wrapper style1">
-<div class="container">
 
-<div class="row">
+<!-- HERO -->
 
-<div class="col-4 col-5-large col-12-medium">
-<span class="image fit">
-<img src="images/profile.jpg" alt="Prakash Angappan">
-</span>
-</div>
+<section class="hero">
 
-<div class="col-8 col-7-large col-12-medium">
+<h1 class="hidden">Prakash Angappan</h1>
 
-<header>
-<h1>Hi, I'm <strong>Prakash</strong></h1>
-<p>Engineering Leader | Game Technology | Interactive Experiences</p>
-</header>
+<h2 class="hidden">Game Developer • Engineering Leader</h2>
 
-<p>
-I build interactive games, experiential installations, and scalable
-software platforms that combine technology and creativity.
-My work focuses on creating engaging digital experiences for
-live events, marketing activations, and experimental gameplay systems.
+<p class="hidden">
+
+Engineering leader with 17+ years of experience delivering games across PC, console, and mobile platforms. Experienced in game architecture, team leadership, and full production lifecycle.
+
 </p>
 
-<p>
-With experience leading engineering teams and delivering
-interactive real-time systems, I enjoy solving complex technical
-problems and transforming creative ideas into working products.
-</p>
+<div class="buttons hidden">
 
-<ul class="actions">
-<li><a href="projects/index.html" class="button large">View Projects</a></li>
-<li><a href="resume/index.html" class="button large">View Resume</a></li>
-</ul>
+<a class="btn" href="projects.html">
 
+View Projects
+
+</a>
+
+<a class="btn" href="resume.pdf">
+
+Download Resume
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- SKILLS -->
+
+<section class="section hidden">
+
+<h2>Core Expertise</h2>
+
+<div class="cards">
+
+<div class="card">
+Game Architecture & Systems Design
+</div>
+
+<div class="card">
+Gameplay Programming
+</div>
+
+<div class="card">
+Multiplayer Systems
+</div>
+
+<div class="card">
+AI Systems (Behavior Trees, FSM)
+</div>
+
+<div class="card">
+Performance Optimization
+</div>
+
+<div class="card">
+Cross-Platform Development
 </div>
 
 </div>
 
-</div>
-</article>
+</section>
 
-<!-- Footer -->
+
 
 <footer>
-<div class="container">
-<ul id="copyright">
-<li>© Prakash Angappan</li>
-<li>Design based on template from HTML5 UP</li>
-</ul>
-</div>
+
+© 2026 Prakash Angappan
+
 </footer>
 
-<!-- Scripts -->
 
-<script src="assets/js/jquery.min.js"></script>
 
-<script src="assets/js/browser.min.js"></script>
+<script>
 
-<script src="assets/js/breakpoints.min.js"></script>
+const observer = new IntersectionObserver(entries => {
 
-<script src="assets/js/util.js"></script>
+entries.forEach(entry => {
 
-<script src="assets/js/main.js"></script>
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+
+</script>
 
 </body>
+
 </html>

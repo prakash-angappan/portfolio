@@ -1,231 +1,514 @@
 <!DOCTYPE html>
-
 <html>
 <head>
+
 <title>Projects | Prakash Angappan</title>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ---------- BACKGROUND ---------- */
+
+.page-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("../images/projects-bg.png") center/cover no-repeat;
+filter:blur(3px);
+transform:scale(1.05);
+z-index:-4;
+}
+
+.page-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at center,
+rgba(0,0,0,0.7) 0%,
+rgba(0,0,0,0.6) 40%,
+rgba(0,0,0,0.5) 70%,
+rgba(0,0,0,0.4) 100%);
+z-index:-3;
+}
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-2;
+}
+
+/* ---------- PAGE ---------- */
+
+.page-content{
+position:relative;
+z-index:1;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+}
+
+/* TITLE */
+
+h1{
+text-align:center;
+font-size:46px;
+font-weight:800;
+margin-bottom:60px;
+
+color:#ffffff;
+
+text-shadow:
+0 0 10px rgba(0,0,0,0.8),
+0 2px 8px rgba(0,0,0,0.9);
+}
+
+/* COMPANY */
+
+.company{
+margin-top:80px;
+}
+
+.company-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:2px solid rgba(255,255,255,0.2);
+padding-bottom:10px;
+margin-bottom:25px;
+}
+
+.company-header h2{
+
+font-size:28px;
+font-weight:800;
+
+color:#ffffff;
+
+text-shadow:
+0 2px 10px rgba(0,0,0,0.9);
+
+}
+
+.company-meta{
+
+font-size:15px;
+
+color:#f1f1f1;
+
+font-weight:500;
+
+text-shadow:
+0 1px 6px rgba(0,0,0,0.8);
+
+}
+
+/* GRID */
+
+.grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+}
+
+/* CARD */
+
+.card{
+width:260px;
+background:rgba(255,255,255,0.96);
+border-radius:10px;
+padding:14px;
+text-align:center;
+color:#111;
+box-shadow:0 6px 18px rgba(0,0,0,.4);
+position:relative;
+transition:.2s;
+}
+
+/* glow hover */
+
+.card:hover{
+box-shadow:
+0 0 12px rgba(0,170,255,.9),
+0 0 40px rgba(0,170,255,.6),
+0 10px 30px rgba(0,0,0,.6);
+}
+
+/* THUMB */
+
+.thumb{
+position:relative;
+background:black;
+border-radius:6px;
+overflow:hidden;
+}
+
+.thumb img{
+width:100%;
+height:140px;
+object-fit:contain;
+}
+
+/* TITLE OVERLAY */
+
+.title-overlay{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:6px 8px;
+font-weight:700;
+font-size:15px;
+color:white;
+background:linear-gradient(to top,
+rgba(0,0,0,0.9),
+rgba(0,0,0,0.4),
+transparent);
+}
+
+/* PLATFORM ICON */
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(0,0,0,.6);
+opacity:0;
+transition:.2s;
+color:white;
+font-size:28px;
+}
+
+.card:hover .overlay{
+opacity:1;
+}
+
+/* TEXT */
+
+.project-desc{
+font-size:15px;
+font-weight:700;
+margin-top:10px;
+color:#222;
+}
+
+.tasks{
+font-size:13px;
+margin-top:6px;
+color:#555;
+}
+
+</style>
 
 </head>
 
-<body class="is-preload">
+<body>
 
-<!-- Navigation -->
+<div class="page-bg"></div>
+<div class="page-overlay"></div>
+<canvas id="particles"></canvas>
 
-<nav id="nav">
-<ul class="container">
-<li><a href="../index.html">Home</a></li>
-<li><a href="../about/index.html">About</a></li>
-<li><a href="../projects/index.html">Projects</a></li>
-<li><a href="../resume/index.html">Resume</a></li>
-<li><a href="../hobbies/index.html">Hobbies</a></li>
-<li><a href="../games/index.html">Games That Inspired Me</a></li>
-<li><a href="../contact/index.html">Contact</a></li>
-</ul>
-</nav>
-
-<!-- Projects -->
-
-<article class="wrapper style2">
+<div class="page-content">
 <div class="container">
 
-<header>
 <h1>Projects</h1>
-<p>Selected games and interactive systems developed across my career.</p>
-</header>
 
-<!-- iXie Gaming -->
 
-<section>
-<h2>iXie Gaming by Indium (Head of Engineering – 2025 Present)</h2>
+<!-- IXIE -->
 
-<h3>BharatRun</h3>
-<p>
-Endless runner game developed for Android and iOS using Unity 6.
-Led a team of developers and defined the technical design
-for the MVP and demo gameplay systems.
-</p>
+<div class="company">
+<div class="company-header">
+<h2>iXie Gaming by Indium</h2>
+<div class="company-meta">Head of Engineering • Jan 2025 – Present</div>
+</div>
 
-<h3>Kiosk Games Platform</h3>
-<p>
-Collection of ten mini-games developed for a casino-style kiosk
-platform using the Godot engine. Designed the architecture
-supporting multiple mini-games within one system.
-</p>
+<div class="grid">
 
-<h3>Hands of Victory</h3>
-<p>
-Online multiplayer card game ported from web to PC with Steam
-integration using Unity. Led a team of five developers and
-defined multiplayer gameplay systems.
-</p>
+<div class="card">
+<div class="thumb"><img src="../images/bharatrun.png"><div class="title-overlay">BharatRun</div></div>
+<div class="project-desc">Endless runner prototype</div>
+<div class="tasks">Gameplay architecture and prototyping</div>
+</div>
 
-<h3>Railflow</h3>
-<p>
-Strategy and endless train control game for Android and iOS.
-Led the engineering team and designed core gameplay mechanics.
-</p>
-</section>
+<div class="card">
+<div class="thumb"><img src="../images/kiosk-games.png"><div class="title-overlay">Kiosk Games</div></div>
+<div class="project-desc">Interactive casino mini-game platform</div>
+<div class="tasks">Platform architecture and gameplay systems</div>
+</div>
 
-<br>
+<div class="card" data-link="https://store.steampowered.com/app/2265080/Hands_of_Victory/">
+<div class="thumb"><img src="../images/hands-of-victory.png"><div class="title-overlay">Hands of Victory</div><div class="overlay"></div></div>
+<div class="project-desc">Online multiplayer card game</div>
+<div class="tasks">Multiplayer networking and Steam integration</div>
+</div>
 
-<!-- VoidPeak Games -->
+<div class="card" data-link="https://play.google.com/store/apps/details?id=com.railflow.cargotransport&hl=en_IN">
+<div class="thumb"><img src="../images/rail-flow.png"><div class="title-overlay">Railflow</div><div class="overlay"></div></div>
+<div class="project-desc">Mobile train routing strategy game</div>
+<div class="tasks">Gameplay logic and optimization</div>
+</div>
 
-<section>
-<h2>VoidPeak Games (Lead Programmer – 2020–2024)</h2>
+<div class="card" data-link="https://play.ixiegaming.com/mathmatch/">
+<div class="thumb"><img src="../images/math-match.png"><div class="title-overlay">Math Match</div></div>
+<div class="project-desc">Educational puzzle game</div>
+<div class="tasks">Game mechanics and scoring</div>
+</div>
 
-<h3>Radiant Dark</h3>
-<p>
-Action RPG vertical slice developed using Unreal Engine 5.3.
-Implemented gameplay systems and VFX using animation notifies
-while exploring Gameplay Ability System architecture.
-</p>
-
-<h3>The Last Bastion</h3>
-<p>
-Strategy roguelite game developed using Unity.
-Winner of Best Hardcore Game at AnimXpress 2022 and
-nominated for Indie Game of the Year at IGDC 2022.
-</p>
-</section>
-
-<br>
-
-<!-- Tentworks -->
-
-<section>
-<h2>Tentworks Interactive (Lead Game Developer – 2019–2020)</h2>
-
-<h3>City Block Builder</h3>
-<p>
-Tycoon-style city building game for PC developed using Unity.
-Implemented AI systems for crowds and worker behavior using
-Playmaker and Behavior Trees.
-</p>
-</section>
-
-<br>
-
-<!-- Learning Yogi -->
-
-<section>
-<h2>Learning Yogi (Senior Game Developer – 2018)</h2>
-
-<h3>AtlasMission</h3>
-<p>
-Educational bundle of mini-games for Android and iOS.
-Improved application workflow and developed gameplay systems
-for several mini-games.
-</p>
-</section>
-
-<br>
-
-<!-- Aavega -->
-
-<section>
-<h2>Aavega Interactive (Lead Game Developer – 2014–2018)</h2>
-
-<h3>Jolly Rogers Pirates Rumble</h3>
-<p>
-Four-player couch co-op game for PC using Unity.
-Implemented collectibles, obstacles, and gameplay modes
-including Capture the Flag and Team Deathmatch.
-</p>
-
-<h3>Captain Kosmo</h3>
-<p>
-Endless runner game for Android and iOS.
-Implemented boss AI, collectibles, obstacles, and UI systems.
-</p>
-
-<h3>Jallikattu Run 2</h3>
-<p>
-Mobile endless runner game featuring in-game shop mechanics.
-</p>
-
-<h3>Spell Easy</h3>
-<p>
-Word puzzle game for children on Android and iOS.
-Developed UI and audio systems.
-</p>
-</section>
-
-<br>
-
-<!-- Dhruva -->
-
-<section>
-<h2>Dhruva Interactive (Game Programmer – 2013–2014)</h2>
-
-<h3>Captain Sharky</h3>
-<p>
-Mini-game collection developed using Unity.
-Implemented a platform-style gameplay system and shared
-profile system across mini-games.
-</p>
-</section>
-
-<br>
-
-<!-- Gameshastra -->
-
-<section>
-<h2>Gameshastra Solutions (Group Lead – 2007–2012)</h2>
-
-<h3>Kite Fight</h3>
-<p>
-Motion-controlled kite fighting game developed for
-PlayStation Move using the Phyre Engine framework.
-</p>
-
-<h3>Cart Kings</h3>
-<p>
-Bullock cart racing game developed for PS2 and PSP
-using the Vicious Cycle engine.
-</p>
-
-<h3>Desi Adda</h3>
-<p>
-Mini-game collection for PlayStation 2 including
-dance and rhythm gameplay mechanics.
-</p>
-
-<h3>EtchASketch</h3>
-<p>
-Casual action-adventure game for PC using BlitzMax.
-Implemented collectibles and level design systems.
-</p>
-</section>
+<div class="card" data-link="https://play.ixiegaming.com/halloween/">
+<div class="thumb"><img src="../images/pumpkin-heads-quest.png"><div class="title-overlay">Pumpkin Head's Quest</div></div>
+<div class="project-desc">Puzzle platform adventure</div>
+<div class="tasks">Puzzle mechanics and gameplay systems</div>
+</div>
 
 </div>
-</article>
-
-<!-- Footer -->
-
-<footer>
-<div class="container">
-<ul id="copyright">
-<li>© Prakash Angappan</li>
-<li>Design based on template from HTML5 UP</li>
-</ul>
 </div>
-</footer>
 
-<!-- Scripts -->
 
-<script src="../assets/js/jquery.min.js"></script>
+<!-- VOIDPEAK -->
 
-<script src="../assets/js/browser.min.js"></script>
+<div class="company">
+<div class="company-header">
+<h2>VoidPeak Games</h2>
+<div class="company-meta">Lead Programmer • Dec 2020 – Dec 2024</div>
+</div>
 
-<script src="../assets/js/breakpoints.min.js"></script>
+<div class="grid">
 
-<script src="../assets/js/util.js"></script>
+<div class="card" data-link="https://youtu.be/T7I799DRj2U">
+<div class="thumb"><img src="../images/radiant-dark.png"><div class="title-overlay">Radiant Dark</div><div class="overlay"></div></div>
+<div class="project-desc">Unreal Engine 5 action RPG vertical slice</div>
+<div class="tasks">Combat system and gameplay abilities</div>
+</div>
 
-<script src="../assets/js/main.js"></script>
+<div class="card" data-link="https://store.steampowered.com/app/1520880/The_Last_Bastion/">
+<div class="thumb"><img src="../images/the-last-bastion.png"><div class="title-overlay">The Last Bastion</div><div class="overlay"></div></div>
+<div class="project-desc">Roguelite strategy game</div>
+<div class="tasks">Enemy AI and gameplay systems</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- TENTWORKS -->
+
+<div class="company">
+<div class="company-header">
+<h2>Tentworks Interactive</h2>
+<div class="company-meta">Lead Game Developer • 2019 – 2020</div>
+</div>
+
+<div class="grid">
+
+<div class="card" data-link="https://store.steampowered.com/app/1191800/City_Block_Builder/">
+<div class="thumb"><img src="../images/city-block-builder.png"><div class="title-overlay">City Block Builder</div></div>
+<div class="project-desc">City building simulation</div>
+<div class="tasks">Simulation systems and architecture</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- LEARNING YOGI -->
+
+<div class="company">
+<div class="company-header">
+<h2>Learning Yogi</h2>
+<div class="company-meta">Senior Game Developer • 2018</div>
+</div>
+
+<div class="grid">
+
+<div class="card" data-link="https://play.google.com/store/apps/details?id=com.LearningYogi.Atlasmission&hl=en_IN">
+<div class="thumb"><img src="../images/atlasmission.png"><div class="title-overlay">AtlasMission</div></div>
+<div class="project-desc">Geography learning game</div>
+<div class="tasks">Gameplay systems and mobile deployment</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- AAVEGA -->
+
+<div class="company">
+<div class="company-header">
+<h2>Aavega Interactive</h2>
+<div class="company-meta">Lead Game Developer • 2014 – 2018</div>
+</div>
+
+<div class="grid">
+
+<div class="card" data-link="https://store.steampowered.com/app/876120/Jolly_Rogers_Pirates_Rumble/"><div class="thumb"><img src="../images/jolly-rogers-pirates-rumble.png"><div class="title-overlay">Jolly Rogers Pirates Rumble</div></div><div class="project-desc">Local multiplayer pirate brawler</div><div class="tasks">Gameplay and multiplayer systems</div></div>
+
+<div class="card" data-link="https://www.youtube.com/watch?v=-TrewU1Ns6E"><div class="thumb"><img src="../images/jallikattu-run-2.png"><div class="title-overlay">Jallikattu Run 2</div></div><div class="project-desc">Endless runner mobile game</div><div class="tasks">Gameplay mechanics</div></div>
+
+<div class="card" data-link="https://www.youtube.com/watch?v=X9LGO1iva4Q"><div class="thumb"><img src="../images/captain-kosmo.png"><div class="title-overlay">Captain Kosmo</div></div><div class="project-desc">Kids platform adventure</div><div class="tasks">Gameplay scripting</div></div>
+
+<div class="card" data-link="https://www.youtube.com/watch?v=-gS9FBzB1mE"><div class="thumb"><img src="../images/spell-easy.png"><div class="title-overlay">Spell Easy</div></div><div class="project-desc">Educational spelling game</div><div class="tasks">UI systems</div></div>
+
+</div>
+</div>
+
+
+<!-- DHRUVA -->
+
+<div class="company">
+<div class="company-header">
+<h2>Dhruva Interactive</h2>
+<div class="company-meta">Game Programmer • 2013 – 2014</div>
+</div>
+
+<div class="grid">
+
+<div class="card" data-link="https://www.youtube.com/watch?v=lq0rvx0aEFE">
+<div class="thumb"><img src="../images/captain-sharky.png"><div class="title-overlay">Captain Sharky</div></div>
+<div class="project-desc">Console adventure game</div>
+<div class="tasks">Gameplay systems and AI</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- GAMESHASTRA -->
+
+<div class="company">
+<div class="company-header">
+<h2>Gameshastra Solutions</h2>
+<div class="company-meta">Group Lead • 2007 – 2012</div>
+</div>
+
+<div class="grid">
+
+<div class="card" data-link="https://www.youtube.com/watch?v=KbZFrEOE95w"><div class="thumb"><img src="../images/kite-fight.png"><div class="title-overlay">Kite Fight</div></div><div class="project-desc">Arcade kite fighting game</div><div class="tasks">Gameplay and multiplayer</div></div>
+
+<div class="card" data-link="https://www.youtube.com/watch?v=T93d5E7Yhyo"><div class="thumb"><img src="../images/cart-kings.png"><div class="title-overlay">Cart Kings</div></div><div class="project-desc">Arcade racing prototype</div><div class="tasks">Gameplay systems</div></div>
+
+<div class="card" data-link="https://www.youtube.com/watch?v=UOg4AEiJsHs&t=26s"><div class="thumb"><img src="../images/desi-adda.png"><div class="title-overlay">Desi Adda</div></div><div class="project-desc">Indian social gaming platform</div><div class="tasks">Multiple mini-games</div></div>
+
+<div class="card" data-link="https://www.youtube.com/watch?v=34qZm_12Bnc"><div class="thumb"><img src="../images/etch-a-sketch.png"><div class="title-overlay">Etch-A-Sketch</div></div><div class="project-desc">Puzzle adventure game</div><div class="tasks">Puzzle mechanics</div></div>
+
+</div>
+</div>
+
+
+<!-- CARBONON -->
+
+<div class="company">
+<div class="company-header">
+<h2>Carbonon Tech</h2>
+<div class="company-meta">Game Programmer • 2006 – 2007</div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="thumb"><img src="../images/auto-rickshaw-racing.png"><div class="title-overlay">Auto Rickshaw Racing</div></div>
+<div class="project-desc">Arcade racing prototype</div>
+<div class="tasks">Vehicle gameplay prototype</div>
+</div>
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+<script>
+
+/* clickable cards */
+
+document.querySelectorAll(".card").forEach(card=>{
+const link=card.dataset.link
+const overlay=card.querySelector(".overlay")
+
+if(link){
+
+card.style.cursor="pointer"
+
+card.onclick=()=>{window.open(link,"_blank")}
+
+if(link.includes("steam"))
+overlay.innerHTML='<i class="fa-brands fa-steam"></i>'
+
+else if(link.includes("youtu"))
+overlay.innerHTML='<i class="fa-brands fa-youtube"></i>'
+
+else if(link.includes("play.google"))
+overlay.innerHTML='<i class="fa-brands fa-google-play"></i>'
+
+}
+
+})
+
+/* subtle particles */
+
+const canvas=document.getElementById("particles")
+const ctx=canvas.getContext("2d")
+
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+
+let particles=[]
+
+for(let i=0;i<40;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+vx:(Math.random()-0.5)*0.3,
+vy:(Math.random()-0.5)*0.3
+})
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+particles.forEach(p=>{
+
+p.x+=p.vx
+p.y+=p.vy
+
+if(p.x<0||p.x>canvas.width) p.vx*=-1
+if(p.y<0||p.y>canvas.height) p.vy*=-1
+
+ctx.beginPath()
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2)
+ctx.fillStyle="rgba(255,255,255,0.15)"
+ctx.fill()
+
+})
+
+requestAnimationFrame(animate)
+}
+
+animate()
+
+</script>
 
 </body>
 </html>

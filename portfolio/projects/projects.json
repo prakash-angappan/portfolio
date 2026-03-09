@@ -1,0 +1,247 @@
+{
+  "companies": [
+    {
+      "name": "iXie Gaming by Indium",
+      "role": "Head of Engineering",
+      "period": "Jan 2025 – Present (1+ yr)",
+      "projects": [
+        {
+          "title": "Untitled demo",
+          "image": "nda-project.png",
+          "engine": "unity",
+          "platform": ["android"],
+          "desc": "Endless runner prototype",
+          "tasks": "Gameplay architecture and prototyping",
+          "link": ""
+        },
+        {
+          "title": "Mini games for Kiosk",
+          "image": "nda-project.png",
+          "engine": "godot",
+          "platform": ["pc"],
+          "desc": "Interactive casino mini-game platform",
+          "tasks": "Platform architecture and gameplay systems",
+          "link": ""
+        },
+        {
+          "title": "Hands of Victory",
+          "image": "hands-of-victory.png",
+          "engine": "unity",
+          "platform": ["steam"],
+          "desc": "Online multiplayer card game",
+          "tasks": "Multiplayer networking and Steam integration",
+          "link": "https://store.steampowered.com/app/2265080/Hands_of_Victory/"
+        },
+        {
+          "title": "Railflow",
+          "image": "rail-flow.png",
+          "engine": "unity",
+          "platform": ["android", "ios"],
+          "desc": "Mobile train routing strategy game",
+          "tasks": "Gameplay logic and optimization",
+          "link": "https://play.google.com/store/apps/details?id=com.railflow.cargotransport"
+        },
+        {
+          "title": "Math Match",
+          "image": "math-match.png",
+          "engine": "unity",
+          "platform": ["html5"],
+          "desc": "Educational puzzle game",
+          "tasks": "Game mechanics and scoring",
+          "link": "https://play.ixiegaming.com/mathmatch/"
+        },
+        {
+          "title": "Pumpkin Head's Quest",
+          "image": "pumpkin-heads-quest.png",
+          "engine": "godot",
+          "platform": ["html5"],
+          "desc": "Puzzle platform adventure",
+          "tasks": "Puzzle mechanics and gameplay systems",
+          "link": "https://play.ixiegaming.com/halloween/"
+        }
+      ]
+    },
+
+    {
+      "name": "VoidPeak Games",
+      "role": "Lead Programmer",
+      "period": "Dec 2020 – Dec 2024 (4 yrs)",
+      "projects": [
+        {
+          "title": "Radiant Dark",
+          "image": "radiant-dark.png",
+          "engine": "unreal",
+		  "platform": ["steam"],
+          "desc": "Unreal Engine action RPG vertical slice",
+          "tasks": "Combat system and gameplay abilities",
+          "link": "https://youtu.be/T7I799DRj2U"
+        },
+        {
+          "title": "The Last Bastion",
+          "image": "the-last-bastion.png",
+          "engine": "unity",
+          "platform": ["steam"],
+          "desc": "Roguelite strategy game",
+          "tasks": "Enemy AI and gameplay systems",
+          "link": "https://store.steampowered.com/app/1520880/The_Last_Bastion/"
+        }
+      ]
+    },
+
+    {
+      "name": "Tentworks Interactive",
+      "role": "Lead Game Developer",
+      "period": "Jan 2019 – Nov 2020 (1 yr 11 months)",
+      "projects": [
+        {
+          "title": "City Block Builder",
+          "image": "city-block-builder.png",
+          "engine": "unity",
+          "platform": ["steam"],
+          "desc": "City building simulation",
+          "tasks": "Simulation systems and architecture",
+          "link": "https://store.steampowered.com/app/1191800/City_Block_Builder/"
+        }
+      ]
+    },
+
+    {
+      "name": "Learning Yogi",
+      "role": "Senior Game Developer",
+      "period": "May 2018 – Oct 2018 (6 months)",
+      "projects": [
+        {
+          "title": "AtlasMission",
+          "image": "atlasmission.png",
+          "engine": "unity",
+          "platform": ["android","ios"],
+          "desc": "Geography learning game",
+          "tasks": "Gameplay systems and mobile deployment",
+          "link": "https://play.google.com/store/apps/details?id=com.LearningYogi.Atlasmission"
+        }
+      ]
+    },
+
+    {
+      "name": "Aavega Interactive",
+      "role": "Lead Game Developer",
+      "period": "Oct 2014 – Jan 2018 (3 yrs 4 months)",
+      "projects": [
+        {
+          "title": "Jolly Rogers Pirates Rumble",
+          "image": "jolly-rogers-pirates-rumble.png",
+          "engine": "unity",
+          "platform": ["steam"],
+          "desc": "Local multiplayer pirate brawler",
+          "tasks": "Gameplay and multiplayer systems",
+          "link": "https://store.steampowered.com/app/876120/Jolly_Rogers_Pirates_Rumble/"
+        },
+        {
+          "title": "Jallikattu Run 2",
+          "image": "jallikattu-run-2.png",
+          "engine": "unity",
+          "platform": ["android"],
+          "desc": "Endless runner mobile game",
+          "tasks": "Gameplay mechanics",
+          "link": "https://www.youtube.com/watch?v=-TrewU1Ns6E"
+        },
+        {
+          "title": "Captain Kosmo",
+          "image": "captain-kosmo.png",
+          "engine": "unity",
+          "platform": ["android","ios"],
+          "desc": "Kids platform adventure",
+          "tasks": "Gameplay scripting",
+          "link": "https://www.youtube.com/watch?v=X9LGO1iva4Q"
+        },
+        {
+          "title": "Spell Easy",
+          "image": "spell-easy.png",
+          "engine": "unity",
+          "platform": ["android","ios"],
+          "desc": "Educational spelling game",
+          "tasks": "UI systems",
+          "link": "https://www.youtube.com/watch?v=-gS9FBzB1mE"
+        }
+      ]
+    },
+
+    {
+      "name": "Dhruva Interactive",
+      "role": "Game Programmer",
+      "period": "Apr 2013 – Aug 2014 (1 yr 5 months)",
+      "projects": [
+        {
+          "title": "Captain Sharky",
+          "image": "captain-sharky.png",
+          "engine": "unity",
+          "platform": ["ios"],
+          "desc": "Console adventure game",
+          "tasks": "Gameplay systems and AI",
+          "link": "https://www.youtube.com/watch?v=lq0rvx0aEFE"
+        }
+      ]
+    },
+
+    {
+      "name": "Gameshastra Solutions",
+      "role": "Group Lead",
+      "period": "Apr 2007 – Sep 2012 (5 yrs 6 months)",
+      "projects": [
+        {
+          "title": "Kite Fight",
+          "image": "kite-fight.png",
+          "engine": "phyre-engine",
+          "platform": ["ps3move"],
+          "desc": "Arcade kite fighting game",
+          "tasks": "Gameplay and multiplayer",
+          "link": "https://www.youtube.com/watch?v=KbZFrEOE95w"
+        },
+        {
+          "title": "Cart Kings",
+          "image": "cart-kings.png",
+          "engine": "vicious-cycle",
+          "platform": ["ps2","psp"],
+          "desc": "Arcade racing prototype",
+          "tasks": "Gameplay systems",
+          "link": "https://www.youtube.com/watch?v=T93d5E7Yhyo"
+        },
+        {
+          "title": "Desi Adda",
+          "image": "desi-adda.png",
+          "engine": "vicious-cycle",
+          "platform": ["ps2"],
+          "desc": "Indian social gaming platform",
+          "tasks": "Multiple mini-games",
+          "link": "https://www.youtube.com/watch?v=UOg4AEiJsHs"
+        },
+        {
+          "title": "Etch-A-Sketch",
+          "image": "etch-a-sketch.png",
+          "engine": "blitzmax",
+          "platform": ["windows"],
+          "desc": "Puzzle adventure game",
+          "tasks": "Puzzle mechanics",
+          "link": "https://www.youtube.com/watch?v=34qZm_12Bnc"
+        }
+      ]
+    },
+
+    {
+      "name": "Carbonon Tech",
+      "role": "Game Programmer",
+      "period": "Apr 2007 – Sep 2012 (5 yrs 6 months)",
+      "projects": [
+        {
+          "title": "Auto Rickshaw Racing",
+          "image": "nda-project.png",
+          "engine": "torque",
+          "platform": ["windows"],
+          "desc": "Arcade racing prototype",
+          "tasks": "Vehicle gameplay prototype",
+          "link": ""
+        }
+      ]
+    }
+  ]
+}

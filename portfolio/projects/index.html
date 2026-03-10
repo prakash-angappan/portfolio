@@ -119,33 +119,47 @@ opacity:0;
 
 position:fixed;
 
-width:36px;
-height:36px;
+width:18px;
+height:18px;
 
 border-radius:50%;
 
 pointer-events:none;
 
-background:radial-gradient(
-ellipse at center,
-rgba(120,180,255,0.35) 0%,
-rgba(120,180,255,0.18) 35%,
-rgba(120,180,255,0.08) 55%,
-transparent 75%
-);
+background:#000;
 
-transform:translate(-50%,-50%) scaleX(1.2);
+transform:translate(-50%,-50%);
 
-mix-blend-mode:screen;
+z-index:9999;
 
-z-index:10;
+/* thin glowing ring */
 
-filter:blur(4px);
+border:2px solid rgba(90,170,255,.9);
+
+/* soft halo */
+
+box-shadow:
+0 0 8px rgba(90,170,255,.8),
+0 0 18px rgba(90,170,255,.6),
+0 0 30px rgba(90,170,255,.35);
+
+transition:
+width .18s ease,
+height .18s ease,
+border .18s ease,
+box-shadow .18s ease;
 
 }
+
 .card:hover ~ .cursor-glow{
-width:28px;
-height:28px;
+
+width:36px;
+height:36px;
+
+filter:
+brightness(1.4)
+drop-shadow(0 0 8px rgba(80,160,255,.6));
+
 }
 
 .cursor-glow::after{
@@ -157,14 +171,27 @@ position:absolute;
 top:50%;
 left:50%;
 
-width:6px;
-height:6px;
+width:4px;
+height:4px;
 
-background:rgba(255,255,255,0.7);
+background:#000;
 
 border-radius:50%;
 
 transform:translate(-50%,-50%);
+
+}
+.cursor-glow.active{
+
+width:26px;
+height:26px;
+
+border:2px solid rgba(120,200,255,1);
+
+box-shadow:
+0 0 12px rgba(120,200,255,1),
+0 0 25px rgba(120,200,255,.9),
+0 0 50px rgba(120,200,255,.7);
 
 }
 
@@ -309,8 +336,8 @@ transition:transform .25s ease, box-shadow .25s ease;
 transform:translateY(-10px) scale(1.03);
 
 box-shadow:
-0 0 12px rgba(0,170,255,.8),
-0 0 30px rgba(0,170,255,.4),
+0 0 8px rgba(0,170,255,.8),
+0 0 25px rgba(0,170,255,.45),
 0 20px 40px rgba(0,0,0,.6);
 
 }
@@ -373,24 +400,50 @@ inset 0 -3px 8px rgba(0,0,0,.15);
 max-width:100%;
 max-height:170px;
 object-fit:contain;
+transition:transform .25s ease;
 }
-
 /* ---------- BADGES ---------- */
-
 .badges{
 position:absolute;
 top:6px;
 right:6px;
 display:flex;
 gap:4px;
+align-items:center;
 }
 
 .badges img{
-width:38px;
-height:38px;
+
+width:32px;
+height:32px;
+
 background:white;
 border-radius:6px;
-padding:3px;
+
+padding:2px;
+
+object-fit:contain;
+
+box-sizing:border-box;
+
+/* glow effect */
+filter:
+drop-shadow(0 0 2px rgba(255,255,255,0.8))
+drop-shadow(0 0 6px rgba(120,180,255,0.8));
+
+transition:filter .25s ease, transform .25s ease;
+
+.card:hover .badges img{
+
+filter:
+drop-shadow(0 0 4px rgba(255,255,255,1))
+drop-shadow(0 0 10px rgba(120,180,255,1))
+drop-shadow(0 0 18px rgba(120,180,255,.7));
+
+transform:scale(1.08);
+
+}
+
 }
 
 /* ---------- TEXT ---------- */
@@ -471,7 +524,22 @@ Design template from <a href="https://html5up.net" target="_blank">HTML5 UP</a>
 <script>
 
 /* cursor trail */
+/* cursor glow stronger on card hover */
 
+const cards = document.querySelectorAll(".card")
+const cursorGlow = document.querySelector(".cursor-glow")
+
+cards.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+cursorGlow.classList.add("active")
+})
+
+card.addEventListener("mouseleave",()=>{
+cursorGlow.classList.remove("active")
+})
+
+})
 const cursor=document.querySelector(".cursor-glow")
 
 let mouseX=0
@@ -497,36 +565,6 @@ requestAnimationFrame(animateCursor)
 }
 
 animateCursor()
-
-/* ---------- CARD TILT ---------- */
-
-document.querySelectorAll(".card").forEach(card=>{
-
-card.addEventListener("mousemove",e=>{
-
-const rect=card.getBoundingClientRect()
-
-const x=e.clientX-rect.left
-const y=e.clientY-rect.top
-
-const centerX=rect.width/2
-const centerY=rect.height/2
-
-const rotateX=-(y-centerY)/14
-const rotateY=(x-centerX)/14
-
-card.style.transform=
-`translateY(-10px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
-
-})
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.transform=""
-
-})
-
-})
 
 /* ---------- CENTER ROWS ---------- */
 
@@ -568,7 +606,7 @@ cards[count-1].style.gridColumn="3"
 
 async function loadProjects(){
 
-const res=await fetch("projects.json")
+const res=await fetch("projects.json?v=" + Date.now())
 const data=await res.json()
 
 const container=document.getElementById("projects")
@@ -607,7 +645,7 @@ let platformIcons=""
 
 if(project.platform){
 project.platform.forEach(p=>{
-platformIcons+=`<img src="../images/icons/${p}.png">`
+platformIcons += `<img loading="lazy" src="../images/icons/${p}.png" alt="${p}">`
 })
 }
 
@@ -631,6 +669,21 @@ ${platformIcons}
 `
 
 grid.appendChild(card)
+/* cursor glow stronger on card hover */
+
+const cursorGlow = document.querySelector(".cursor-glow")
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+cursorGlow.classList.add("active")
+})
+
+card.addEventListener("mouseleave",()=>{
+cursorGlow.classList.remove("active")
+})
+
+})
 
 })
 

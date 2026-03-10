@@ -18,7 +18,7 @@
           "title": "Mini games - Casino",
           "image": "nda-project.png",
           "engine": "godot",
-          "platform": ["pc"],
+          "platform": ["windows"],
           "desc": "2D - Mini games for the kiosk machines",
           "tasks": "Led a team of 2 developers, Technical design and Project Management",
           "link": ""
@@ -38,7 +38,7 @@
           "engine": "unity",
           "platform": ["android", "ios"],
           "desc": "3D - Train control game with cargo delivery strategy",
-          "tasks": "Led a team of 2 developers and technical design",
+          "tasks": "Led a team of 2 developers, Technical design and Project Management",
           "link": "https://play.google.com/store/apps/details?id=com.railflow.cargotransport"
         },
         {
@@ -46,7 +46,7 @@
           "image": "math-match.png",
           "engine": "unity",
           "platform": ["html5"],
-          "desc": "Educational puzzle game",
+          "desc": "2D - Casual puzzle game based on ",
           "tasks": "Game mechanics and scoring",
           "link": "https://play.ixiegaming.com/mathmatch/"
         },

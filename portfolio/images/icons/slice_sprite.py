@@ -9,7 +9,7 @@ sprite_path = os.path.join(script_dir, "icon_sprite_sheet.png")
 output_folder = os.path.join(script_dir, "icons")
 os.makedirs(output_folder, exist_ok=True)
 
-icon_size = 64
+icon_size = 256
 
 sprite = Image.open(sprite_path)
 

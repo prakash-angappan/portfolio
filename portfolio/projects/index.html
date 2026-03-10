@@ -6,6 +6,7 @@
 
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#05070d">
 
 <link rel="stylesheet" href="../assets/css/main.css">
 
@@ -17,6 +18,7 @@ body{
 font-family:Arial, Helvetica, sans-serif;
 color:#e8e8e8;
 margin:0;
+overflow-x:hidden;
 }
 
 /* ---------- BACKGROUND ---------- */
@@ -29,6 +31,7 @@ width:100%;
 height:100%;
 background:url("../images/projects-bg.png") center/cover no-repeat;
 z-index:-4;
+transform:translateZ(0);
 }
 
 .page-overlay{
@@ -41,7 +44,7 @@ background:rgba(0,0,0,0.45);
 z-index:-3;
 }
 
-/* ---------- DUAL DIAGONAL LIGHT ANIMATION ---------- */
+/* ---------- LIGHT SWEEP ---------- */
 
 .light-sweep,
 .light-sweep2{
@@ -50,15 +53,13 @@ top:0;
 left:-150%;
 width:300%;
 height:100%;
-
 pointer-events:none;
 z-index:-2;
+will-change:transform;
+transform:translate3d(0,0,0);
 }
 
-/* main light */
-
 .light-sweep{
-
 background:linear-gradient(
 110deg,
 transparent 46%,
@@ -67,14 +68,10 @@ rgba(120,180,255,0.25) 50%,
 rgba(120,180,255,0.08) 52%,
 transparent 54%
 );
-
 animation:lightSweep 10s linear infinite;
 }
 
-/* secondary softer light */
-
 .light-sweep2{
-
 background:linear-gradient(
 110deg,
 transparent 47%,
@@ -83,33 +80,26 @@ rgba(120,200,255,0.15) 50%,
 rgba(120,200,255,0.06) 51%,
 transparent 53%
 );
-
 animation:lightSweep2 16s linear infinite;
 }
 
-/* animations */
-
 @keyframes lightSweep{
-
-0%{ transform:translateX(0); }
-
-100%{ transform:translateX(100%); }
-
+0%{ transform:translate3d(0,0,0); }
+100%{ transform:translate3d(100%,0,0); }
 }
 
 @keyframes lightSweep2{
-
-0%{ transform:translateX(-20%); }
-
-100%{ transform:translateX(120%); }
-
+0%{ transform:translate3d(-20%,0,0); }
+100%{ transform:translate3d(120%,0,0); }
 }
+
 /* ---------- CONTAINER ---------- */
 
 .container{
 max-width:1200px;
 margin:auto;
 padding:60px 20px;
+box-sizing:border-box;
 }
 
 /* ---------- TITLE ---------- */
@@ -122,7 +112,7 @@ margin-bottom:70px;
 color:#f2f2f2;
 }
 
-/* ---------- COMPANY HEADER ---------- */
+/* ---------- COMPANY ---------- */
 
 .company{
 margin-top:70px;
@@ -157,77 +147,6 @@ display:grid;
 grid-template-columns:repeat(4,260px);
 gap:30px;
 justify-content:center;
-}
-
-/* center rows when fewer than 4 cards */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(4,260px);
-gap:30px;
-justify-content:center;
-}
-
-/* 1 project → center */
-
-.grid .card:only-child{
-grid-column:2 / span 2;
-justify-self:center;
-}
-
-/* 2 projects → center */
-
-.grid .card:nth-child(1):nth-last-child(2){
-grid-column:2;
-}
-
-.grid .card:nth-child(2):last-child{
-grid-column:3;
-}
-
-/* 3 projects → center */
-
-.grid .card:nth-child(1):nth-last-child(3){
-grid-column:1;
-}
-
-.grid .card:nth-child(2):nth-last-child(2){
-grid-column:2;
-}
-
-.grid .card:nth-child(3):last-child{
-grid-column:3;
-}
-
-/* 5 projects → last row 1 centered */
-
-.grid .card:nth-child(5):last-child{
-grid-column:2 / span 2;
-justify-self:center;
-}
-
-/* 6 projects → last row 2 centered */
-
-.grid .card:nth-child(5):nth-last-child(2){
-grid-column:2;
-}
-
-.grid .card:nth-child(6):last-child{
-grid-column:3;
-}
-
-/* 7 projects → last row 3 centered */
-
-.grid .card:nth-child(5):nth-last-child(3){
-grid-column:1;
-}
-
-.grid .card:nth-child(6):nth-last-child(2){
-grid-column:2;
-}
-
-.grid .card:nth-child(7):last-child{
-grid-column:3;
 }
 
 /* ---------- CARD ---------- */
@@ -286,7 +205,7 @@ border-radius:6px;
 padding:3px;
 }
 
-/* ---------- TITLE ---------- */
+/* ---------- TEXT ---------- */
 
 .project-title{
 font-weight:700;
@@ -294,8 +213,6 @@ font-size:16px;
 margin-top:6px;
 color:#222;
 }
-
-/* ---------- DESCRIPTION ---------- */
 
 .project-desc{
 font-size:14px;
@@ -307,6 +224,29 @@ font-weight:600;
 font-size:13px;
 margin-top:4px;
 color:#555;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width:1100px){
+.grid{ grid-template-columns:repeat(3,260px); }
+}
+
+@media (max-width:800px){
+.grid{ grid-template-columns:repeat(2,260px); }
+}
+
+@media (max-width:600px){
+
+.grid{
+grid-template-columns:1fr;
+justify-items:center;
+}
+
+.card{
+width:90%;
+}
+
 }
 
 /* ---------- FOOTER ---------- */
@@ -338,7 +278,6 @@ text-decoration:underline;
 <div class="page-bg"></div>
 <div class="page-overlay"></div>
 
-<!-- Animated diagonal light -->
 <div class="light-sweep"></div>
 <div class="light-sweep2"></div>
 
@@ -356,15 +295,62 @@ Design template from <a href="https://html5up.net" target="_blank">HTML5 UP</a>
 </footer>
 
 <script>
-fetch("projects.json")
-.then(res => res.json())
-.then(data => {
+
+function centerCards(grid){
+
+/* only run for desktop */
+
+if(window.innerWidth < 1000){
+return
+}
+
+const cards=[...grid.children]
+const count=cards.length
+
+/* PERFECT CENTER FOR SMALL COUNTS */
+
+if(count<=3){
+
+grid.style.gridTemplateColumns=`repeat(${count},260px)`
+grid.style.justifyContent="center"
+
+return
+}
+
+/* DESKTOP GRID */
+
+grid.style.gridTemplateColumns="repeat(4,260px)"
+
+const remainder=count % 4
+
+if(remainder===1){
+cards[count-1].style.gridColumn="2 / span 2"
+}
+
+if(remainder===2){
+cards[count-2].style.gridColumn="2"
+cards[count-1].style.gridColumn="3"
+}
+
+if(remainder===3){
+cards[count-3].style.gridColumn="1"
+cards[count-2].style.gridColumn="2"
+cards[count-1].style.gridColumn="3"
+}
+
+}
+
+async function loadProjects(){
+
+const res=await fetch("projects.json")
+const data=await res.json()
 
 const container=document.getElementById("projects")
+const fragment=document.createDocumentFragment()
 
 data.companies.forEach(company=>{
 
-let section=document.createElement("div")
+const section=document.createElement("div")
 section.className="company"
 
 section.innerHTML=`
@@ -379,7 +365,7 @@ const grid=section.querySelector(".grid")
 
 company.projects.forEach(project=>{
 
-let card=document.createElement("div")
+const card=document.createElement("div")
 card.className="card"
 
 if(project.link){
@@ -387,11 +373,11 @@ card.style.cursor="pointer"
 card.onclick=()=>window.open(project.link,"_blank")
 }
 
-let engineIcon = project.engine 
+let engineIcon=project.engine
 ? `<img src="../images/icons/${project.engine}.png">`
 : ""
 
-let platformIcons = ""
+let platformIcons=""
 
 if(project.platform){
 project.platform.forEach(p=>{
@@ -424,11 +410,18 @@ grid.appendChild(card)
 
 })
 
-container.appendChild(section)
+centerCards(grid)
+
+fragment.appendChild(section)
 
 })
 
-})
+container.appendChild(fragment)
+
+}
+
+loadProjects()
+
 </script>
 
 </body>

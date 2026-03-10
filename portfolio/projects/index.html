@@ -41,6 +41,71 @@ background:rgba(0,0,0,0.45);
 z-index:-3;
 }
 
+/* ---------- DUAL DIAGONAL LIGHT ANIMATION ---------- */
+
+.light-sweep,
+.light-sweep2{
+position:fixed;
+top:0;
+left:-150%;
+width:300%;
+height:100%;
+
+pointer-events:none;
+z-index:-2;
+}
+
+/* main light */
+
+.light-sweep{
+
+background:linear-gradient(
+110deg,
+transparent 46%,
+rgba(120,180,255,0.08) 48%,
+rgba(120,180,255,0.25) 50%,
+rgba(120,180,255,0.08) 52%,
+transparent 54%
+);
+
+animation:lightSweep 10s linear infinite;
+}
+
+/* secondary softer light */
+
+.light-sweep2{
+
+background:linear-gradient(
+110deg,
+transparent 47%,
+rgba(120,200,255,0.06) 49%,
+rgba(120,200,255,0.15) 50%,
+rgba(120,200,255,0.06) 51%,
+transparent 53%
+);
+
+animation:lightSweep2 16s linear infinite;
+}
+
+/* animations */
+
+@keyframes lightSweep{
+
+0%{ transform:translateX(0); }
+
+100%{ transform:translateX(100%); }
+
+}
+
+@keyframes lightSweep2{
+
+0%{ transform:translateX(-20%); }
+
+100%{ transform:translateX(120%); }
+
+}
+/* ---------- CONTAINER ---------- */
+
 .container{
 max-width:1200px;
 margin:auto;
@@ -86,6 +151,7 @@ opacity:0.85;
 }
 
 /* ---------- GRID ---------- */
+
 .grid{
 display:grid;
 grid-template-columns:repeat(4,260px);
@@ -94,6 +160,7 @@ justify-content:center;
 }
 
 /* center rows when fewer than 4 cards */
+
 .grid{
 display:grid;
 grid-template-columns:repeat(4,260px);
@@ -102,12 +169,14 @@ justify-content:center;
 }
 
 /* 1 project → center */
+
 .grid .card:only-child{
 grid-column:2 / span 2;
 justify-self:center;
 }
 
 /* 2 projects → center */
+
 .grid .card:nth-child(1):nth-last-child(2){
 grid-column:2;
 }
@@ -117,6 +186,7 @@ grid-column:3;
 }
 
 /* 3 projects → center */
+
 .grid .card:nth-child(1):nth-last-child(3){
 grid-column:1;
 }
@@ -130,12 +200,14 @@ grid-column:3;
 }
 
 /* 5 projects → last row 1 centered */
+
 .grid .card:nth-child(5):last-child{
 grid-column:2 / span 2;
 justify-self:center;
 }
 
 /* 6 projects → last row 2 centered */
+
 .grid .card:nth-child(5):nth-last-child(2){
 grid-column:2;
 }
@@ -145,6 +217,7 @@ grid-column:3;
 }
 
 /* 7 projects → last row 3 centered */
+
 .grid .card:nth-child(5):nth-last-child(3){
 grid-column:1;
 }
@@ -156,6 +229,7 @@ grid-column:2;
 .grid .card:nth-child(7):last-child{
 grid-column:3;
 }
+
 /* ---------- CARD ---------- */
 
 .card{
@@ -193,7 +267,7 @@ height:135px;
 object-fit:contain;
 }
 
-/* ---------- BADGES (top-right corner) ---------- */
+/* ---------- BADGES ---------- */
 
 .badges{
 position:absolute;
@@ -264,6 +338,10 @@ text-decoration:underline;
 <div class="page-bg"></div>
 <div class="page-overlay"></div>
 
+<!-- Animated diagonal light -->
+<div class="light-sweep"></div>
+<div class="light-sweep2"></div>
+
 <div class="container">
 
 <h1>Projects</h1>
@@ -278,7 +356,6 @@ Design template from <a href="https://html5up.net" target="_blank">HTML5 UP</a>
 </footer>
 
 <script>
-
 fetch("projects.json")
 .then(res => res.json())
 .then(data => {
@@ -352,7 +429,6 @@ container.appendChild(section)
 })
 
 })
-
 </script>
 
 </body>

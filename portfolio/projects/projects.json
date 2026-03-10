@@ -10,17 +10,17 @@
           "image": "nda-project.png",
           "engine": "unity",
           "platform": ["android"],
-          "desc": "Endless runner prototype",
-          "tasks": "Gameplay architecture and prototyping",
+          "desc": "Full 3D - Endless runner demo",
+          "tasks": "Led a team of 3 developers, Technical design and Project Management",
           "link": ""
         },
         {
-          "title": "Mini games for Kiosk",
+          "title": "Mini games - Casino",
           "image": "nda-project.png",
           "engine": "godot",
           "platform": ["pc"],
-          "desc": "Interactive casino mini-game platform",
-          "tasks": "Platform architecture and gameplay systems",
+          "desc": "2D - Mini games for the kiosk machines",
+          "tasks": "Led a team of 2 developers, Technical design and Project Management",
           "link": ""
         },
         {
@@ -28,8 +28,8 @@
           "image": "hands-of-victory.png",
           "engine": "unity",
           "platform": ["steam"],
-          "desc": "Online multiplayer card game",
-          "tasks": "Multiplayer networking and Steam integration",
+          "desc": "2D - Online multiplayer card game - PC porting from Web",
+          "tasks": "Led a team of 5 developers, Steam integration, Technical design and Project Management",
           "link": "https://store.steampowered.com/app/2265080/Hands_of_Victory/"
         },
         {
@@ -37,8 +37,8 @@
           "image": "rail-flow.png",
           "engine": "unity",
           "platform": ["android", "ios"],
-          "desc": "Mobile train routing strategy game",
-          "tasks": "Gameplay logic and optimization",
+          "desc": "3D - Train control game with cargo delivery strategy",
+          "tasks": "Led a team of 2 developers and technical design",
           "link": "https://play.google.com/store/apps/details?id=com.railflow.cargotransport"
         },
         {
@@ -230,7 +230,7 @@
     {
       "name": "Carbonon Tech",
       "role": "Game Programmer",
-      "period": "Apr 2007 – Sep 2012 (5 yrs 6 months)",
+      "period": "Dec 2006 – Mar 2007 (4 months)",
       "projects": [
         {
           "title": "Auto Rickshaw Racing",

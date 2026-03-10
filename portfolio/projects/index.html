@@ -31,7 +31,6 @@ width:100%;
 height:100%;
 background:url("../images/projects-bg.png") center/cover no-repeat;
 z-index:-4;
-transform:translateZ(0);
 }
 
 .page-overlay{
@@ -40,57 +39,141 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.45);
+background:rgba(0,0,0,0.78);
 z-index:-3;
 }
 
-/* ---------- LIGHT SWEEP ---------- */
+/* ---------- AURORA ---------- */
 
-.light-sweep,
-.light-sweep2{
+.aurora-bg{
 position:fixed;
 top:0;
-left:-150%;
-width:300%;
+left:0;
+width:100%;
 height:100%;
 pointer-events:none;
 z-index:-2;
-will-change:transform;
-transform:translate3d(0,0,0);
+
+background:
+radial-gradient(circle at 20% 30%, rgba(80,140,255,0.12), transparent 45%),
+radial-gradient(circle at 80% 70%, rgba(120,200,255,0.10), transparent 45%),
+radial-gradient(circle at 60% 20%, rgba(70,120,255,0.08), transparent 40%);
+
+filter:blur(60px);
+
+animation:auroraMove 28s ease-in-out infinite alternate;
 }
 
-.light-sweep{
-background:linear-gradient(
-110deg,
-transparent 46%,
-rgba(120,180,255,0.08) 48%,
-rgba(120,180,255,0.25) 50%,
-rgba(120,180,255,0.08) 52%,
-transparent 54%
+@keyframes auroraMove{
+0%{ transform:translate3d(-3%, -2%, 0) scale(1); }
+50%{ transform:translate3d(3%, 2%, 0) scale(1.05); }
+100%{ transform:translate3d(-2%, 3%, 0) scale(1.02); }
+}
+
+/* ---------- FLOATING PARTICLES ---------- */
+
+.bg-particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-1;
+overflow:hidden;
+}
+
+.bg-particles span{
+position:absolute;
+width:4px;
+height:4px;
+background:rgba(200,220,255,0.45);
+border-radius:50%;
+animation:particleFloat linear infinite;
+}
+
+@keyframes particleFloat{
+
+0%{
+transform:translateY(110vh);
+opacity:0;
+}
+
+10%{
+opacity:.7;
+}
+
+90%{
+opacity:.7;
+}
+
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+
+}
+
+/* ---------- CURSOR GLOW ---------- */
+.cursor-glow{
+
+position:fixed;
+
+width:36px;
+height:36px;
+
+border-radius:50%;
+
+pointer-events:none;
+
+background:radial-gradient(
+ellipse at center,
+rgba(120,180,255,0.35) 0%,
+rgba(120,180,255,0.18) 35%,
+rgba(120,180,255,0.08) 55%,
+transparent 75%
 );
-animation:lightSweep 10s linear infinite;
+
+transform:translate(-50%,-50%) scaleX(1.2);
+
+mix-blend-mode:screen;
+
+z-index:10;
+
+filter:blur(4px);
+
+}
+.card:hover ~ .cursor-glow{
+width:28px;
+height:28px;
 }
 
-.light-sweep2{
-background:linear-gradient(
-110deg,
-transparent 47%,
-rgba(120,200,255,0.06) 49%,
-rgba(120,200,255,0.15) 50%,
-rgba(120,200,255,0.06) 51%,
-transparent 53%
-);
-animation:lightSweep2 16s linear infinite;
+.cursor-glow::after{
+
+content:"";
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+width:6px;
+height:6px;
+
+background:rgba(255,255,255,0.7);
+
+border-radius:50%;
+
+transform:translate(-50%,-50%);
+
 }
 
-@keyframes lightSweep{
-0%{ transform:translate3d(0,0,0); }
-100%{ transform:translate3d(100%,0,0); }
+@media (pointer: coarse) {
+
+.cursor-glow{
+display:none;
 }
 
-@keyframes lightSweep2{
-0%{ transform:translate3d(-20%,0,0); }
-100%{ transform:translate3d(120%,0,0); }
 }
 
 /* ---------- CONTAINER ---------- */
@@ -99,7 +182,6 @@ animation:lightSweep2 16s linear infinite;
 max-width:1200px;
 margin:auto;
 padding:60px 20px;
-box-sizing:border-box;
 }
 
 /* ---------- TITLE ---------- */
@@ -109,7 +191,38 @@ text-align:center;
 font-size:46px;
 font-weight:800;
 margin-bottom:70px;
-color:#f2f2f2;
+
+color:#F5F5DC; /* ivory */
+
+letter-spacing:2px;
+
+text-shadow:
+0 0 6px rgba(255,255,255,.25),
+0 0 18px rgba(120,180,255,.25);
+}
+
+h1::after{
+
+content:"";
+
+display:block;
+
+width:140px;
+height:2px;
+
+margin:18px auto 0;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(120,180,255,.9),
+transparent
+);
+
+box-shadow:
+0 0 8px rgba(120,180,255,.7),
+0 0 18px rgba(120,180,255,.4);
+
 }
 
 /* ---------- COMPANY ---------- */
@@ -119,25 +232,40 @@ margin-top:70px;
 }
 
 .company-header{
-display:flex;
-flex-direction:column;
-align-items:center;
 text-align:center;
-border-bottom:2px solid rgba(255,255,255,0.15);
-padding-bottom:10px;
-margin-bottom:30px;
+padding-bottom:20px;
+margin-bottom:40px;
+position:relative;
 }
 
 .company-header h2{
 font-size:28px;
-font-weight:800;
-margin-bottom:6px;
 color:#F5F5DC;
 }
 
 .company-meta{
-font-size:16px;
-opacity:0.85;
+opacity:.85;
+}
+
+.company-header::after{
+content:"";
+position:absolute;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:260px;
+height:2px;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(120,180,255,0.8),
+transparent
+);
+
+box-shadow:
+0 0 8px rgba(120,180,255,0.8),
+0 0 20px rgba(120,180,255,0.4);
 }
 
 /* ---------- GRID ---------- */
@@ -155,34 +283,95 @@ justify-content:center;
 width:260px;
 background:#f3efe4;
 border-radius:12px;
-padding:14px;
+padding:10px;
+
+display:flex;
+flex-direction:column;
+
 text-align:center;
 color:#1a1a1a;
-box-shadow:0 8px 25px rgba(0,0,0,.35);
-transition:transform .25s, box-shadow .25s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+position:relative;
+overflow:hidden;
+
+transform-style:preserve-3d;
+will-change:transform;
+
+transition:transform .25s ease, box-shadow .25s ease;
 }
 
+/* HOVER POP + GLOW */
+
 .card:hover{
-transform:translateY(-8px);
+
+transform:translateY(-10px) scale(1.03);
+
 box-shadow:
 0 0 12px rgba(0,170,255,.8),
 0 0 30px rgba(0,170,255,.4),
-0 10px 30px rgba(0,0,0,.6);
+0 20px 40px rgba(0,0,0,.6);
+
+}
+
+/* LIGHT SWEEP */
+
+.card::after{
+content:"";
+position:absolute;
+top:-50%;
+left:-120%;
+width:80%;
+height:200%;
+
+background:linear-gradient(
+110deg,
+transparent 40%,
+rgba(255,255,255,0.35) 50%,
+transparent 60%
+);
+
+transform:skewX(-25deg);
+opacity:0;
+}
+
+.card:hover::after{
+opacity:1;
+animation:cardSweep 1.4s forwards;
+}
+
+@keyframes cardSweep{
+0%{ left:-120%; }
+100%{ left:150%; }
 }
 
 /* ---------- THUMB ---------- */
 
 .thumb{
 position:relative;
-background:#f7f2e6;
+
+background:linear-gradient(
+180deg,
+rgba(255,255,255,0.35),
+rgba(255,255,255,0.12)
+);
+
 border-radius:8px;
-padding:14px;
-margin-bottom:10px;
+height:180px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:
+inset 0 1px 3px rgba(255,255,255,.6),
+inset 0 -3px 8px rgba(0,0,0,.15);
 }
 
 .thumb img{
-width:100%;
-height:135px;
+max-width:100%;
+max-height:170px;
 object-fit:contain;
 }
 
@@ -194,7 +383,6 @@ top:6px;
 right:6px;
 display:flex;
 gap:4px;
-flex-wrap:wrap;
 }
 
 .badges img{
@@ -209,21 +397,18 @@ padding:3px;
 
 .project-title{
 font-weight:700;
-font-size:16px;
 margin-top:6px;
-color:#222;
+min-height:40px;
 }
 
 .project-desc{
 font-size:14px;
-margin-top:6px;
-font-weight:600;
+min-height:38px;
 }
 
 .tasks{
 font-size:13px;
-margin-top:4px;
-color:#555;
+flex-grow:1;
 }
 
 /* ---------- RESPONSIVE ---------- */
@@ -249,26 +434,6 @@ width:90%;
 
 }
 
-/* ---------- FOOTER ---------- */
-
-.site-footer{
-text-align:center;
-margin-top:80px;
-padding:40px 0;
-font-size:14px;
-color:#cfcfcf;
-opacity:0.8;
-}
-
-.site-footer a{
-color:#cfcfcf;
-text-decoration:none;
-}
-
-.site-footer a:hover{
-text-decoration:underline;
-}
-
 </style>
 
 </head>
@@ -277,9 +442,18 @@ text-decoration:underline;
 
 <div class="page-bg"></div>
 <div class="page-overlay"></div>
+<div class="aurora-bg"></div>
 
-<div class="light-sweep"></div>
-<div class="light-sweep2"></div>
+<div class="bg-particles">
+<span style="left:10%;animation-duration:30s;"></span>
+<span style="left:25%;animation-duration:36s;"></span>
+<span style="left:40%;animation-duration:28s;"></span>
+<span style="left:60%;animation-duration:34s;"></span>
+<span style="left:75%;animation-duration:32s;"></span>
+<span style="left:90%;animation-duration:38s;"></span>
+</div>
+
+<div class="cursor-glow"></div>
 
 <div class="container">
 
@@ -296,18 +470,72 @@ Design template from <a href="https://html5up.net" target="_blank">HTML5 UP</a>
 
 <script>
 
+/* cursor trail */
+
+const cursor=document.querySelector(".cursor-glow")
+
+let mouseX=0
+let mouseY=0
+let posX=0
+let posY=0
+
+document.addEventListener("mousemove",e=>{
+mouseX=e.clientX
+mouseY=e.clientY
+})
+
+function animateCursor(){
+
+posX+=(mouseX-posX)*0.15
+posY+=(mouseY-posY)*0.15
+
+cursor.style.left=posX+"px"
+cursor.style.top=posY+"px"
+
+requestAnimationFrame(animateCursor)
+
+}
+
+animateCursor()
+
+/* ---------- CARD TILT ---------- */
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+const rect=card.getBoundingClientRect()
+
+const x=e.clientX-rect.left
+const y=e.clientY-rect.top
+
+const centerX=rect.width/2
+const centerY=rect.height/2
+
+const rotateX=-(y-centerY)/14
+const rotateY=(x-centerX)/14
+
+card.style.transform=
+`translateY(-10px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+
+})
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform=""
+
+})
+
+})
+
+/* ---------- CENTER ROWS ---------- */
+
 function centerCards(grid){
 
-/* only run for desktop */
-
-if(window.innerWidth < 1000){
-return
-}
+if(window.innerWidth<1000)return
 
 const cards=[...grid.children]
 const count=cards.length
-
-/* PERFECT CENTER FOR SMALL COUNTS */
 
 if(count<=3){
 
@@ -317,11 +545,7 @@ grid.style.justifyContent="center"
 return
 }
 
-/* DESKTOP GRID */
-
-grid.style.gridTemplateColumns="repeat(4,260px)"
-
-const remainder=count % 4
+const remainder=count%4
 
 if(remainder===1){
 cards[count-1].style.gridColumn="2 / span 2"
@@ -339,6 +563,8 @@ cards[count-1].style.gridColumn="3"
 }
 
 }
+
+/* ---------- LOAD PROJECTS ---------- */
 
 async function loadProjects(){
 
@@ -399,9 +625,7 @@ ${platformIcons}
 </div>
 
 <div class="project-title">${project.title}</div>
-
 <div class="project-desc">${project.desc}</div>
-
 <div class="tasks">${project.tasks}</div>
 
 `

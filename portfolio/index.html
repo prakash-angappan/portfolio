@@ -1,248 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Prakash Angappan | Game Developer</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link rel="stylesheet" href="assets/css/main.css">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+.big-number{
+font-size:36px;
+font-weight:700;
+color:#7ec7ff;
+margin-top:10px;
 }
-
-body{
-font-family:Arial, sans-serif;
-color:white;
-background:linear-gradient(-45deg,#0f172a,#1e293b,#020617,#0f172a);
-background-size:400% 400%;
-animation:gradientMove 12s ease infinite;
-min-height:100vh;
-}
-
-@keyframes gradientMove{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
-}
-
-/* NAVBAR */
-
-.navbar{
-
-position:fixed;
-top:0;
-width:100%;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
-z-index:1000;
-
-}
-
-.nav-logo{
-
-font-size:18px;
-letter-spacing:1px;
-
-}
-
-.nav-links{
-
-list-style:none;
-display:flex;
-gap:30px;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-color:white;
-position:relative;
-
-}
-
-.nav-links a::after{
-
-content:'';
-position:absolute;
-bottom:-5px;
-left:0;
-width:0;
-height:2px;
-background:#38bdf8;
-transition:0.3s;
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
-
-}
-
-/* HERO */
 
 .hero{
-
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
 text-align:center;
-padding:20px;
-
+margin-bottom:60px;
 }
 
 .hero h1{
-
 font-size:48px;
-margin-bottom:15px;
-text-shadow:
-0 0 10px #38bdf8,
-0 0 20px #38bdf8;
-
-}
-
-.hero h2{
-
-font-weight:normal;
-color:#cbd5f5;
-margin-bottom:25px;
-
+margin-bottom:10px;
 }
 
 .hero p{
-
-max-width:650px;
-line-height:1.6;
-color:#cbd5f5;
-margin-bottom:40px;
-
-}
-
-/* BUTTONS */
-
-.buttons{
-
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-
-}
-
-.btn{
-
-padding:12px 24px;
-border-radius:6px;
-text-decoration:none;
-color:white;
-border:1px solid #38bdf8;
-transition:0.3s;
-
-}
-
-.btn:hover{
-
-background:#38bdf8;
-box-shadow:0 0 15px #38bdf8;
-
-}
-
-/* SECTION */
-
-.section{
-
-max-width:1000px;
-margin:auto;
-padding:80px 20px;
-
-}
-
-.section h2{
-
-text-align:center;
-margin-bottom:40px;
-
-}
-
-/* CARDS */
-
-.cards{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-
-}
-
-.card{
-
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-padding:25px;
-border-radius:10px;
-transition:0.3s;
-
-}
-
-.card:hover{
-
-transform:translateY(-8px);
-box-shadow:0 0 20px rgba(56,189,248,0.5);
-
-}
-
-/* FOOTER */
-
-footer{
-
-text-align:center;
-padding:30px;
-color:#94a3b8;
-
-}
-
-/* SCROLL ANIMATION */
-
-.hidden{
-
-opacity:0;
-transform:translateY(40px);
-transition:all 0.8s ease;
-
-}
-
-.show{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-@media(max-width:700px){
-
-.hero h1{
-
-font-size:34px;
-
-}
-
+opacity:.85;
+font-size:18px;
 }
 
 </style>
@@ -251,129 +40,150 @@ font-size:34px;
 
 <body>
 
-
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-<div class="nav-logo">
-
-Prakash Angappan
-
-</div>
-
-<ul class="nav-links">
-
-<li><a href="index.html">Home</a></li>
-<li><a href="projects.html">Projects</a></li>
-<li><a href="contact.html">Contact</a></li>
-
-</ul>
-
+<nav class="top-nav">
+<a href="/">Home</a>
+<a href="/projects/">Projects</a>
+<a href="/about/">About</a>
+<a href="/hobbies/">Hobbies</a>
+<a href="/favorite-games/">Favorite Games</a>
+<a href="/contact/">Contact</a>
 </nav>
 
+<!-- SAME BACKGROUND AS PROJECTS PAGE -->
 
+<div class="page-bg"></div>
+<div class="page-overlay"></div>
+<div class="aurora-bg"></div>
+
+<div class="bg-particles">
+<span style="left:10%;animation-duration:30s;"></span>
+<span style="left:25%;animation-duration:36s;"></span>
+<span style="left:40%;animation-duration:28s;"></span>
+<span style="left:60%;animation-duration:34s;"></span>
+<span style="left:75%;animation-duration:32s;"></span>
+<span style="left:90%;animation-duration:38s;"></span>
+</div>
+
+<div class="cursor-glow"></div>
+
+<div class="container">
 
 <!-- HERO -->
 
-<section class="hero">
+<div class="hero">
 
-<h1 class="hidden">Prakash Angappan</h1>
-
-<h2 class="hidden">Game Developer • Engineering Leader</h2>
-
-<p class="hidden">
-
-Engineering leader with 17+ years of experience delivering games across PC, console, and mobile platforms. Experienced in game architecture, team leadership, and full production lifecycle.
-
-</p>
-
-<div class="buttons hidden">
-
-<a class="btn" href="projects.html">
-
-View Projects
-
-</a>
-
-<a class="btn" href="resume.pdf">
-
-Download Resume
-
-</a>
+<h1 id="hero-name"></h1>
+<p id="hero-tagline"></p>
 
 </div>
 
-</section>
+<!-- STATS -->
 
+<div class="grid" id="stats"></div>
 
+<!-- TECH STACK -->
 
-<!-- SKILLS -->
-
-<section class="section hidden">
-
-<h2>Core Expertise</h2>
-
-<div class="cards">
+<div class="grid">
 
 <div class="card">
-Game Architecture & Systems Design
+
+<h3>Platforms</h3>
+<div class="badges" id="platforms"></div>
+
 </div>
 
 <div class="card">
-Gameplay Programming
+
+<h3>Game Engines</h3>
+<div class="badges" id="engines"></div>
+
 </div>
 
 <div class="card">
-Multiplayer Systems
-</div>
 
-<div class="card">
-AI Systems (Behavior Trees, FSM)
-</div>
+<h3>Languages</h3>
+<div class="badges" id="languages"></div>
 
-<div class="card">
-Performance Optimization
-</div>
-
-<div class="card">
-Cross-Platform Development
 </div>
 
 </div>
 
-</section>
+<!-- LEADERSHIP -->
 
+<h2 style="margin-top:60px;">Leadership & Production</h2>
 
+<div class="leadership-grid" id="leadership"></div>
 
-<footer>
-
-© 2026 Prakash Angappan
-
-</footer>
-
-
+</div>
 
 <script>
 
-const observer = new IntersectionObserver(entries => {
+async function loadHome(){
 
-entries.forEach(entry => {
+const res = await fetch("home.json?v=" + Date.now())
+const data = await res.json()
 
-if(entry.isIntersecting){
+/* hero */
 
-entry.target.classList.add("show");
+document.getElementById("hero-name").innerText = data.hero.name
+document.getElementById("hero-tagline").innerText = data.hero.tagline
+
+/* stats */
+
+const stats = document.getElementById("stats")
+
+data.stats.forEach(s=>{
+
+stats.innerHTML += `
+<div class="card highlight">
+<h3>${s.title}</h3>
+<div class="big-number">${s.value}</div>
+</div>
+`
+
+})
+
+/* platforms */
+
+data.tech_stack.platforms.forEach(p=>{
+
+document.getElementById("platforms").innerHTML +=
+`<img src="${p.icon}" loading="lazy">`
+
+})
+
+/* engines */
+
+data.tech_stack.engines.forEach(e=>{
+
+document.getElementById("engines").innerHTML +=
+`<img src="${e.icon}" loading="lazy">`
+
+})
+
+/* languages */
+
+data.tech_stack.languages.forEach(l=>{
+
+document.getElementById("languages").innerHTML +=
+`<img src="${l.icon}" loading="lazy">`
+
+})
+
+/* leadership */
+
+data.leadership.forEach(skill=>{
+
+document.getElementById("leadership").innerHTML +=
+`<div class="leader-chip">${skill}</div>`
+
+})
 
 }
 
-});
-
-});
-
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+loadHome()
 
 </script>
 
 </body>
-
 </html>

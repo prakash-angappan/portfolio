@@ -39,7 +39,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.78);
+background:rgba(0,0,0,0.7);
 z-index:-3;
 }
 
@@ -82,14 +82,25 @@ pointer-events:none;
 z-index:-1;
 overflow:hidden;
 }
-
 .bg-particles span{
+
 position:absolute;
+
 width:4px;
 height:4px;
-background:rgba(200,220,255,0.45);
+
+background:rgba(220,235,255,0.85);
+
 border-radius:50%;
+
+/* soft glow */
+
+box-shadow:
+0 0 6px rgba(120,180,255,.8),
+0 0 14px rgba(120,180,255,.5);
+
 animation:particleFloat linear infinite;
+
 }
 
 @keyframes particleFloat{
@@ -329,6 +340,12 @@ will-change:transform;
 transition:transform .25s ease, box-shadow .25s ease;
 }
 
+.card img{
+width:100%;
+height:225px;
+object-fit:contain;
+}
+
 /* HOVER POP + GLOW */
 
 .card:hover{
@@ -413,37 +430,28 @@ align-items:center;
 }
 
 .badges img{
-
 width:32px;
 height:32px;
-
 background:white;
 border-radius:6px;
-
-padding:0px;
-
+padding:0;
 object-fit:contain;
-
 box-sizing:border-box;
 
-/* glow effect */
 filter:
 drop-shadow(0 0 2px rgba(255,255,255,0.8))
 drop-shadow(0 0 6px rgba(120,180,255,0.8));
 
 transition:filter .25s ease, transform .25s ease;
+}
 
 .card:hover .badges img{
-
 filter:
 drop-shadow(0 0 4px rgba(255,255,255,1))
 drop-shadow(0 0 10px rgba(120,180,255,1))
 drop-shadow(0 0 18px rgba(120,180,255,.7));
 
 transform:scale(1.08);
-
-}
-
 }
 
 /* ---------- TEXT ---------- */
@@ -510,15 +518,14 @@ width:90%;
 
 <div class="container">
 
-<h1>Projects</h1>
+<h1>Featured Projects</h1>
 
 <div id="projects"></div>
 
 </div>
 
 <footer class="site-footer">
-© 2026 Prakash Angappan<br>
-Design template from <a href="https://html5up.net" target="_blank">HTML5 UP</a>
+© 2026 Prakash Angappan • Base Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>
 </footer>
 
 <script>
@@ -637,15 +644,15 @@ card.style.cursor="pointer"
 card.onclick=()=>window.open(project.link,"_blank")
 }
 
-let engineIcon=project.engine
-? `<img src="../images/icons/${project.engine}.png">`
+let engineIcon = project.engine
+? `<img loading="lazy" src="../images/icons/${project.engine}.png?v=2" alt="${project.engine}">`
 : ""
 
 let platformIcons=""
 
 if(project.platform){
 project.platform.forEach(p=>{
-platformIcons += `<img loading="lazy" src="../images/icons/${p}.png" alt="${p}">`
+platformIcons += `<img loading="lazy" src="../images/icons/${p}.png?v=2" alt="${p}">`
 })
 }
 

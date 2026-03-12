@@ -12,6 +12,26 @@
 
 <style>
 
+/* HERO */
+
+.hero{
+text-align:center;
+margin-bottom:70px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+color:#F5F5DC;
+}
+
+.hero p{
+opacity:.9;
+font-size:18px;
+}
+
+/* STATS */
+
 .big-number{
 font-size:36px;
 font-weight:700;
@@ -19,19 +39,72 @@ color:#7ec7ff;
 margin-top:10px;
 }
 
-.hero{
-text-align:center;
-margin-bottom:60px;
+/* ICON BADGES */
+
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+margin-top:10px;
 }
 
-.hero h1{
-font-size:48px;
-margin-bottom:10px;
+.badges img{
+
+width:36px;
+height:36px;
+
+background:white;
+
+border-radius:6px;
+
+padding:4px;
+
+box-shadow:
+0 0 6px rgba(120,180,255,.6);
+
+transition:transform .2s ease;
+
 }
 
-.hero p{
-opacity:.85;
-font-size:18px;
+.badges img:hover{
+transform:scale(1.08);
+}
+
+/* LEADERSHIP */
+
+.leadership-grid{
+
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:20px;
+justify-content:center;
+
+}
+
+.leader-chip{
+
+padding:8px 14px;
+
+background:rgba(255,255,255,0.1);
+
+border-radius:20px;
+
+font-size:14px;
+
+backdrop-filter:blur(6px);
+
+border:1px solid rgba(120,180,255,.4);
+
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
 }
 
 </style>
@@ -49,7 +122,7 @@ font-size:18px;
 <a href="/contact/">Contact</a>
 </nav>
 
-<!-- SAME BACKGROUND AS PROJECTS PAGE -->
+<!-- SAME BACKGROUND -->
 
 <div class="page-bg"></div>
 <div class="page-overlay"></div>
@@ -83,7 +156,7 @@ font-size:18px;
 
 <!-- TECH STACK -->
 
-<div class="grid">
+<div class="grid" style="margin-top:40px;">
 
 <div class="card">
 
@@ -110,7 +183,7 @@ font-size:18px;
 
 <!-- LEADERSHIP -->
 
-<h2 style="margin-top:60px;">Leadership & Production</h2>
+<h2 style="margin-top:70px;text-align:center;">Leadership & Production</h2>
 
 <div class="leadership-grid" id="leadership"></div>
 
@@ -123,54 +196,57 @@ async function loadHome(){
 const res = await fetch("home.json?v=" + Date.now())
 const data = await res.json()
 
-/* hero */
+/* HERO */
 
 document.getElementById("hero-name").innerText = data.hero.name
 document.getElementById("hero-tagline").innerText = data.hero.tagline
 
-/* stats */
+/* STATS */
 
 const stats = document.getElementById("stats")
 
 data.stats.forEach(s=>{
 
-stats.innerHTML += `
-<div class="card highlight">
+const card = document.createElement("div")
+card.className="card highlight"
+
+card.innerHTML=`
 <h3>${s.title}</h3>
 <div class="big-number">${s.value}</div>
-</div>
 `
+
+stats.appendChild(card)
 
 })
 
-/* platforms */
+/* PLATFORMS */
 
 data.tech_stack.platforms.forEach(p=>{
 
 document.getElementById("platforms").innerHTML +=
-`<img src="${p.icon}" loading="lazy">`
+`<img src="${p.icon}?v=1" loading="lazy">`
 
 })
 
-/* engines */
+/* ENGINES */
 
 data.tech_stack.engines.forEach(e=>{
 
 document.getElementById("engines").innerHTML +=
-`<img src="${e.icon}" loading="lazy">`
+`<img src="${e.icon}?v=1" loading="lazy">`
 
 })
 
-/* languages */
+/* LANGUAGES */
 
 data.tech_stack.languages.forEach(l=>{
 
 document.getElementById("languages").innerHTML +=
-`<img src="${l.icon}" loading="lazy">`
+`<img src="${l.icon}?v=1" loading="lazy">`
 
 })
 
-/* leadership */
+/* LEADERSHIP */
 
 data.leadership.forEach(skill=>{
 

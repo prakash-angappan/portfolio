@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "name": "Prakash Angappan",
+    "tagline": "Engineering Leader, Game Development"
+  },
+
+  "stats": [
+    {
+      "title": "Experience",
+      "value": "19+ Years"
+    },
+    {
+      "title": "Shipped Titles",
+      "value": "15+"
+    }
+  ],
+
+  "tech_stack": {
+
+    "platforms": {
+      "label": "Console • PC • Mobile",
+      "icons": [
+        { "icon": "images/icons/windows.png" },
+        { "icon": "images/icons/ps2.png" },
+        { "icon": "images/icons/psp.png" },
+        { "icon": "images/icons/ps3move.png" },
+        { "icon": "images/icons/android.png" },
+        { "icon": "images/icons/ios.png" }
+      ]
+    },
+
+    "engines": {
+      "label": "Modern Game Engines",
+      "icons": [
+        { "icon": "images/icons/unreal.png" },
+        { "icon": "images/icons/unity.png" },
+        { "icon": "images/icons/godot.png" },
+        { "icon": "images/icons/phyre-engine.png" }
+      ]
+    },
+
+    "languages": {
+      "label": "Core Programming Languages",
+      "icons": [
+        { "icon": "images/icons/c.png" },
+        { "icon": "images/icons/cpp.png" },
+        { "icon": "images/icons/csharp.png" }
+      ]
+    }
+
+  },
+
+  "leadership": [
+    "Project Management",
+    "Technical Direction",
+    "Engineering Leadership",
+    "Hiring Game Developers",
+    "Building & Scaling Teams",
+    "Mentoring & Training Developers",
+    "Production Planning",
+    "Agile / Scrum Development",
+    "Client Interaction",
+    "Stakeholder Communication",
+    "Business Discussions",
+    "Cross-discipline Collaboration"
+  ]
+}

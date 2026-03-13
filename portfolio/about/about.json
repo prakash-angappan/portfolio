@@ -1,0 +1,43 @@
+{
+  "sections":[
+    {
+      "title":"How I Became a Game Developer",
+      "text":"My curiosity for games and technology started early. Over time that curiosity turned into learning programming and understanding how games are built. What began as an interest eventually became a career where I could combine creativity, technology, and problem solving to build interactive experiences."
+    },
+    {
+      "title":"How Family & Friends Shaped Who I Am Today",
+      "text":"Support and encouragement from family and friends played an important role in shaping my journey. Their belief in curiosity, creativity and persistence helped me continue exploring technology and eventually pursue a career in the game industry."
+    }
+  ],
+
+  "hobbies":[
+    "Playing video games",
+	"Watching thriller / crime / drama / animation movies and series",
+    "Bike riding",
+    "Hiking"
+  ],
+
+  "favorite_games":[
+    "Quake",
+    "NFS II and NFS: Underground",
+    "Unreal Tournament",
+    "Counter-Strike 1.6",
+    "Medal of Honor",
+    "Need for Speed Underground",
+    "Call of Duty 1, 2, 3 and 4 ( Modern Warfare )",
+    "Prince of Persia: Sands of Time and Warrior within",
+    "Trackmania",
+    "KartRider",
+    "Battlefield 2",
+    "Resident Evil",
+    "F.E.A.R",
+    "God of War 1, 2, 3 and Chains of Olympus",
+    "Team Fortress 2",
+    "Dead Space",
+    "Amnesia: The Dark Descent",
+    "Dota 2",
+    "Frostpunk",
+    "Vampire Survivors",
+    "Warhammer 40K: Space Marine"
+  ]
+}

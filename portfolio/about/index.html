@@ -190,11 +190,11 @@ text-align:center;
 font-size:46px;
 font-weight:800;
 color:#F5F5DC;
-margin-bottom:60px;
+margin-bottom:20px;
 }
 
 .section{
-margin-top:40px;
+margin-top:36px;
 }
 
 .section h2{
@@ -282,6 +282,7 @@ box-shadow:
 
 }*/
 
+
 /* ---------- TABLET ---------- */
 
 @media (max-width:1024px){
@@ -348,6 +349,7 @@ font-size:14px;
 
 }
 
+
 /* ---------- SMALL PHONE ---------- */
 
 @media (max-width:480px){
@@ -380,7 +382,6 @@ grid-template-columns:repeat(2,1fr);
 }
 
 }
-
 @media (max-width:600px){
 
 #hobbies,
@@ -389,24 +390,25 @@ grid-template-columns:1fr;
 }
 
 @media (max-width:600px){
-
 h1{
-margin-bottom:30px;
+margin-bottom:15px;
 }
-
+}
 .section{
 margin-top:25px;
 }
 
-}
+.section-divider{
+margin:18px auto 22px;
 }
 
+}
 .section-divider{
 
 width:140px;
 height:2px;
 
-margin:30px auto 30px auto;
+margin:18px auto 24px;
 
 background:linear-gradient(
 90deg,
@@ -420,6 +422,39 @@ box-shadow:
 0 0 18px rgba(120,180,255,.4);
 
 }
+
+.site-footer{
+
+text-align:center;
+
+padding:30px 0;
+
+font-size:14px;
+
+color:#cfcfcf;
+
+opacity:.75;
+
+}
+
+.site-footer a{
+
+color:#7ec7ff;
+
+text-decoration:none;
+
+}
+
+.site-footer a:hover{
+
+text-decoration:underline;
+
+}
+
+.site-footer{
+margin-top:60px;
+}
+
 </style>
 
 </head>
@@ -472,61 +507,96 @@ box-shadow:
 
 </div>
 
+<footer class="site-footer">
+© 2026 Prakash Angappan • Base template: 
+<a href="https://html5up.net" target="_blank">HTML5 UP</a>
+</footer>
 <script>
 
 /* cursor */
+const cursor = document.querySelector(".cursor-glow");
 
-const cursor=document.querySelector(".cursor-glow")
+if(cursor){
 
-let mouseX=0
-let mouseY=0
-let posX=0
-let posY=0
+let mouseX = 0;
+let mouseY = 0;
+let posX = 0;
+let posY = 0;
 
-document.addEventListener("mousemove",e=>{
-mouseX=e.clientX
-mouseY=e.clientY
-})
+let cursorActive = false;
+
+document.addEventListener("mousemove", e=>{
+mouseX = e.clientX;
+mouseY = e.clientY;
+cursorActive = true;
+});
 
 function animateCursor(){
-posX+=(mouseX-posX)*0.15
-posY+=(mouseY-posY)*0.15
-cursor.style.left=posX+"px"
-cursor.style.top=posY+"px"
-requestAnimationFrame(animateCursor)
+
+if(cursorActive){
+posX += (mouseX - posX) * 0.15;
+posY += (mouseY - posY) * 0.15;
+
+cursor.style.left = posX + "px";
+cursor.style.top = posY + "px";
 }
 
-animateCursor()
+requestAnimationFrame(animateCursor);
 
-/* load json */
+}
+
+animateCursor();
+
+}
+
+/* load json *//* load json */
 
 async function loadAbout(){
 
-const res=await fetch("about.json?v="+Date.now())
-const data=await res.json()
+const res = await fetch("about.json?v=" + Date.now());
+const data = await res.json();
 
-const container=document.getElementById("about-content")
+/* sections */
+
+const container = document.getElementById("about-content");
+
+let html = "";
 
 data.sections.forEach(section=>{
-container.innerHTML+=`
+html += `
 <div class="section">
 <h2>${section.title}</h2>
 <div class="section-divider"></div>
 <p>${section.text}</p>
 </div>
-`
-})
-data.hobbies.forEach(h=>{
-document.getElementById("hobbies").innerHTML+=`<li>${h}</li>`
-})
+`;
+});
 
+container.innerHTML = html;
+
+/* hobbies */
+
+const hobbies = document.getElementById("hobbies");
+
+if(data.hobbies){
+data.hobbies.forEach(h=>{
+hobbies.innerHTML += `<li>${h}</li>`;
+});
+}
+
+/* favorite games */
+
+const games = document.getElementById("games");
+
+if(data.favorite_games){
 data.favorite_games.forEach(g=>{
-document.getElementById("games").innerHTML+=`<li>${g}</li>`
-})
+games.innerHTML += `<li>${g}</li>`;
+});
+}
 
 }
 
-loadAbout()
+loadAbout();
 
 </script>
 

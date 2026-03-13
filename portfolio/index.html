@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -37,13 +38,11 @@ z-index:100;
 
 display:flex;
 gap:34px;
-
 padding:10px 28px;
 
 border-radius:30px;
 
 background:rgba(40,80,160,0.25);
-
 backdrop-filter:blur(12px);
 
 border:1px solid rgba(120,180,255,.35);
@@ -53,32 +52,22 @@ box-shadow:
 0 0 20px rgba(60,120,255,.15);
 
 }
+
 .nav-inner a{
-transform-origin:center;
 color:#F5F5DC;
-
 text-decoration:none;
-
 font-weight:600;
-
 letter-spacing:.4px;
-
 position:relative;
-
 display:inline-block;
-
 transition:transform .18s ease;
-
 }
+
 .nav-inner a::before,
 .nav-inner a::after{
-
 color:#F5F5DC;
-
 opacity:0;
-
 transition:opacity .18s ease;
-
 }
 
 .nav-inner a::before{
@@ -91,25 +80,18 @@ content:"]";
 margin-left:4px;
 }
 
-.nav-inner a:hover
-{
-
+.nav-inner a:hover{
 transform:scale(1.08);
-
 }
 
 .nav-inner a:hover::before,
 .nav-inner a:hover::after{
-
 opacity:1;
-
 }
 
 .nav-inner a.active::before,
 .nav-inner a.active::after{
-
 opacity:1;
-
 }
 
 /* ---------- BACKGROUND ---------- */
@@ -224,10 +206,6 @@ box-shadow:
 
 }
 
-@media (pointer: coarse){
-.cursor-glow{ display:none; }
-}
-
 /* ---------- HERO ---------- */
 
 .hero{
@@ -255,68 +233,152 @@ margin-bottom:20px;
 }
 
 .hero p{
+
 color:#F5F5DC;
-opacity:.9;
-font-size:18px;
+
+opacity:.95;
+
+font-size:24px;
+
+letter-spacing:0.5px;
+
+margin-top:4px;
+
+text-shadow:
+0 0 4px rgba(255,255,255,.25),
+0 0 12px rgba(120,180,255,.25);
+
 }
 
-/* ---------- BUTTONS ---------- */
+/* ---------- BUTTON ROW ---------- */
 
-.hero-buttons{
+/* ---------- HERO CARD BUTTONS ---------- */
+/* ---------- HERO ACTION ROW ---------- */
 
-margin-top:12px;
+.hero-actions{
 
 display:flex;
 justify-content:center;
+align-items:center;
 
-gap:14px;
+gap:16px;
+
+margin-top:14px;
+
+flex-wrap:nowrap;
 
 }
-.hero-btn{
 
-padding:9px 22px;
+/* ---------- HERO BUTTON ---------- */
+.hero-card{
 
-border-radius:24px;
+background:#f3efe4;
 
-font-size:15px;
+border-radius:10px;
 
-font-weight:600;
+padding:6px 10px;
+width:36px
+height:36px;
+
+display:flex;
+align-items:center;
+justify-content:flex-start;   /* stop centering */
+
+padding-left:6px;            /* move icon inside left */
+gap:8px;
+
+font-weight:500;
+font-size:18px;
+
+color:#1a1a1a !important;
 
 text-decoration:none;
 
-color:#F5F5DC;
+box-shadow:0 8px 20px rgba(0,0,0,.35);
 
-background:rgba(120,180,255,.15);
+position:relative;
+overflow:hidden;
 
-border:1px solid rgba(120,180,255,.45);
+/* smooth animation */
+
+transform:translateZ(0);
+will-change:transform;
 
 transition:
-transform .25s ease,
-box-shadow .25s ease;
-
+transform .20s ease-out,
+box-shadow .20s ease-out;
+transform:translateX(-4px); /* moves icon slightly left */
 }
+.hero-card:hover{
 
-.hero-btn:hover{
-
-transform:translateY(-3px) scale(1.06);
+transform:translate3d(0,-2px,0) scale(1.05);
 
 box-shadow:
-0 0 10px rgba(120,180,255,.8),
-0 0 25px rgba(120,180,255,.45),
-0 10px 18px rgba(0,0,0,.5);
+0 0 10px rgba(0,170,255,.9),
+0 0 25px rgba(0,170,255,.55),
+0 0 45px rgba(0,170,255,.35),
+0 15px 35px rgba(0,0,0,.65);
+
+color:#1a1a1a !important;
 
 }
 
-/* keep button text ivory always */
+.hero-card:hover,
+.hero-card:focus,
+.hero-card:active{
 
-.hero-btn,
-.hero-btn:hover,
-.hero-btn:focus,
-.hero-btn:active{
+color:#1a1a1a !important;
 
-color:#F5F5DC !important;
+font-weight:500;
+
+text-decoration:none;
 
 }
+/* ---------- CONTACT ---------- */
+
+.hero-contact{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+margin-left:10px;
+
+font-size:18px;
+
+color:#F5F5DC;
+
+}
+
+.contact-icon{
+
+width:40px;
+height:40px;
+
+object-fit:contain;
+
+}
+
+.contact-divider{
+
+color:#7ec7ff;
+
+}
+
+.contact-item{
+
+display:flex;
+align-items:center;
+gap:8px;
+
+}
+
+
+.contact-divider{
+color:#7ec7ff;
+opacity:.7;
+}
+
 /* ---------- STATS ---------- */
 
 .stats{
@@ -325,28 +387,15 @@ justify-content:center;
 gap:60px;
 margin-bottom:70px;
 }
-.stat h3{
-
-color:#F5F5DC;   /* ivory title */
-
-font-weight:600;
-
-letter-spacing:.5px;
-
-}
-
-.big-number{
-
-font-size:34px;
-
-color:#7ec7ff;   /* same blue used across site */
-
-font-weight:700;
-
-}
 
 .stat{
 text-align:center;
+}
+
+.stat h3{
+color:#F5F5DC;
+font-weight:600;
+letter-spacing:.5px;
 }
 
 .big-number{
@@ -356,10 +405,10 @@ font-weight:700;
 }
 
 /* ---------- TECH GRID ---------- */
+
 .tech-grid{
 
 display:grid;
-
 grid-template-columns:repeat(3,1fr);
 
 gap:50px;
@@ -390,29 +439,7 @@ transparent
 
 }
 
-@media (max-width:700px){
-
-#platforms{
-flex-wrap:wrap;
-}
-
-}
-
-/* PLATFORMS */
-
-#platforms{
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:nowrap;
-
-gap:18px;
-
-}
-
-/* ---------- ICONS ---------- */
+/* ---------- ICON BADGES ---------- */
 
 .badges{
 
@@ -422,6 +449,7 @@ flex-wrap:wrap;
 gap:18px;
 
 }
+
 .badges img{
 
 width:54px;
@@ -429,7 +457,7 @@ height:54px;
 
 background:white;
 
-border-radius:9px;
+border-radius:6px;
 
 padding:6px;
 
@@ -477,6 +505,17 @@ color:#F5F5DC;
 
 }
 
+#platforms{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:nowrap;   /* prevents icons from moving to next line */
+
+gap:18px;
+
+}
 </style>
 
 </head>
@@ -487,12 +526,7 @@ color:#F5F5DC;
 
 <div class="nav-inner">
 
-<a href="/" class="active">Home</a>
-<a href="/projects/">Projects</a>
-<a href="/about/">About</a>
-<a href="/hobbies/">Hobbies</a>
-<a href="/favorite-games/">Favorite Games</a>
-<a href="/contact/">Contact</a>
+<a href="/" class="active">Home</a> <a href="/projects/">Projects</a> <a href="/about/">About Me</a> 
 
 </div>
 
@@ -504,12 +538,7 @@ color:#F5F5DC;
 
 <div class="bg-particles">
 
-<span style="left:10%;animation-duration:30s;"></span>
-<span style="left:25%;animation-duration:36s;"></span>
-<span style="left:40%;animation-duration:28s;"></span>
-<span style="left:60%;animation-duration:34s;"></span>
-<span style="left:75%;animation-duration:32s;"></span>
-<span style="left:90%;animation-duration:38s;"></span>
+<span style="left:10%;animation-duration:30s;"></span> <span style="left:25%;animation-duration:36s;"></span> <span style="left:40%;animation-duration:28s;"></span> <span style="left:60%;animation-duration:34s;"></span> <span style="left:75%;animation-duration:32s;"></span> <span style="left:90%;animation-duration:38s;"></span>
 
 </div>
 
@@ -520,16 +549,33 @@ color:#F5F5DC;
 <div class="hero">
 
 <h1 id="hero-name"></h1>
-
 <p id="hero-tagline"></p>
-
-<div class="hero-buttons">
-
-<a href="/projects/" class="hero-btn">View Projects</a>
-
-<a href="../PrakashAngappan-Resume.pdf" class="hero-btn" download>
-Download Resume
+<div class="hero-actions">
+<a href="../PrakashAngappan-Resume.pdf" class="hero-card" download>
+<img src="../images/icons/resume.png">
+Resume
 </a>
+
+<a href="https://www.linkedin.com/in/prakash-angappan-91b0819/" target="_blank" class="hero-card">
+<img src="../images/icons/linkedin.png">
+Linkedin
+</a>
+
+<div class="hero-contact">
+
+<span class="contact-item">
+<img src="../images/icons/email.png" class="contact-icon">
+aprakash.mca@gmail.com
+</span>
+
+<span class="contact-divider">|</span>
+
+<span class="contact-item">
+<img src="../images/icons/phone.png" class="contact-icon">
++91 9900370190
+</span>
+
+</div>
 
 </div>
 
@@ -644,6 +690,9 @@ document.getElementById("leadership").innerHTML+=
 loadHome()
 
 </script>
-
+<footer class="site-footer">
+© 2026 Prakash Angappan • Base template: 
+<a href="https://html5up.net" target="_blank">HTML5 UP</a>
+</footer>
 </body>
 </html>

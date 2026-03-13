@@ -1,27 +1,492 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>About | Prakash Angappan</title>
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link rel="stylesheet" href="../assets/css/main.css">
+
+<style>
+
+/* ---------- PAGE ---------- */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+color:#e8e8e8;
+margin:0;
+overflow-x:hidden;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+.top-nav{
+position:fixed;
+top:20px;
+left:0;
+width:100%;
+display:flex;
+justify-content:center;
+z-index:100;
+}
+
+.nav-inner{
+display:flex;
+gap:34px;
+padding:10px 28px;
+border-radius:30px;
+
+background:rgba(40,80,160,0.25);
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(120,180,255,.35);
+
+box-shadow:
+0 0 10px rgba(120,180,255,.25),
+0 0 20px rgba(60,120,255,.15);
+}
+
+.nav-inner a{
+color:#F5F5DC;
+text-decoration:none;
+font-weight:600;
+letter-spacing:.4px;
+display:inline-block;
+transition:transform .18s ease;
+}
+
+.nav-inner a::before,
+.nav-inner a::after{
+color:#F5F5DC;
+opacity:0;
+transition:opacity .18s ease;
+}
+
+.nav-inner a::before{content:"[";margin-right:4px;}
+.nav-inner a::after{content:"]";margin-left:4px;}
+
+.nav-inner a:hover{
+transform:scale(1.08);
+}
+
+.nav-inner a:hover::before,
+.nav-inner a:hover::after{
+opacity:1;
+}
+
+.nav-inner a.active::before,
+.nav-inner a.active::after{
+opacity:1;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+.page-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("../images/projects-bg.png") center/cover no-repeat;
+z-index:-4;
+}
+
+.page-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.78);
+z-index:-3;
+}
+
+.aurora-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-2;
+
+background:
+radial-gradient(circle at 20% 30%, rgba(80,140,255,0.12), transparent 45%),
+radial-gradient(circle at 80% 70%, rgba(120,200,255,0.10), transparent 45%),
+radial-gradient(circle at 60% 20%, rgba(70,120,255,0.08), transparent 40%);
+
+filter:blur(60px);
+}
+
+/* ---------- PARTICLES ---------- */
+
+.bg-particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-1;
+overflow:hidden;
+}
+
+.bg-particles span{
+position:absolute;
+width:4px;
+height:4px;
+background:rgba(220,235,255,0.85);
+border-radius:50%;
+box-shadow:
+0 0 6px rgba(120,180,255,.8),
+0 0 14px rgba(120,180,255,.5);
+animation:particleFloat linear infinite;
+}
+
+@keyframes particleFloat{
+0%{ transform:translateY(110vh); opacity:0; }
+10%{ opacity:.7; }
+90%{ opacity:.7; }
+100%{ transform:translateY(-10vh); opacity:0; }
+}
+
+/* ---------- CURSOR ---------- */
+
+.cursor-glow{
+position:fixed;
+width:18px;
+height:18px;
+border-radius:50%;
+pointer-events:none;
+background:#000;
+transform:translate(-50%,-50%);
+z-index:9999;
+
+border:2px solid rgba(90,170,255,.9);
+
+box-shadow:
+0 0 8px rgba(90,170,255,.8),
+0 0 18px rgba(90,170,255,.6),
+0 0 30px rgba(90,170,255,.35);
+}
+
+@media (pointer: coarse){
+.cursor-glow{display:none;}
+}
+
+/* ---------- CONTENT ---------- */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:90px 40px 60px;
+}
+
+h1{
+text-align:center;
+font-size:46px;
+font-weight:800;
+color:#F5F5DC;
+margin-bottom:60px;
+}
+
+.section{
+margin-bottom:60px;
+}
+
+.section h2{
+color:#F5F5DC;
+margin-bottom:14px;
+text-align:center;
+/*font-size:22px;*/
+}
+
+.section p{
+line-height:1.7;
+opacity:.9;
+}
+
+.section ul{
+list-style:none;
+padding-left:0;
+line-height:1.9;
+}
+/* Hobbies */
+
+#hobbies{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:12px 18px;
+
+margin-top:12px;
+
+}
+
+
+/* Favorite Games */
+#games{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:12px 18px;
+
+margin-top:12px;
+
+}
+
+#hobbies li,
+#games li{
+
+padding:8px 16px;
+
+background:rgba(255,255,255,0.14);
+
+border-radius:22px;
+
+border:1px solid rgba(140,200,255,.6);
+
+color:#F5F5DC;
+
+font-size:20px;
+
+white-space:nowrap;
+
+box-shadow:
+0 0 6px rgba(120,180,255,.35);
+
+transition:
+transform .18s ease,
+box-shadow .18s ease;
+
+}
+
+/*#games li:hover{
+
+transform:translateY(-2px) scale(1.04);
+
+box-shadow:
+0 0 10px rgba(120,180,255,.6),
+0 0 20px rgba(120,180,255,.3);
+
+}*/
+
+/* ---------- TABLET ---------- */
+
+@media (max-width:1024px){
+
+.container{
+max-width:720px;
+padding:85px 20px 50px;
+}
+
+h1{
+font-size:40px;
+}
+
+.section h2{
+font-size:22px;
+}
+
+.section p,
+.section ul{
+font-size:15px;
+}
+
+.nav-inner{
+gap:24px;
+}
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width:768px){
+
+.container{
+max-width:92%;
+padding:80px 18px 40px;
+}
+
+h1{
+font-size:32px;
+margin-bottom:45px;
+}
+
+.section{
+margin-bottom:45px;
+}
+
+.section h2{
+font-size:20px;
+}
+
+.section p,
+.section ul{
+font-size:14px;
+}
+
+.nav-inner{
+gap:18px;
+padding:8px 18px;
+font-size:14px;
+}
+
+}
+
+/* ---------- SMALL PHONE ---------- */
+
+@media (max-width:480px){
+
+h1{
+font-size:28px;
+}
+
+.section h2{
+font-size:18px;
+}
+
+.section p,
+.section ul{
+font-size:13.5px;
+}
+
+.nav-inner{
+gap:14px;
+font-size:13px;
+}
+
+}
+
+/* Mobile/Table responsive rule */
+@media (max-width:900px){
+
+#games{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media (max-width:600px){
+
+#hobbies,
+#games{
+grid-template-columns:1fr;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<nav class="top-nav">
+<div class="nav-inner">
+<a href="/">Home</a>
+<a href="/projects/">Projects</a>
+<a href="/about/" class="active">About Me</a>
+</div>
+</nav>
+
+<div class="page-bg"></div>
+<div class="page-overlay"></div>
+<div class="aurora-bg"></div>
+
+<div class="bg-particles">
+<span style="left:10%;animation-duration:30s;"></span>
+<span style="left:25%;animation-duration:36s;"></span>
+<span style="left:40%;animation-duration:28s;"></span>
+<span style="left:60%;animation-duration:34s;"></span>
+<span style="left:75%;animation-duration:32s;"></span>
+<span style="left:90%;animation-duration:38s;"></span>
+</div>
+
+<div class="cursor-glow"></div>
+
+<div class="container">
+
 <h1>About Me</h1>
 
-<div id="about"></div>
+<div id="about-content"></div>
+
+<div class="two-columns">
+
+<div class="section">
+<h2>Hobbies</h2>
+<ul id="hobbies"></ul>
+</div>
+
+<div class="section">
+<h2>Favorite Games</h2>
+<ul id="games"></ul>
+</div>
+
+</div>
+
+</div>
 
 <script>
 
+/* cursor */
+
+const cursor=document.querySelector(".cursor-glow")
+
+let mouseX=0
+let mouseY=0
+let posX=0
+let posY=0
+
+document.addEventListener("mousemove",e=>{
+mouseX=e.clientX
+mouseY=e.clientY
+})
+
+function animateCursor(){
+posX+=(mouseX-posX)*0.15
+posY+=(mouseY-posY)*0.15
+cursor.style.left=posX+"px"
+cursor.style.top=posY+"px"
+requestAnimationFrame(animateCursor)
+}
+
+animateCursor()
+
+/* load json */
+
 async function loadAbout(){
 
-const res = await fetch("about.json?v="+Date.now())
-const data = await res.json()
+const res=await fetch("about.json?v="+Date.now())
+const data=await res.json()
 
-const container = document.getElementById("about")
+const container=document.getElementById("about-content")
 
 data.sections.forEach(section=>{
-
-const block = document.createElement("div")
-
-block.innerHTML=`
+container.innerHTML+=`
+<div class="section">
 <h2>${section.title}</h2>
 <p>${section.text}</p>
+</div>
 `
+})
 
-container.appendChild(block)
+data.hobbies.forEach(h=>{
+document.getElementById("hobbies").innerHTML+=`<li>${h}</li>`
+})
 
+data.favorite_games.forEach(g=>{
+document.getElementById("games").innerHTML+=`<li>${g}</li>`
 })
 
 }
@@ -29,3 +494,6 @@ container.appendChild(block)
 loadAbout()
 
 </script>
+
+</body>
+</html>

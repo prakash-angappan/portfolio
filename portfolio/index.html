@@ -22,6 +22,70 @@ margin:0;
 overflow-x:hidden;
 }
 
+/*COINTAINER */
+
+.container{
+
+width:92%;
+max-width:1300px;
+
+margin:auto;
+/*margin-top:90px;
+margin-bottom:60px;*/
+
+padding:40px 60px;
+
+position:relative;
+
+background:rgba(255,255,240,0.08);
+
+border-radius:22px;
+
+backdrop-filter:blur(3px);
+
+box-shadow:
+0 0 40px rgba(0,0,0,.35),
+0 0 120px rgba(0,0,0,.25);
+
+text-align:center;
+
+}
+
+.container::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:22px;
+
+border:1px solid rgba(120,200,255,.25);
+
+pointer-events:none;
+
+}
+@media (min-width:1600px){
+
+.container{
+width:90%;
+max-width:1300px;
+}
+
+}
+@media (max-width:768px){
+
+.container{
+
+max-width:95%;
+
+padding:30px 20px;
+
+}
+
+}
+
 /* ---------- NAVIGATION ---------- */
 
 .top-nav{
@@ -135,19 +199,55 @@ margin-bottom:40px;
 }
 
 /* photo */
+.hero-photo{
 
+position:relative;
+
+}
+
+.hero-photo::before{
+
+content:"";
+
+position:absolute;
+
+width:360px;
+height:360px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle,
+rgba(80,180,220,.35) 0%,
+rgba(80,180,220,.15) 40%,
+transparent 70%);
+
+filter:blur(20px);
+
+z-index:-1;
+
+}
 .hero-photo img{
+
 width:320px;
 height:320px;
+
 border-radius:50%;
+
 object-fit:cover;
 
-border:2px solid rgba(120,180,255,.7);
+object-position:center 15%;
 
+/* sea blue glow */
 box-shadow:
-0 0 12px rgba(120,180,255,.7),
-0 0 28px rgba(120,180,255,.35);
+0 0 25px rgba(80,180,220,.8),
+0 0 70px rgba(80,180,220,.45),
+0 30px 80px rgba(0,0,0,.55);
+
+transition:transform .25s ease, box-shadow .25s ease;
+
 }
+
 
 /* hero text */
 
@@ -231,15 +331,6 @@ transform-origin:center;
 
 width:16px;
 height:16px;
-
-object-fit:contain;
-
-}
-
-.hero-card img{
-
-width:24px;
-height:24px;
 
 object-fit:contain;
 
@@ -451,7 +542,7 @@ gap:18px;
 
 <div class="nav-inner">
 <a href="/" class="active">Home</a>
-<a href="/projects/">Projects</a>
+<a href="/projects/">Featured Projects</a>
 <a href="/about/">About Me</a>
 </div>
 

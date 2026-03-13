@@ -12,7 +12,63 @@
 
 <style>
 
-/* ---------- NAVIGATION ---------- */
+/* ---------- PAGE ---------- */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+color:#e8e8e8;
+margin:0;
+overflow-x:hidden;
+}
+
+/* ---------- CONTAINER (IVORY GLASS OVERLAY) ---------- */
+
+.container{
+
+width:92%;
+max-width:1300px;
+
+margin:auto;
+/*margin-top:90px;
+margin-bottom:60px;*/
+
+padding:40px 60px;
+
+position:relative;
+
+background:rgba(255,255,240,0.08);
+
+border-radius:22px;
+
+backdrop-filter:blur(3px);
+
+box-shadow:
+0 0 40px rgba(0,0,0,.35),
+0 0 120px rgba(0,0,0,.25);
+
+text-align:center;
+
+}
+
+.container h1::after{
+display:none;
+}
+
+.container::before{
+
+content:"";
+position:absolute;
+inset:0;
+
+border-radius:22px;
+
+border:1px solid rgba(120,200,255,.22);
+
+pointer-events:none;
+
+}
+
+/* ---------- NAV ---------- */
 
 .top-nav{
 position:fixed;
@@ -25,7 +81,6 @@ z-index:100;
 }
 
 .nav-inner{
-
 display:flex;
 gap:30px;
 
@@ -42,49 +97,26 @@ border:1px solid rgba(120,180,255,.35);
 box-shadow:
 0 0 10px rgba(120,180,255,.25),
 0 0 20px rgba(60,120,255,.15);
-
 }
 
 .nav-inner a{
-
 color:#F5F5DC;
-
 text-decoration:none;
-
 font-weight:600;
-
 letter-spacing:.4px;
-
 display:inline-block;
-
 transition:transform .18s ease;
-
 }
-
-/* brackets */
 
 .nav-inner a::before,
 .nav-inner a::after{
-
 opacity:0;
-
 color:#F5F5DC;
-
 transition:opacity .18s ease;
-
 }
 
-.nav-inner a::before{
-content:"[";
-margin-right:4px;
-}
-
-.nav-inner a::after{
-content:"]";
-margin-left:4px;
-}
-
-/* hover */
+.nav-inner a::before{content:"[";margin-right:4px;}
+.nav-inner a::after{content:"]";margin-left:4px;}
 
 .nav-inner a:hover{
 transform:scale(1.08);
@@ -95,20 +127,9 @@ transform:scale(1.08);
 opacity:1;
 }
 
-/* active page */
-
 .nav-inner a.active::before,
 .nav-inner a.active::after{
 opacity:1;
-}
-
-/* ---------- PAGE ---------- */
-
-body{
-font-family:Arial, Helvetica, sans-serif;
-color:#e8e8e8;
-margin:0;
-overflow-x:hidden;
 }
 
 /* ---------- BACKGROUND ---------- */
@@ -160,167 +181,16 @@ animation:auroraMove 28s ease-in-out infinite alternate;
 100%{ transform:translate3d(-2%, 3%, 0) scale(1.02); }
 }
 
-/* ---------- FLOATING PARTICLES ---------- */
-
-.bg-particles{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-z-index:-1;
-overflow:hidden;
-}
-.bg-particles span{
-
-position:absolute;
-
-width:4px;
-height:4px;
-
-background:rgba(220,235,255,0.85);
-
-border-radius:50%;
-
-/* soft glow */
-
-box-shadow:
-0 0 6px rgba(120,180,255,.8),
-0 0 14px rgba(120,180,255,.5);
-
-animation:particleFloat linear infinite;
-
-}
-
-@keyframes particleFloat{
-
-0%{
-transform:translateY(110vh);
-opacity:0;
-}
-
-10%{
-opacity:.7;
-}
-
-90%{
-opacity:.7;
-}
-
-100%{
-transform:translateY(-10vh);
-opacity:0;
-}
-
-}
-
-/* ---------- CURSOR GLOW ---------- */
-.cursor-glow{
-
-position:fixed;
-
-width:18px;
-height:18px;
-
-border-radius:50%;
-
-pointer-events:none;
-
-background:#000;
-
-transform:translate(-50%,-50%);
-
-z-index:9999;
-
-/* thin glowing ring */
-
-border:2px solid rgba(90,170,255,.9);
-
-/* soft halo */
-
-box-shadow:
-0 0 8px rgba(90,170,255,.8),
-0 0 18px rgba(90,170,255,.6),
-0 0 30px rgba(90,170,255,.35);
-
-transition:
-width .18s ease,
-height .18s ease,
-border .18s ease,
-box-shadow .18s ease;
-
-}
-
-.card:hover ~ .cursor-glow{
-
-width:36px;
-height:36px;
-
-filter:
-brightness(1.4)
-drop-shadow(0 0 8px rgba(80,160,255,.6));
-
-}
-
-.cursor-glow::after{
-
-content:"";
-
-position:absolute;
-
-top:50%;
-left:50%;
-
-width:4px;
-height:4px;
-
-background:#000;
-
-border-radius:50%;
-
-transform:translate(-50%,-50%);
-
-}
-.cursor-glow.active{
-
-width:26px;
-height:26px;
-
-border:2px solid rgba(120,200,255,1);
-
-box-shadow:
-0 0 12px rgba(120,200,255,1),
-0 0 25px rgba(120,200,255,.9),
-0 0 50px rgba(120,200,255,.7);
-
-}
-
-@media (pointer: coarse) {
-
-.cursor-glow{
-display:none;
-}
-
-}
-
-/* ---------- CONTAINER ---------- */
-
-.container{
-text-align:center;
-margin-top:80px;
-margin-bottom:60px;
-}
-
 /* ---------- TITLE ---------- */
 
 h1{
 text-align:center;
 font-size:46px;
 font-weight:800;
-margin-bottom:40px;
+margin-top:30px;
+margin-bottom:20px;
 
-color:#F5F5DC; /* ivory */
+color:#F5F5DC;
 
 letter-spacing:2px;
 
@@ -330,14 +200,10 @@ text-shadow:
 }
 
 h1::after{
-
 content:"";
-
 display:block;
-
 width:140px;
 height:2px;
-
 margin:18px auto 0;
 
 background:linear-gradient(
@@ -350,13 +216,12 @@ transparent
 box-shadow:
 0 0 8px rgba(120,180,255,.7),
 0 0 18px rgba(120,180,255,.4);
-
 }
 
 /* ---------- COMPANY ---------- */
 
 .company{
-margin-top:40px;
+margin-top:50px;
 }
 
 .company-header{
@@ -399,18 +264,27 @@ box-shadow:
 /* ---------- GRID ---------- */
 
 .grid{
+
 display:grid;
-grid-template-columns:repeat(4,260px);
-gap:30px;
+
+grid-template-columns:repeat(auto-fit,260px);
+
+gap:26px;
+
 justify-content:center;
+
 }
 
 /* ---------- CARD ---------- */
 
 .card{
+
 width:260px;
+
 background:#f3efe4;
+
 border-radius:12px;
+
 padding:10px;
 
 display:flex;
@@ -421,69 +295,32 @@ color:#1a1a1a;
 
 box-shadow:0 10px 25px rgba(0,0,0,.35);
 
-position:relative;
-overflow:hidden;
-
-transform-style:preserve-3d;
-will-change:transform;
-
 transition:transform .25s ease, box-shadow .25s ease;
-}
 
-.card img{
-width:100%;
-height:225px;
-object-fit:contain;
 }
-
-/* HOVER POP + GLOW */
 
 .card:hover{
-
 transform:translateY(-10px) scale(1.03);
 
 box-shadow:
 0 0 8px rgba(0,170,255,.8),
 0 0 25px rgba(0,170,255,.45),
 0 20px 40px rgba(0,0,0,.6);
-
-}
-
-/* LIGHT SWEEP */
-
-.card::after{
-content:"";
-position:absolute;
-top:-50%;
-left:-120%;
-width:80%;
-height:200%;
-
-background:linear-gradient(
-110deg,
-transparent 40%,
-rgba(255,255,255,0.35) 50%,
-transparent 60%
-);
-
-transform:skewX(-25deg);
-opacity:0;
-}
-
-.card:hover::after{
-opacity:1;
-animation:cardSweep 1.4s forwards;
-}
-
-@keyframes cardSweep{
-0%{ left:-120%; }
-100%{ left:150%; }
 }
 
 /* ---------- THUMB ---------- */
 
 .thumb{
+
 position:relative;
+
+border-radius:8px;
+
+height:180px;
+
+display:flex;
+align-items:center;
+justify-content:center;
 
 background:linear-gradient(
 180deg,
@@ -491,57 +328,43 @@ rgba(255,255,255,0.35),
 rgba(255,255,255,0.12)
 );
 
-border-radius:8px;
-height:180px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
 box-shadow:
 inset 0 1px 3px rgba(255,255,255,.6),
 inset 0 -3px 8px rgba(0,0,0,.15);
+
 }
 
 .thumb img{
 max-width:100%;
 max-height:170px;
 object-fit:contain;
-transition:transform .25s ease;
 }
+
 /* ---------- BADGES ---------- */
+
 .badges{
 position:absolute;
 top:6px;
 right:6px;
 display:flex;
 gap:4px;
-align-items:center;
 }
 
 .badges img{
+
 width:32px;
 height:32px;
+
 background:white;
+
 border-radius:6px;
-padding:0;
+
 object-fit:contain;
-box-sizing:border-box;
 
 filter:
 drop-shadow(0 0 2px rgba(255,255,255,0.8))
 drop-shadow(0 0 6px rgba(120,180,255,0.8));
 
-transition:filter .25s ease, transform .25s ease;
-}
-
-.card:hover .badges img{
-filter:
-drop-shadow(0 0 4px rgba(255,255,255,1))
-drop-shadow(0 0 10px rgba(120,180,255,1))
-drop-shadow(0 0 18px rgba(120,180,255,.7));
-
-transform:scale(1.08);
 }
 
 /* ---------- TEXT ---------- */
@@ -567,35 +390,26 @@ font-weight:500;
 
 /* ---------- RESPONSIVE ---------- */
 
-@media (max-width:1100px){
-.grid{ grid-template-columns:repeat(3,260px); }
-}
+@media (max-width:900px){
 
-@media (max-width:800px){
-.grid{ grid-template-columns:repeat(2,260px); }
+.container{
+padding:30px 20px;
 }
-
-@media (max-width:600px){
 
 .grid{
-grid-template-columns:1fr;
-justify-items:center;
-}
-
-.card{
-width:90%;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 }
 
 }
 
 @media (max-width:600px){
 
-h1{
-margin-bottom:30px;
+.card{
+width:95%;
 }
 
-.company{
-margin-top:25px;
+h1{
+font-size:36px;
 }
 
 }
@@ -605,28 +419,18 @@ margin-top:25px;
 </head>
 
 <body>
-	<nav class="top-nav">
-		<div class="nav-inner">
-		<a href="/">Home</a>
-		<a href="/projects/" class="active">Projects</a>
-		<a href="/about/">About Me</a>
-		</div>
-	</nav>
+
+<nav class="top-nav">
+<div class="nav-inner">
+<a href="/">Home</a>
+<a href="/projects/" class="active">Featured Projects</a>
+<a href="/about/">About Me</a>
+</div>
+</nav>
 
 <div class="page-bg"></div>
 <div class="page-overlay"></div>
 <div class="aurora-bg"></div>
-
-<div class="bg-particles">
-<span style="left:10%;animation-duration:30s;"></span>
-<span style="left:25%;animation-duration:36s;"></span>
-<span style="left:40%;animation-duration:28s;"></span>
-<span style="left:60%;animation-duration:34s;"></span>
-<span style="left:75%;animation-duration:32s;"></span>
-<span style="left:90%;animation-duration:38s;"></span>
-</div>
-
-<div class="cursor-glow"></div>
 
 <div class="container">
 
@@ -642,94 +446,12 @@ margin-top:25px;
 
 <script>
 
-/* cursor trail */
-/* cursor glow stronger on card hover */
-
-const cards = document.querySelectorAll(".card")
-const cursorGlow = document.querySelector(".cursor-glow")
-
-cards.forEach(card=>{
-
-card.addEventListener("mouseenter",()=>{
-cursorGlow.classList.add("active")
-})
-
-card.addEventListener("mouseleave",()=>{
-cursorGlow.classList.remove("active")
-})
-
-})
-const cursor=document.querySelector(".cursor-glow")
-
-let mouseX=0
-let mouseY=0
-let posX=0
-let posY=0
-
-document.addEventListener("mousemove",e=>{
-mouseX=e.clientX
-mouseY=e.clientY
-})
-
-function animateCursor(){
-
-posX+=(mouseX-posX)*0.15
-posY+=(mouseY-posY)*0.15
-
-cursor.style.left=posX+"px"
-cursor.style.top=posY+"px"
-
-requestAnimationFrame(animateCursor)
-
-}
-
-animateCursor()
-
-/* ---------- CENTER ROWS ---------- */
-
-function centerCards(grid){
-
-if(window.innerWidth<1000)return
-
-const cards=[...grid.children]
-const count=cards.length
-
-if(count<=3){
-
-grid.style.gridTemplateColumns=`repeat(${count},260px)`
-grid.style.justifyContent="center"
-
-return
-}
-
-const remainder=count%4
-
-if(remainder===1){
-cards[count-1].style.gridColumn="2 / span 2"
-}
-
-if(remainder===2){
-cards[count-2].style.gridColumn="2"
-cards[count-1].style.gridColumn="3"
-}
-
-if(remainder===3){
-cards[count-3].style.gridColumn="1"
-cards[count-2].style.gridColumn="2"
-cards[count-1].style.gridColumn="3"
-}
-
-}
-
-/* ---------- LOAD PROJECTS ---------- */
-
 async function loadProjects(){
 
-const res=await fetch("projects.json?v=" + Date.now())
+const res=await fetch("projects.json?v="+Date.now())
 const data=await res.json()
 
 const container=document.getElementById("projects")
-const fragment=document.createDocumentFragment()
 
 data.companies.forEach(company=>{
 
@@ -756,15 +478,15 @@ card.style.cursor="pointer"
 card.onclick=()=>window.open(project.link,"_blank")
 }
 
-let engineIcon = project.engine
-? `<img loading="lazy" src="../images/icons/${project.engine}.png?v=2" alt="${project.engine}">`
+let engineIcon=project.engine
+? `<img loading="lazy" src="../images/icons/${project.engine}.png">`
 : ""
 
 let platformIcons=""
 
 if(project.platform){
 project.platform.forEach(p=>{
-platformIcons += `<img loading="lazy" src="../images/icons/${p}.png?v=2" alt="${p}">`
+platformIcons+=`<img loading="lazy" src="../images/icons/${p}.png">`
 })
 }
 
@@ -783,36 +505,17 @@ ${platformIcons}
 
 <div class="project-title">${project.title}</div>
 <div class="project-desc">${project.desc}</div>
-<div class="tasks">${project.tasks}</div>
+<div class="project-tasks">${project.tasks}</div>
 
 `
 
 grid.appendChild(card)
-/* cursor glow stronger on card hover */
-
-const cursorGlow = document.querySelector(".cursor-glow")
-
-document.querySelectorAll(".card").forEach(card=>{
-
-card.addEventListener("mouseenter",()=>{
-cursorGlow.classList.add("active")
-})
-
-card.addEventListener("mouseleave",()=>{
-cursorGlow.classList.remove("active")
-})
 
 })
 
-})
-
-centerCards(grid)
-
-fragment.appendChild(section)
+container.appendChild(section)
 
 })
-
-container.appendChild(fragment)
 
 }
 

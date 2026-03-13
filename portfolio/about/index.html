@@ -21,7 +21,52 @@ margin:0;
 overflow-x:hidden;
 }
 
-/* ---------- NAVIGATION ---------- */
+/* ---------- CONTAINER (IVORY GLASS PANEL) ---------- */
+
+.container{
+
+width:92%;
+max-width:1300px;
+
+margin:auto;
+/*margin-top:90px;
+margin-bottom:60px;*/
+
+padding:40px 60px;
+
+position:relative;
+
+background:rgba(255,255,240,0.08);
+
+border-radius:22px;
+
+backdrop-filter:blur(3px);
+
+box-shadow:
+0 0 40px rgba(0,0,0,.35),
+0 0 120px rgba(0,0,0,.25);
+
+text-align:center;
+
+}
+
+.container::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:22px;
+
+border:1px solid rgba(120,200,255,.25);
+
+pointer-events:none;
+
+}
+
+/* ---------- NAV ---------- */
 
 .top-nav{
 position:fixed;
@@ -34,12 +79,16 @@ z-index:100;
 }
 
 .nav-inner{
+
 display:flex;
 gap:34px;
+
 padding:10px 28px;
+
 border-radius:30px;
 
 background:rgba(40,80,160,0.25);
+
 backdrop-filter:blur(12px);
 
 border:1px solid rgba(120,180,255,.35);
@@ -47,6 +96,7 @@ border:1px solid rgba(120,180,255,.35);
 box-shadow:
 0 0 10px rgba(120,180,255,.25),
 0 0 20px rgba(60,120,255,.15);
+
 }
 
 .nav-inner a{
@@ -121,119 +171,115 @@ radial-gradient(circle at 60% 20%, rgba(70,120,255,0.08), transparent 40%);
 filter:blur(60px);
 }
 
-/* ---------- PARTICLES ---------- */
-
-.bg-particles{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-z-index:-1;
-overflow:hidden;
-}
-
-.bg-particles span{
-position:absolute;
-width:4px;
-height:4px;
-background:rgba(220,235,255,0.85);
-border-radius:50%;
-box-shadow:
-0 0 6px rgba(120,180,255,.8),
-0 0 14px rgba(120,180,255,.5);
-animation:particleFloat linear infinite;
-}
-
-@keyframes particleFloat{
-0%{ transform:translateY(110vh); opacity:0; }
-10%{ opacity:.7; }
-90%{ opacity:.7; }
-100%{ transform:translateY(-10vh); opacity:0; }
-}
-
-/* ---------- CURSOR ---------- */
-
-.cursor-glow{
-position:fixed;
-width:18px;
-height:18px;
-border-radius:50%;
-pointer-events:none;
-background:#000;
-transform:translate(-50%,-50%);
-z-index:9999;
-
-border:2px solid rgba(90,170,255,.9);
-
-box-shadow:
-0 0 8px rgba(90,170,255,.8),
-0 0 18px rgba(90,170,255,.6),
-0 0 30px rgba(90,170,255,.35);
-}
-
-@media (pointer: coarse){
-.cursor-glow{display:none;}
-}
-
-/* ---------- CONTENT ---------- */
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:90px 40px 60px;
-}
+/* ---------- TITLE ---------- */
 
 h1{
-text-align:center;
-font-size:46px;
-font-weight:800;
-color:#F5F5DC;
-margin-bottom:20px;
-}
 
+text-align:center;
+
+font-size:46px;
+
+font-weight:800;
+
+color:#F5F5DC;
+margin-top:30px;
+margin-bottom:20px;
+
+letter-spacing:2px;
+
+/* glow */
+
+text-shadow:
+0 0 6px rgba(255,255,255,.25),
+0 0 18px rgba(120,180,255,.25);
+
+}
+/ * About */ 
+#about-content{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+text-align:center;
+
+}
+/* ---------- SECTIONS ---------- */
 .section{
-margin-top:36px;
+
+margin-top:32px;
+
+text-align:center;
+
+max-width:900px;
+
+margin-left:auto;
+margin-right:auto;
+
 }
 
 .section h2{
 color:#F5F5DC;
-margin-bottom:14px;
-text-align:center;
-/*font-size:22px;*/
+margin-bottom:10px;
+font-size:22px;
 }
 
 .section p{
 line-height:1.7;
 opacity:.9;
+max-width:900px;
+margin:auto;
 }
 
-.section ul{
-list-style:none;
-padding-left:0;
-line-height:1.9;
-}
-/* Hobbies */
+.section h2::after{
 
-#hobbies{
+content:"";
+
+display:block;
+
+width:140px;
+height:2px;
+
+margin:12px auto 18px;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(120,180,255,.9),
+transparent
+);
+
+box-shadow:
+0 0 8px rgba(120,180,255,.7),
+0 0 18px rgba(120,180,255,.4);
+
+}
+
+/* ---------- HOBBIES + GAMES ---------- */
+
+.two-columns{
 
 display:flex;
 
-flex-wrap:wrap;
+flex-direction:column;
 
-justify-content:center;
+align-items:center;
 
-gap:12px 18px;
+gap:0;
 
-margin-top:12px;
+margin-top:0;
+
+width:100%;
 
 }
 
-
-/* Favorite Games */
+#hobbies,
 #games{
 
+list-style:none;
+
 display:flex;
 
 flex-wrap:wrap;
@@ -244,6 +290,12 @@ gap:12px 18px;
 
 margin-top:12px;
 
+padding-left:0;
+
+}
+
+#games{
+max-width:900px;
 }
 
 #hobbies li,
@@ -272,7 +324,8 @@ box-shadow .18s ease;
 
 }
 
-/*#games li:hover{
+#hobbies li:hover,
+#games li:hover{
 
 transform:translateY(-2px) scale(1.04);
 
@@ -280,36 +333,19 @@ box-shadow:
 0 0 10px rgba(120,180,255,.6),
 0 0 20px rgba(120,180,255,.3);
 
-}*/
-
+}
 
 /* ---------- TABLET ---------- */
 
 @media (max-width:1024px){
 
 .container{
-max-width:720px;
-padding:85px 20px 50px;
+padding:40px 30px;
 }
 
-h1{
-text-align:center;
-font-size:46px;
-font-weight:800;
-margin-bottom:40px;
-}
-
-.section h2{
-font-size:22px;
-}
-
-.section p,
-.section ul{
-font-size:15px;
-}
-
-.nav-inner{
-gap:24px;
+.two-columns{
+grid-template-columns:1fr;
+gap:30px;
 }
 
 }
@@ -319,25 +355,23 @@ gap:24px;
 @media (max-width:768px){
 
 .container{
-max-width:92%;
-padding:80px 18px 40px;
+width:95%;
+padding:35px 18px;
 }
 
 h1{
 font-size:32px;
-margin-bottom:45px;
 }
 
 .section{
-margin-bottom:45px;
+margin-top:26px;
 }
 
 .section h2{
 font-size:20px;
 }
 
-.section p,
-.section ul{
+.section p{
 font-size:14px;
 }
 
@@ -349,110 +383,24 @@ font-size:14px;
 
 }
 
-
-/* ---------- SMALL PHONE ---------- */
-
-@media (max-width:480px){
-
-h1{
-font-size:28px;
-}
-
-.section h2{
-font-size:18px;
-}
-
-.section p,
-.section ul{
-font-size:13.5px;
-}
-
-.nav-inner{
-gap:14px;
-font-size:13px;
-}
-
-}
-
-/* Mobile/Table responsive rule */
-@media (max-width:900px){
-
-#games{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-@media (max-width:600px){
-
-#hobbies,
-#games{
-grid-template-columns:1fr;
-}
-
-@media (max-width:600px){
-h1{
-margin-bottom:15px;
-}
-}
-.section{
-margin-top:25px;
-}
-
-.section-divider{
-margin:18px auto 22px;
-}
-
-}
-.section-divider{
-
-width:140px;
-height:2px;
-
-margin:18px auto 24px;
-
-background:linear-gradient(
-90deg,
-transparent,
-rgba(120,180,255,.9),
-transparent
-);
-
-box-shadow:
-0 0 8px rgba(120,180,255,.7),
-0 0 18px rgba(120,180,255,.4);
-
-}
+/* ---------- FOOTER ---------- */
 
 .site-footer{
-
 text-align:center;
-
 padding:30px 0;
-
 font-size:14px;
-
 color:#cfcfcf;
-
 opacity:.75;
-
+margin-top:50px;
 }
 
 .site-footer a{
-
 color:#7ec7ff;
-
 text-decoration:none;
-
 }
 
 .site-footer a:hover{
-
 text-decoration:underline;
-
-}
-
-.site-footer{
-margin-top:60px;
 }
 
 </style>
@@ -464,7 +412,7 @@ margin-top:60px;
 <nav class="top-nav">
 <div class="nav-inner">
 <a href="/">Home</a>
-<a href="/projects/">Projects</a>
+<a href="/projects/">Featured Projects</a>
 <a href="/about/" class="active">About Me</a>
 </div>
 </nav>
@@ -473,22 +421,13 @@ margin-top:60px;
 <div class="page-overlay"></div>
 <div class="aurora-bg"></div>
 
-<div class="bg-particles">
-<span style="left:10%;animation-duration:30s;"></span>
-<span style="left:25%;animation-duration:36s;"></span>
-<span style="left:40%;animation-duration:28s;"></span>
-<span style="left:60%;animation-duration:34s;"></span>
-<span style="left:75%;animation-duration:32s;"></span>
-<span style="left:90%;animation-duration:38s;"></span>
-</div>
-
-<div class="cursor-glow"></div>
-
 <div class="container">
 
 <h1>About Me</h1>
 <div class="section-divider"></div>
+
 <div id="about-content"></div>
+
 <div class="two-columns">
 
 <div class="section">
@@ -508,55 +447,16 @@ margin-top:60px;
 </div>
 
 <footer class="site-footer">
-© 2026 Prakash Angappan • Base template: 
+© 2026 Prakash Angappan • Base template:
 <a href="https://html5up.net" target="_blank">HTML5 UP</a>
 </footer>
+
 <script>
-
-/* cursor */
-const cursor = document.querySelector(".cursor-glow");
-
-if(cursor){
-
-let mouseX = 0;
-let mouseY = 0;
-let posX = 0;
-let posY = 0;
-
-let cursorActive = false;
-
-document.addEventListener("mousemove", e=>{
-mouseX = e.clientX;
-mouseY = e.clientY;
-cursorActive = true;
-});
-
-function animateCursor(){
-
-if(cursorActive){
-posX += (mouseX - posX) * 0.15;
-posY += (mouseY - posY) * 0.15;
-
-cursor.style.left = posX + "px";
-cursor.style.top = posY + "px";
-}
-
-requestAnimationFrame(animateCursor);
-
-}
-
-animateCursor();
-
-}
-
-/* load json *//* load json */
 
 async function loadAbout(){
 
 const res = await fetch("about.json?v=" + Date.now());
 const data = await res.json();
-
-/* sections */
 
 const container = document.getElementById("about-content");
 
@@ -574,8 +474,6 @@ html += `
 
 container.innerHTML = html;
 
-/* hobbies */
-
 const hobbies = document.getElementById("hobbies");
 
 if(data.hobbies){
@@ -583,8 +481,6 @@ data.hobbies.forEach(h=>{
 hobbies.innerHTML += `<li>${h}</li>`;
 });
 }
-
-/* favorite games */
 
 const games = document.getElementById("games");
 

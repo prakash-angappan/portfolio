@@ -8,103 +8,473 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/main.css">
 
 <style>
 
-/* HERO */
+/* ---------- PAGE ---------- */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+color:#e8e8e8;
+margin:0;
+overflow-x:hidden;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+.top-nav{
+position:fixed;
+top:20px;
+left:0;
+width:100%;
+display:flex;
+justify-content:center;
+z-index:100;
+}
+
+.nav-inner{
+
+display:flex;
+gap:34px;
+
+padding:10px 28px;
+
+border-radius:30px;
+
+background:rgba(40,80,160,0.25);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(120,180,255,.35);
+
+box-shadow:
+0 0 10px rgba(120,180,255,.25),
+0 0 20px rgba(60,120,255,.15);
+
+}
+.nav-inner a{
+transform-origin:center;
+color:#F5F5DC;
+
+text-decoration:none;
+
+font-weight:600;
+
+letter-spacing:.4px;
+
+position:relative;
+
+display:inline-block;
+
+transition:transform .18s ease;
+
+}
+.nav-inner a::before,
+.nav-inner a::after{
+
+color:#F5F5DC;
+
+opacity:0;
+
+transition:opacity .18s ease;
+
+}
+
+.nav-inner a::before{
+content:"[";
+margin-right:4px;
+}
+
+.nav-inner a::after{
+content:"]";
+margin-left:4px;
+}
+
+.nav-inner a:hover
+{
+
+transform:scale(1.08);
+
+}
+
+.nav-inner a:hover::before,
+.nav-inner a:hover::after{
+
+opacity:1;
+
+}
+
+.nav-inner a.active::before,
+.nav-inner a.active::after{
+
+opacity:1;
+
+}
+
+/* ---------- BACKGROUND ---------- */
+
+.page-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("../images/projects-bg.png") center/cover no-repeat;
+z-index:-4;
+}
+
+.page-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.78);
+z-index:-3;
+}
+
+/* ---------- AURORA ---------- */
+
+.aurora-bg{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-2;
+
+background:
+radial-gradient(circle at 20% 30%, rgba(80,140,255,0.12), transparent 45%),
+radial-gradient(circle at 80% 70%, rgba(120,200,255,0.10), transparent 45%),
+radial-gradient(circle at 60% 20%, rgba(70,120,255,0.08), transparent 40%);
+
+filter:blur(60px);
+
+}
+
+/* ---------- PARTICLES ---------- */
+
+.bg-particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-1;
+overflow:hidden;
+}
+
+.bg-particles span{
+
+position:absolute;
+
+width:4px;
+height:4px;
+
+background:rgba(220,235,255,0.85);
+
+border-radius:50%;
+
+box-shadow:
+0 0 6px rgba(120,180,255,.8),
+0 0 14px rgba(120,180,255,.5);
+
+animation:particleFloat linear infinite;
+
+}
+
+@keyframes particleFloat{
+
+0%{ transform:translateY(110vh); opacity:0; }
+10%{ opacity:.7; }
+90%{ opacity:.7; }
+100%{ transform:translateY(-10vh); opacity:0; }
+
+}
+
+/* ---------- CURSOR GLOW ---------- */
+
+.cursor-glow{
+
+position:fixed;
+
+width:18px;
+height:18px;
+
+border-radius:50%;
+
+pointer-events:none;
+
+background:#000;
+
+transform:translate(-50%,-50%);
+
+z-index:9999;
+
+border:2px solid rgba(90,170,255,.9);
+
+box-shadow:
+0 0 8px rgba(90,170,255,.8),
+0 0 18px rgba(90,170,255,.6),
+0 0 30px rgba(90,170,255,.35);
+
+}
+
+@media (pointer: coarse){
+.cursor-glow{ display:none; }
+}
+
+/* ---------- HERO ---------- */
 
 .hero{
 text-align:center;
-margin-bottom:70px;
+margin-top:80px;
+margin-bottom:60px;
 }
 
 .hero h1{
-font-size:48px;
-margin-bottom:10px;
+
+font-size:46px;
+
+font-weight:800;
+
 color:#F5F5DC;
+
+letter-spacing:1px;
+
+text-shadow:
+0 0 8px rgba(255,255,255,.4),
+0 0 25px rgba(120,180,255,.45);
+
+margin-bottom:20px;
+
 }
 
 .hero p{
+color:#F5F5DC;
 opacity:.9;
 font-size:18px;
 }
 
-/* STATS */
+/* ---------- BUTTONS ---------- */
+
+.hero-buttons{
+
+margin-top:12px;
+
+display:flex;
+justify-content:center;
+
+gap:14px;
+
+}
+.hero-btn{
+
+padding:9px 22px;
+
+border-radius:24px;
+
+font-size:15px;
+
+font-weight:600;
+
+text-decoration:none;
+
+color:#F5F5DC;
+
+background:rgba(120,180,255,.15);
+
+border:1px solid rgba(120,180,255,.45);
+
+transition:
+transform .25s ease,
+box-shadow .25s ease;
+
+}
+
+.hero-btn:hover{
+
+transform:translateY(-3px) scale(1.06);
+
+box-shadow:
+0 0 10px rgba(120,180,255,.8),
+0 0 25px rgba(120,180,255,.45),
+0 10px 18px rgba(0,0,0,.5);
+
+}
+
+/* keep button text ivory always */
+
+.hero-btn,
+.hero-btn:hover,
+.hero-btn:focus,
+.hero-btn:active{
+
+color:#F5F5DC !important;
+
+}
+/* ---------- STATS ---------- */
+
+.stats{
+display:flex;
+justify-content:center;
+gap:60px;
+margin-bottom:70px;
+}
+.stat h3{
+
+color:#F5F5DC;   /* ivory title */
+
+font-weight:600;
+
+letter-spacing:.5px;
+
+}
 
 .big-number{
-font-size:36px;
+
+font-size:34px;
+
+color:#7ec7ff;   /* same blue used across site */
+
 font-weight:700;
-color:#7ec7ff;
-margin-top:10px;
+
 }
 
-/* ICON BADGES */
+.stat{
+text-align:center;
+}
+
+.big-number{
+font-size:34px;
+color:#7ec7ff;
+font-weight:700;
+}
+
+/* ---------- TECH GRID ---------- */
+.tech-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:50px;
+
+text-align:center;
+
+margin-bottom:80px;
+
+}
+
+.tech-grid h3{
+color:#F5F5DC;
+}
+
+.section-divider{
+
+width:140px;
+height:2px;
+
+margin:8px auto 14px auto;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(120,180,255,.9),
+transparent
+);
+
+}
+
+@media (max-width:700px){
+
+#platforms{
+flex-wrap:wrap;
+}
+
+}
+
+/* PLATFORMS */
+
+#platforms{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:nowrap;
+
+gap:18px;
+
+}
+
+/* ---------- ICONS ---------- */
 
 .badges{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-justify-content:center;
-margin-top:10px;
-}
 
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:18px;
+
+}
 .badges img{
 
-width:36px;
-height:36px;
+width:54px;
+height:54px;
 
 background:white;
 
-border-radius:6px;
+border-radius:9px;
 
-padding:4px;
+padding:6px;
 
-box-shadow:
-0 0 6px rgba(120,180,255,.6);
-
-transition:transform .2s ease;
+object-fit:contain;
 
 }
 
-.badges img:hover{
-transform:scale(1.08);
-}
-
-/* LEADERSHIP */
+/* ---------- LEADERSHIP ---------- */
 
 .leadership-grid{
 
 display:flex;
 flex-wrap:wrap;
-gap:10px;
+gap:12px;
+
 margin-top:20px;
+
 justify-content:center;
 
 }
 
 .leader-chip{
 
-padding:8px 14px;
+padding:7px 14px;
 
-background:rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.14);
 
 border-radius:20px;
 
+border:1px solid rgba(140,200,255,.6);
+
+color:#F5F5DC;
+
 font-size:14px;
-
-backdrop-filter:blur(6px);
-
-border:1px solid rgba(120,180,255,.4);
 
 }
 
-/* GRID */
+.leadership-title{
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
+margin-top:45px;
+
+text-align:center;
+
+color:#F5F5DC;
+
 }
 
 </style>
@@ -114,76 +484,86 @@ gap:25px;
 <body>
 
 <nav class="top-nav">
-<a href="/">Home</a>
+
+<div class="nav-inner">
+
+<a href="/" class="active">Home</a>
 <a href="/projects/">Projects</a>
 <a href="/about/">About</a>
 <a href="/hobbies/">Hobbies</a>
 <a href="/favorite-games/">Favorite Games</a>
 <a href="/contact/">Contact</a>
-</nav>
 
-<!-- SAME BACKGROUND -->
+</div>
+
+</nav>
 
 <div class="page-bg"></div>
 <div class="page-overlay"></div>
 <div class="aurora-bg"></div>
 
 <div class="bg-particles">
+
 <span style="left:10%;animation-duration:30s;"></span>
 <span style="left:25%;animation-duration:36s;"></span>
 <span style="left:40%;animation-duration:28s;"></span>
 <span style="left:60%;animation-duration:34s;"></span>
 <span style="left:75%;animation-duration:32s;"></span>
 <span style="left:90%;animation-duration:38s;"></span>
+
 </div>
 
 <div class="cursor-glow"></div>
 
 <div class="container">
 
-<!-- HERO -->
-
 <div class="hero">
 
 <h1 id="hero-name"></h1>
+
 <p id="hero-tagline"></p>
 
+<div class="hero-buttons">
+
+<a href="/projects/" class="hero-btn">View Projects</a>
+
+<a href="../PrakashAngappan-Resume.pdf" class="hero-btn" download>
+Download Resume
+</a>
+
 </div>
 
-<!-- STATS -->
+</div>
 
-<div class="grid" id="stats"></div>
+<div class="stats" id="stats"></div>
 
-<!-- TECH STACK -->
+<div class="tech-grid">
 
-<div class="grid" style="margin-top:40px;">
-
-<div class="card">
-
+<div>
 <h3>Platforms</h3>
+<div class="section-divider"></div>
 <div class="badges" id="platforms"></div>
-
 </div>
 
-<div class="card">
-
+<div>
 <h3>Game Engines</h3>
+<div class="section-divider"></div>
 <div class="badges" id="engines"></div>
-
 </div>
 
-<div class="card">
-
+<div>
 <h3>Languages</h3>
+<div class="section-divider"></div>
 <div class="badges" id="languages"></div>
-
 </div>
 
 </div>
 
-<!-- LEADERSHIP -->
+<h2 class="leadership-title">
+Leadership & Production
+</h2>
 
-<h2 style="margin-top:70px;text-align:center;">Leadership & Production</h2>
+<div class="section-divider"></div>
 
 <div class="leadership-grid" id="leadership"></div>
 
@@ -191,68 +571,72 @@ gap:25px;
 
 <script>
 
+/* cursor glow */
+
+const cursor=document.querySelector(".cursor-glow")
+
+let mouseX=0
+let mouseY=0
+let posX=0
+let posY=0
+
+document.addEventListener("mousemove",e=>{
+mouseX=e.clientX
+mouseY=e.clientY
+})
+
+function animateCursor(){
+
+posX+=(mouseX-posX)*0.15
+posY+=(mouseY-posY)*0.15
+
+cursor.style.left=posX+"px"
+cursor.style.top=posY+"px"
+
+requestAnimationFrame(animateCursor)
+
+}
+
+animateCursor()
+
+/* load json */
+
 async function loadHome(){
 
-const res = await fetch("home.json?v=" + Date.now())
-const data = await res.json()
+const res=await fetch("home.json?v="+Date.now())
+const data=await res.json()
 
-/* HERO */
+document.getElementById("hero-name").innerText=data.hero.name
+document.getElementById("hero-tagline").innerText=data.hero.tagline
 
-document.getElementById("hero-name").innerText = data.hero.name
-document.getElementById("hero-tagline").innerText = data.hero.tagline
-
-/* STATS */
-
-const stats = document.getElementById("stats")
+const stats=document.getElementById("stats")
 
 data.stats.forEach(s=>{
-
-const card = document.createElement("div")
-card.className="card highlight"
-
-card.innerHTML=`
+stats.innerHTML+=`
+<div class="stat">
 <h3>${s.title}</h3>
 <div class="big-number">${s.value}</div>
-`
-
-stats.appendChild(card)
-
+</div>`
 })
 
-/* PLATFORMS */
-
-data.tech_stack.platforms.forEach(p=>{
-
-document.getElementById("platforms").innerHTML +=
-`<img src="${p.icon}?v=1" loading="lazy">`
-
+data.tech_stack.platforms.icons.forEach(p=>{
+document.getElementById("platforms").innerHTML+=
+`<img src="../${p.icon}?v=1">`
 })
 
-/* ENGINES */
-
-data.tech_stack.engines.forEach(e=>{
-
-document.getElementById("engines").innerHTML +=
-`<img src="${e.icon}?v=1" loading="lazy">`
-
+data.tech_stack.engines.icons.forEach(e=>{
+document.getElementById("engines").innerHTML+=
+`<img src="../${e.icon}?v=1">`
 })
 
-/* LANGUAGES */
-
-data.tech_stack.languages.forEach(l=>{
-
-document.getElementById("languages").innerHTML +=
-`<img src="${l.icon}?v=1" loading="lazy">`
-
+data.tech_stack.languages.icons.forEach(l=>{
+document.getElementById("languages").innerHTML+=
+`<img src="../${l.icon}?v=1">`
 })
-
-/* LEADERSHIP */
 
 data.leadership.forEach(skill=>{
-
-document.getElementById("leadership").innerHTML +=
+document.getElementById("leadership").innerHTML+=
 `<div class="leader-chip">${skill}</div>`
-
 })
 
 }

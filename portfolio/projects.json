@@ -1,0 +1,238 @@
+{
+  "work_experience": [
+    {
+      "company": "iXie Gaming by Indium",
+      "role": "Head of Engineering - Gaming",
+      "duration": "Jan 2025 - Present",
+      "projects": [
+        {
+          "title": "Hands of Victory",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "An online multiplayer card game ported from Web to PC.",
+          "tasks": [
+            "Managed a team of 5 developers.",
+            "Defined the technical architecture and Steam integration."
+          ],
+          "link": { "label": "Steam", "url": "#", "icon": "🎮" }
+        },
+        {
+          "title": "Railflow",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Strategy/Endless/Train controller for Android and iOS.",
+          "tasks": [
+            "Directed engineering execution and technical design for a team of 3 developers."
+          ],
+          "link": { "label": "PlayStore", "url": "#", "icon": "📱" }
+        },
+        {
+          "title": "Math Match",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "HTML5 Math Puzzle Game.",
+          "tasks": [
+            "Mentored a junior developer and developed the game from concept to release[cite: 79, 80]."
+          ],
+          "link": { "label": "iXieWebsite", "url": "#", "icon": "🌐" }
+        },
+        {
+          "title": "Pumpkin Head's Quest",
+          "engine": "Godot",
+          "icon": "images/icons/godot.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "HTML5 Puzzle/Side Scroller[cite: 82].",
+          "tasks": [
+            "Mentored a junior developer and delivered the game."
+          ],
+          "link": { "label": "iXieWebsite", "url": "#", "icon": "🌐" }
+        }
+      ]
+    },
+    {
+      "company": "VoidPeak Games",
+      "role": "Lead Programmer",
+      "duration": "Dec 2020 - Dec 2024",
+      "projects": [
+        {
+          "title": "Radiant Dark",
+          "engine": "Unreal 5.3",
+          "icon": "images/icons/unreal.png",
+          "video": "https://www.youtube.com/embed/watch?v=T7I799DRj2U&feature=youtu.be?autoplay=1&mute=1&rel=0",
+          "desc": "Action RPG Vertical Slice for PC.",
+          "tasks": [
+            "Led a team of 4 developers and defined the technical architecture.",
+            "Implemented VFX using Animation Notifies.",
+            "R&D: FCS (Flexible Combat System) plugin, Lyra Starter Game, and Gameplay Ability System."
+          ],
+          "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
+        },
+        {
+          "title": "The Last Bastion",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Strategy/RogueLite. Gem Award Winner 'Best Hardcore Game - 2022' & IGDC Nominee.",
+          "tasks": [
+            "Directed a team of 2 developers.",
+            "Implemented Enemy AI and FTUE systems."
+          ],
+          "link": { "label": "Steam", "url": "#", "icon": "🎮" }
+        }
+      ]
+    },
+    {
+      "company": "Tentworks Interactive",
+      "role": "Lead Game Developer",
+      "duration": "Jan 2019 - Nov 2020",
+      "projects": [
+        {
+          "title": "City Block Builder",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Tycoon style city building game for PC.",
+          "tasks": [
+            "Led a team of 4 developers and defined the technical architecture.",
+            "Implemented crowd and worker AI using Playmaker and Behavior Trees."
+          ],
+          "link": { "label": "Steam", "url": "#", "icon": "🎮" }
+        }
+      ]
+    },
+    {
+      "company": "Learning Yogi",
+      "role": "Senior Game Developer",
+      "duration": "May 2018 - Oct 2018",
+      "projects": [
+        {
+          "title": "AtlasMission",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Bundle of mini games for Android and iOS.",
+          "tasks": [
+            "Improved application architecture and workflow efficiency.",
+            "Developed mini-games including Catch the Pet and Pet Room."
+          ],
+          "link": { "label": "PlayStore", "url": "#", "icon": "📱" }
+        }
+      ]
+    },
+    {
+      "company": "Aavega Interactive",
+      "role": "Lead Game Developer",
+      "duration": "Oct 2014 - Jan 2018",
+      "projects": [
+        {
+          "title": "Jolly Rogers Pirates Rumble",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "4 players couch co-op game for PC.",
+          "tasks": [
+            "Defined technical design and implemented collectibles and map obstacles.",
+            "Developed game modes including Capture the Flag and Team Deathmatch."
+          ],
+          "link": { "label": "Steam", "url": "#", "icon": "🎮" }
+        },
+        {
+          "title": "Captain Kosmo",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Endless runner for Android and iOS.",
+          "tasks": [
+            "Implemented Boss AI, collectibles, obstacles, and UI systems."
+          ],
+          "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
+        },
+        {
+          "title": "Spell Easy",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Word puzzle game for kids on Android and iOS.",
+          "tasks": [
+            "Implemented UI and integrated game audio."
+          ],
+          "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
+        }
+      ]
+    },
+    {
+      "company": "Dhruva Interactive",
+      "role": "Game Programmer",
+      "duration": "Apr 2013 - Aug 2014",
+      "projects": [
+        {
+          "title": "Captain Sharky",
+          "engine": "Unity",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Bundle of mini games for Android and iOS.",
+          "tasks": [
+            "Developed a platform-style side-scrolling mini-game.",
+            "Implemented a generic profile system shared across all mini-games."
+          ],
+          "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
+        }
+      ]
+    },
+    {
+      "company": "Gameshastra Solutions",
+      "role": "Group Lead",
+      "duration": "Apr 2007 - Sept 2012",
+      "projects": [
+        {
+          "title": "Kite fight",
+          "engine": "Phyre Engine",
+          "icon": "images/icons/engine.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Kite flying and fighting game for PS3 Move.",
+          "tasks": [
+            "Implemented balloon popping mechanics and UI."
+          ],
+          "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
+        },
+        {
+          "title": "Cart Kings",
+          "engine": "Vicious Cycle Engine",
+          "icon": "images/icons/vicious.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Bullock cart racing game for PS2 and PSP.",
+          "tasks": [
+            "Implemented gameplay power-ups."
+          ],
+          "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
+        },
+        {
+          "title": "Desi Adda",
+          "engine": "Vicious Cycle Engine",
+          "icon": "images/icons/vicious.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Bundle of mini games for PS2.",
+          "tasks": [
+            "Developed a button-matching dance mini-game.",
+            "Integrated all mini-games into a single game package."
+          ],
+          "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
+        },
+        {
+          "title": "EtchASketch",
+          "engine": "BlitzMax",
+          "icon": "images/icons/blitzmax.png",
+          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "desc": "Casual Action/Adventure for PC.",
+          "tasks": [
+            "Implemented collectibles and contributed to level design."
+          ],
+          "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "actions": [
+    { "label": "Download Resume", "link": "PrakashAngappan-Resume.pdf", "icon": "images/icons/resume.png", "type": "download" },
+    { "label": "LinkedIn", "link": "https://linkedin.com/in/prakash-angappan", "icon": "images/icons/linkedin.png", "type": "link" },
+    { "label": "aprakash.mca@gmail.com", "link": "mailto:aprakash.mca@gmail.com", "icon": "images/icons/email.png", "type": "contact" },
+    { "label": "+91-9900370190", "link": "tel:+919900370190", "icon": "images/icons/phone.png", "type": "contact" }
+  ],
+  "contact": {
+    "intro": "Feel free to reach out for collaborations or just a friendly chat.",
+    "location": "Bangalore, India",
+    "phone": "+91-9900370190",
+    "email": "aprakash.mca@gmail.com",
+    "linkedin": "https://linkedin.com/in/prakash-angappan",
+    "resume": "PrakashAngappan-Resume.pdf"
+  }
+}

@@ -1,0 +1,500 @@
+:root {
+    --bg-color: #0F172A;
+    --card-bg: rgba(31, 58, 95, 0.45);
+    --accent: #2ECC71;
+    --text: #FFFFFF;
+    --muted: #A8B3CF;
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Base Atmospheric Layer */
+.main-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(46,204,113,.15), transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(80,120,255,.15), transparent 50%),
+        #0F172A;
+    z-index: -1;
+}
+
+/* Glassmorphism Reusable Class */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+}
+
+/* Navigation */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 30px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    color: var(--text);
+    text-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+/* Layout Constraints */
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 30px;
+}
+
+/* Typography & Colors */
+h1 { font-size: 2.8rem; margin-bottom: 5px; }
+h2 { font-size: 1.8rem; font-weight: normal; margin-top: 0; }
+.accent { color: var(--accent); }
+.accent-title { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+.muted-text { color: var(--muted); font-size: 1.1rem; }
+
+/* Hero Section */
+.hero {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.profile-img {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 30px rgba(46,204,113,0.15);
+    object-fit: cover; /* Ensures the image fills the circle without stretching */
+    flex-shrink: 0;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Pop-up titles for Stats */
+.stat {
+    position: relative;
+    padding: 25px 20px 15px 20px;
+    margin-top: 15px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.stat .dialog-title-box {
+    top: -14px;
+    left: 10px;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+}
+
+/* Action Row Layout */
+.action-row {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Tight gap for a compact feel */
+    margin-top: 25px;
+    flex-wrap: wrap; /* Essential for mobile */
+}
+
+/* Base styles for both buttons and contact tags */
+.btn-action, .contact-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Button specific styling */
+.btn-action {
+    background: rgba(46, 204, 113, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--text);
+    text-decoration: none;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px var(--accent);
+}
+
+/* Contact tag specific styling */
+.contact-item {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    cursor: text;
+    user-select: all; /* Allows clicking once to select email/phone */
+}
+
+/* Sizing the icons within the buttons and contact tags */
+.action-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px; /* Prevents the icon from collapsing */
+    margin-right: 10px;
+    object-fit: contain;
+    display: inline-block; /* Helps with vertical alignment */
+    filter: brightness(0) invert(1); 
+}
+
+/* Ensure the parent containers align the icon and text vertically */
+.btn-action, .contact-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    /* ... keep your other existing styles ... */
+}
+
+/* Skills Grid (Home) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.skill-box {
+    padding: 20px;
+}
+
+.skill-box h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.skill-box ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+/* Section Dividers inside pages */
+.section-divider {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+}
+
+.section-divider h3 {
+    margin: 0;
+    color: var(--accent);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+/* Projects Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    overflow: hidden;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content ul {
+    padding-left: 20px;
+}
+
+.card-content li {
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-card {
+    padding: 40px;
+    text-align: center;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    background: var(--accent);
+    color: #062013;
+    box-shadow: 0 0 20px rgba(46,204,113,0.4);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   Loading Overlay
+   ========================================= */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: opacity 0.5s ease; /* Smooth fade-out effect */
+}
+
+/* Add a subtle pulse animation to the text */
+.loading-overlay .accent {
+    margin-right: 10px;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { text-shadow: 0 0 5px var(--accent); opacity: 0.8; }
+    to { text-shadow: 0 0 20px var(--accent); opacity: 1; }
+}
+
+
+/* =========================================
+   Tech Stack & Dialog Box Styles
+   ========================================= */
+
+/* The Glass Card housing the tech items */
+/* Update the tech-card to be compact */
+.tech-card {
+    position: relative;
+    padding: 35px 20px 20px 20px;
+    margin-top: 15px;
+    height: fit-content; /* Force the box to shrink to its content [cite: 72] */
+    align-self: start;   /* Prevents the card from stretching to match its neighbor's height */
+}
+
+/* Ensure the tech-grid doesn't force equal heights */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: start; /* This is the key to removing extra space below shorter cards */
+}
+
+/* Tighten the spacing inside the icon grid */
+.tech-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start; /* Keeps icons packed together */
+}
+
+/* The "Dialog Pop-Up" Title Box */
+.dialog-title-box {
+    position: absolute;
+    top: -16px;
+    left: 20px;
+    background: var(--bg-color);
+    border: 1px solid var(--accent);
+    color: var(--text);
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(46, 204, 113, 0.1);
+}
+
+/* Individual Icon Badge (Icon top, Name bottom) */
+/* Individual Icon Badge - Grid approach for guaranteed centering */
+.tech-badge {
+    display: grid;
+    grid-template-columns: 1fr; /* One single column */
+    justify-items: center;      /* Centers everything in the column horizontally */
+    align-content: center;      /* Centers the content vertically within the badge */
+    gap: 10px;                  /* Consistent space between icon and text */
+    
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 6px;
+    min-width: 100px;           /* Slightly wider to prevent text crampedness */
+    height: auto;
+}
+
+.tech-badge img {
+    /* 1. Set the fixed dimensions for the white box */
+    width: 60px;  
+    height: 60px;
+    
+    /* 2. Style the white box */
+    background-color: #ffffff;
+    border-radius: 8px;
+    
+    /* 3. MAXIMIZE: Reduce padding to let the icon grow */
+    padding: 2px; 
+    
+    /* 4. ENSURE FIT: Contain prevents stretching while using max space */
+    object-fit: contain;
+    
+    /* 5. FIX ALIGNMENT: Block prevents inline-text spacing issues */
+    display: block;
+    margin: 0 auto;
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.tech-badge span {
+    display: block;
+    text-align: center;         /* Centers the text characters */
+    width: 100%;                /* Occupies the full width of the badge */
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;                  /* Removes any default browser margins */
+}
+
+/* =========================================
+   Leadership & Production Data Strips
+   ========================================= */
+/* Optimized Leadership & Production Strips */
+.skill-strip-grid {
+    display: flex;         /* Changed from grid to flex */
+    flex-wrap: wrap;       /* Allows items to wrap to the next line */
+    gap: 8px;              /* Tightened gap */
+    margin-top: 15px;
+}
+
+.skill-strip {
+    background: rgba(15, 23, 42, 0.6); 
+    border-left: 3px solid var(--accent); 
+    padding: 6px 12px;     /* More compact padding */
+    border-radius: 0 6px 6px 0; 
+    font-size: 0.9rem;     /* Slightly smaller for compactness */
+    color: #FFFFFF; 
+    font-weight: 300; 
+    display: inline-flex;  /* Ensures box fits text size */
+    align-items: center;
+    line-height: 1.2; 
+    width: fit-content;    /* Key property: Box only as wide as text */
+}
+
+/* Ensure the outer card doesn't have unnecessary padding */
+.tech-card {
+    padding: 30px 15px 15px 15px;
+    height: auto;
+}
+
+/* =========================================
+   Mobile & Tablet Responsiveness & Optimization
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* Navigation: Stack links and optimize tap targets */
+    .top-nav {
+        padding: 15px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        width: 100%; /* Full width makes it easy to tap with a thumb */
+        margin: 0;
+        padding: 12px;
+    }
+
+    /* Reduce the scale effect on mobile to prevent horizontal overflow */
+    .nav-btn:hover, .nav-btn.active {
+        transform: scale(1.02); 
+    }
+
+    /* Hero: Stack image and text */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    /* Stats: Wrap neatly */
+    .stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Typography: Scale down for small screens */
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.3rem; }
+    .section-divider h3 { font-size: 1.2rem; }
+
+    /* Layout Spacing: Tighter margins for mobile */
+    .container { margin: 30px auto; }
+    .section-divider { margin-top: 35px; }
+
+    /* Grids: Force single column on small phones */
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}

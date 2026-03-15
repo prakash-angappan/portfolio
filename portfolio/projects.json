@@ -190,7 +190,7 @@
         {
           "title": "Kite fight",
           "engine": "Phyre Engine",
-          "icon": "images/icons/engine.png",
+          "icon": "images/icons/phyre.png",
           "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
           "desc": "Kite flying and fighting game for PS3 Move.",
           "tasks": [

@@ -1,67 +1,48 @@
 {
-  "hero": {
+"hero": {
     "name": "Prakash Angappan",
-    "tagline": "Engineering Leader, Game Development"
+    "title": "Engineering Manager | Game Development",
+    "summary": "Engineering leader with 17+ years of experience delivering commercial games across PC, console, mobile, and web platforms.",
+    "profile_img": "images/profile.jpg",
+    "stats": [
+      { "label": "Years Experience", "value": "17+" },
+      { "label": "Shipped Titles", "value": "15+" }
+    ]
   },
-
-  "stats": [
-    {
-      "title": "Experience",
-      "value": "17+ Years"
-    },
-    {
-      "title": "Shipped Titles",
-      "value": "15+"
-    }
-  ],
-
   "tech_stack": {
-
-    "platforms": {
-      "label": "Console • PC • Mobile",
-      "icons": [
-        { "icon": "images/icons/windows.png" },
-        { "icon": "images/icons/ps2.png" },
-        { "icon": "images/icons/psp.png" },
-        { "icon": "images/icons/ps3move.png" },
-        { "icon": "images/icons/android.png" },
-        { "icon": "images/icons/ios.png" }
-      ]
-    },
-
     "engines": {
-      "label": "Modern Game Engines",
-      "icons": [
-        { "icon": "images/icons/unreal.png" },
-        { "icon": "images/icons/unity.png" },
-        { "icon": "images/icons/godot.png" },
-        { "icon": "images/icons/phyre-engine.png" }
+      "title": "Game Engines",
+      "items": [
+        { "name": "Unreal", "icon": "images/icons/unreal.png" },
+        { "name": "Unity", "icon": "images/icons/unity.png" },
+        { "name": "Godot", "icon": "images/icons/godot.png" },
+        { "name": "Phyre Engine", "icon": "images/icons/phyre.png" },
+        { "name": "Vicious Cycle", "icon": "images/icons/vicious.png" },
+        { "name": "BlitzMax", "icon": "images/icons/blitzmax.png" },
+        { "name": "Torque", "icon": "images/icons/torque.png" }
       ]
     },
-
-    "languages": {
-      "label": "Core Programming Languages",
-      "icons": [
-        { "icon": "images/icons/c.png" },
-        { "icon": "images/icons/cpp.png" },
-        { "icon": "images/icons/csharp.png" }
+    "platforms": {
+      "title": "Platforms",
+      "items": [
+        { "name": "Windows", "icon": "images/icons/windows.png" },
+        { "name": "PS2", "icon": "images/icons/ps2.png" },
+        { "name": "PSP", "icon": "images/icons/psp.png" },
+        { "name": "PS3 Move", "icon": "images/icons/ps3move.png" },
+        { "name": "Android", "icon": "images/icons/android.png" },
+        { "name": "iOS", "icon": "images/icons/ios.png" },
+        { "name": "Web", "icon": "images/icons/web.png" }
       ]
     }
-
   },
-
-  "leadership": [
-    "Project Management",
-    "Technical Direction",
-    "Engineering Leadership",
-    "Hiring Game Developers",
-    "Building & Scaling Teams",
-    "Mentoring & Training Developers",
-    "Production Planning",
-    "Agile / Scrum Development",
-    "Client Interaction",
-    "Stakeholder Communication",
-    "Business Discussions",
-    "Cross-discipline Collaboration"
+  "management": [
+    {
+      "category": "Engineering Leadership",
+      "items": ["Team Building", "Technical Direction", "Mentoring and Training", "High Quality Standards", "Ownership Culture"]
+    },
+    {
+      "category": "Production & Management",
+      "items": ["Agile/Scrum", "Strategic Planning", "Client Success", "Full-Lifecycle Delivery", "Delivery Accountability"]
+    }
   ]
 }

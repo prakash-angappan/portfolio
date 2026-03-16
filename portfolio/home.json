@@ -13,25 +13,25 @@
     "engines": {
       "title": "Game Engines",
       "items": [
-        { "name": "Unreal", "icon": "images/icons/unreal.png" },
-        { "name": "Unity", "icon": "images/icons/unity.png" },
-        { "name": "Godot", "icon": "images/icons/godot.png" },
-        { "name": "Phyre", "icon": "images/icons/phyre.png" },
-        { "name": "Vicious", "icon": "images/icons/vicious.png" },
-        { "name": "BlitzMax", "icon": "images/icons/blitzmax.png" },
-        { "name": "Torque", "icon": "images/icons/torque.png" }
+        { "name": "Unreal", "icon": "images/icons/gameengines/unreal.png" },
+        { "name": "Unity", "icon": "images/icons/gameengines/unity.png" },
+        { "name": "Godot", "icon": "images/icons/gameengines/godot.png" },
+        { "name": "Phyre", "icon": "images/icons/gameengines/phyre.png" },
+        { "name": "Vicious", "icon": "images/icons/gameengines/vicious.png" },
+        { "name": "BlitzMax", "icon": "images/icons/gameengines/blitzmax.png" },
+        { "name": "Torque", "icon": "images/icons/gameengines/torque.png" }
       ]
     },
     "platforms": {
       "title": "Platforms",
       "items": [
-        { "name": "Windows", "icon": "images/icons/windows.png" },
-        { "name": "PS2", "icon": "images/icons/ps2.png" },
-        { "name": "PSP", "icon": "images/icons/psp.png" },
-        { "name": "PS3 Move", "icon": "images/icons/ps3move.png" },
-        { "name": "Android", "icon": "images/icons/android.png" },
-        { "name": "iOS", "icon": "images/icons/ios.png" },
-        { "name": "Web", "icon": "images/icons/web.png" }
+        { "name": "Windows", "icon": "images/icons/platforms/windows.png" },
+        { "name": "PS2", "icon": "images/icons/platforms/ps2.png" },
+        { "name": "PSP", "icon": "images/icons/platforms/psp.png" },
+        { "name": "PS3 Move", "icon": "images/icons/platforms/ps3move.png" },
+        { "name": "Android", "icon": "images/icons/platforms/android.png" },
+        { "name": "iOS", "icon": "images/icons/platforms/ios.png" },
+        { "name": "Web", "icon": "images/icons/platforms/web.png" }
       ]
     }
   },
@@ -45,19 +45,19 @@
   {
     "category": "Leadership & Strategy",
     "items": [
-      { "name": "Team Leadership & Hiring", "icon": "images/icons/teamleadership-hiring.png" },
-      { "name": "Strategic Planning & Roadmapping", "icon": "images/icons/strategic-planning-roadmapping.png" },
-      { "name": "Project Lifecycle Management", "icon": "images/icons/project-lifecycle-management.png" },
-      { "name": "Stakeholder Management", "icon": "images/icons/stakeholder-management.png" }
+      { "name": "Team Leadership & Hiring", "icon": "images/icons/leadership&production/teamleadership-hiring.png" },
+      { "name": "Strategic Planning & Roadmapping", "icon": "images/icons/leadership&production/strategic-planning-roadmapping.png" },
+      { "name": "Project Lifecycle Management", "icon": "images/icons/leadership&production/project-lifecycle-management.png" },
+      { "name": "Stakeholder Management", "icon": "images/icons/leadership&production/stakeholder-management.png" }
     ]
   },
   {
     "category": "Production & Operations",
     "items": [
-      { "name": "Agile (Scrum) Methodologies", "icon": "images/icons/agile-scrum.png" },
-      { "name": "P&L, Budgeting & Cost Control", "icon": "images/icons/budgetting.png" },
-      { "name": "Risk Mitigation & Management", "icon": "images/icons/risk-mitigation.png" },
-      { "name": "Vendor & Outsourcing Management", "icon": "images/icons/outsourcing.png" }
+      { "name": "Agile (Scrum) Methodologies", "icon": "images/icons/leadership&production/agile-scrum.png" },
+      { "name": "P&L, Budgeting & Cost Control", "icon": "images/icons/leadership&production/budgetting.png" },
+      { "name": "Risk Mitigation & Management", "icon": "images/icons/leadership&production/risk-mitigation.png" },
+      { "name": "Vendor & Outsourcing Management", "icon": "images/icons/leadership&production/outsourcing.png" }
     ]
   }
 ]

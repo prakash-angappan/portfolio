@@ -9,10 +9,10 @@
           "title": "BharatRun",
           "engine": "Unity 6",
           "platforms": [
-            { "name": "Android", "icon": "images/icons/android.png" },
-            { "name": "iOS", "icon": "images/icons/ios.png" }
+            { "name": "Android", "icon": "images/icons/platforms/android.png" },
+            { "name": "iOS", "icon": "images/icons/platforms/ios.png" }
           ],
-          "icon": "images/icons/unity.png",
+          "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/bharatrun-banner.png",
           "desc": "An ambitious endless runner demo leveraging Unity 6 to push mobile performance boundaries.",
           "tasks": [
@@ -24,8 +24,8 @@
         {
           "title": "Hands of Victory",
           "engine": "Unity",
-          "platforms": [{ "name": "PC", "icon": "images/icons/windows.png" }],
-          "icon": "images/icons/unity.png",
+          "platforms": [{ "name": "PC", "icon": "images/icons/platforms/windows.png" }],
+          "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/hands-of-victory-banner.png",
           "desc": "A sophisticated online multiplayer card game successfully ported from Web to PC.",
           "tasks": [
@@ -39,10 +39,10 @@
           "title": "Railflow",
           "engine": "Unity",
           "platforms": [
-            { "name": "Android", "icon": "images/icons/android.png" },
-            { "name": "iOS", "icon": "images/icons/ios.png" }
+            { "name": "Android", "icon": "images/icons/platforms/android.png" },
+            { "name": "iOS", "icon": "images/icons/platforms/ios.png" }
           ],
-          "icon": "images/icons/unity.png",
+          "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/railflow-banner.png",
           "desc": "A complex strategy and simulation title centered on endless train management.",
           "tasks": [
@@ -55,8 +55,8 @@
         {
           "title": "Math Match",
           "engine": "Unity",
-          "platforms": [{ "name": "HTML5", "icon": "images/icons/web.png" }],
-          "icon": "images/icons/unity.png",
+          "platforms": [{ "name": "HTML5", "icon": "images/icons/platforms/web.png" }],
+          "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/math-match-banner.png",
           "desc": "A polished educational puzzle game designed for rapid browser-based play.",
           "tasks": [
@@ -69,8 +69,8 @@
         {
           "title": "Pumpkin Head's Quest",
           "engine": "Godot",
-          "platforms": [{ "name": "HTML5", "icon": "images/icons/web.png" }],
-          "icon": "images/icons/godot.png",
+          "platforms": [{ "name": "HTML5", "icon": "images/icons/platforms/web.png" }],
+          "icon": "images/icons/gameengines/godot.png",
           "image": "images/games/halloween-banner.png",
           "desc": "An atmospheric puzzle side-scroller built on the lightweight Godot Engine.",
           "tasks": [
@@ -90,8 +90,8 @@
         {
           "title": "Radiant Dark",
           "engine": "Unreal 5.3",
-          "platforms": [{ "name": "PC", "icon": "images/icons/steam.png" }],
-          "icon": "images/icons/unreal.png",
+          "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
+          "icon": "images/icons/gameengines/unreal.png",
           "video": "https://www.youtube.com/embed/T7I799DRj2U",
           "desc": "A high-fidelity Action RPG vertical slice pushing the limits of Unreal Engine 5.",
           "tasks": [
@@ -104,8 +104,8 @@
         {
           "title": "The Last Bastion",
           "engine": "Unity",
-          "platforms": [{ "name": "PC", "icon": "images/icons/steam.png" }],
-          "icon": "images/icons/unity.png",
+          "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
+          "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/last-bastion-banner.png",
           "desc": "An award-winning Strategy-RogueLite title recognized for its deep gameplay systems.",
           "tasks": [
@@ -125,8 +125,8 @@
       {
           "title": "City Block Builder",
           "engine": "Unity",
-          "platforms": [{ "name": "PC", "icon": "images/icons/steam.png" }],
-          "icon": "images/icons/unity.png",
+          "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
+          "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/city-block-builder-banner.png",
           "desc": "A deeply systemic Tycoon-style city builder featuring complex simulation.",
           "tasks": [
@@ -147,10 +147,10 @@
           "title": "Atlas Mission",
           "engine": "Unity",
           "platforms": [
-            { "name": "Android", "icon": "images/icons/android.png" },
-            { "name": "iOS", "icon": "images/icons/ios.png" }
+            { "name": "Android", "icon": "images/icons/platforms/android.png" },
+            { "name": "iOS", "icon": "images/icons/platforms/ios.png" }
           ],
-          "icon": "images/icons/unity.png",
+          "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/atlas-mission-banner.png",
           "desc": "A diverse bundle of educational mini-games designed for mobile learning.",
           "tasks": [
@@ -170,8 +170,8 @@
         {
           "title": "Jolly Rogers Pirates Rumble",
           "engine": "Unity",
-          "platforms": [{ "name": "PC", "icon": "images/icons/steam.png" }],
-          "icon": "images/icons/unity.png",
+          "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
+          "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/jolly-rogers-pirates-rumble-banner.png",
           "desc": "A fast-paced 4-player couch co-op brawler with multiple competitive modes.",
           "tasks": [
@@ -185,10 +185,10 @@
           "title": "Captain Kosmo",
           "engine": "Unity",
           "platforms": [
-            { "name": "Android", "icon": "images/icons/android.png" },
-            { "name": "iOS", "icon": "images/icons/ios.png" }
+            { "name": "Android", "icon": "images/icons/platforms/android.png" },
+            { "name": "iOS", "icon": "images/icons/platforms/ios.png" }
           ],
-          "icon": "images/icons/unity.png",
+          "icon": "images/icons/gameengines/unity.png",
           "video": "https://www.youtube.com/embed/X9LGO1iva4Q",
           "desc": "A visually vibrant endless runner featuring challenging tactical boss fights.",
           "tasks": [
@@ -201,8 +201,8 @@
         {
           "title": "Jallikattu Run 2",
           "engine": "Unity",
-          "platforms": [{ "name": "Android", "icon": "images/icons/android.png" }],
-          "icon": "images/icons/unity.png",
+          "platforms": [{ "name": "Android", "icon": "images/icons/platforms/android.png" }],
+          "icon": "images/icons/gameengines/unity.png",
           "video": "https://www.youtube.com/embed/-TrewU1Ns6E",
           "desc": "A culturally-themed endless runner developed for mobile devices.",
           "tasks": [
@@ -215,10 +215,10 @@
           "title": "Spell Easy",
           "engine": "Unity",
           "platforms": [
-            { "name": "Android", "icon": "images/icons/android.png" },
-            { "name": "iOS", "icon": "images/icons/ios.png" }
+            { "name": "Android", "icon": "images/icons/platforms/android.png" },
+            { "name": "iOS", "icon": "images/icons/platforms/ios.png" }
           ],
-          "icon": "images/icons/unity.png",
+          "icon": "images/icons/gameengines/unity.png",
           "video": "https://www.youtube.com/embed/-gS9FBzB1mE",
           "desc": "An engaging word puzzle game tailored for early childhood education.",
           "tasks": [
@@ -238,10 +238,10 @@
           "title": "Captain Sharky",
           "engine": "Unity",
           "platforms": [
-            { "name": "Android", "icon": "images/icons/android.png" },
-            { "name": "iOS", "icon": "images/icons/ios.png" }
+            { "name": "Android", "icon": "images/icons/platforms/android.png" },
+            { "name": "iOS", "icon": "images/icons/platforms/ios.png" }
           ],
-          "icon": "images/icons/unity.png",
+          "icon": "images/icons/gameengines/unity.png",
           "video": "https://www.youtube.com/embed/lq0rvx0aEFE",
           "desc": "A diverse mobile mini-game bundle based on a popular IP.",
           "tasks": [
@@ -261,8 +261,8 @@
         {
           "title": "Kite Fight",
           "engine": "Phyre Engine",
-          "platforms": [{ "name": "PS3 Move", "icon": "images/icons/ps3move.png" }],
-          "icon": "images/icons/phyre.png",
+          "platforms": [{ "name": "PS3 Move", "icon": "images/icons/platforms/ps3move.png" }],
+          "icon": "images/icons/gameengines/phyre.png",
           "video": "https://www.youtube.com/embed/KbZFrEOE95w",
           "desc": "An innovative PS3 Move motion-controlled kite combat experience.",
           "tasks": [
@@ -276,10 +276,10 @@
           "title": "Cart Kings",
           "engine": "Vicious Cycle Engine",
           "platforms": [
-            { "name": "PS2", "icon": "images/icons/ps2.png" },
-            { "name": "PSP", "icon": "images/icons/psp.png" }
+            { "name": "PS2", "icon": "images/icons/platforms/ps2.png" },
+            { "name": "PSP", "icon": "images/icons/platforms/psp.png" }
           ],
-          "icon": "images/icons/vicious.png",
+          "icon": "images/icons/gameengines/vicious.png",
           "video": "https://www.youtube.com/embed/T93d5E7Yhyo",
           "desc": "A unique cultural racing game featuring traditional bullock cart competition.",
           "tasks": [
@@ -292,8 +292,8 @@
         {
           "title": "Desi Adda",
           "engine": "Vicious Cycle Engine",
-          "platforms": [{ "name": "PS2", "icon": "images/icons/ps2.png" }],
-          "icon": "images/icons/vicious.png",
+          "platforms": [{ "name": "PS2", "icon": "images/icons/platforms/ps2.png" }],
+          "icon": "images/icons/gameengines/vicious.png",
           "video": "https://www.youtube.com/embed/UOg4AEiJsHs",
           "desc": "A cultural-centric bundle of Indian mini-games, awarded for excellence.",
           "tasks": [
@@ -306,8 +306,8 @@
         {
           "title": "EtchASketch",
           "engine": "BlitzMax",
-          "platforms": [{ "name": "PC", "icon": "images/icons/windows.png" }],
-          "icon": "images/icons/blitzmax.png",
+          "platforms": [{ "name": "PC", "icon": "images/icons/platforms/windows.png" }],
+          "icon": "images/icons/gameengines/blitzmax.png",
           "video": "https://www.youtube.com/embed/34qZm_12Bnc",
           "desc": "A nostalgic casual Action/Adventure title developed for PC.",
           "tasks": [

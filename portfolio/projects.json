@@ -309,7 +309,7 @@
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         },
         {
-          "title": "EtchASketch",
+          "title": "Etch A Sketch",
           "engine": "BlitzMax",
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/windows.png" }],
           "icon": "images/icons/gameengines/blitzmax.png",

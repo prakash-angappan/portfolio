@@ -1,86 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prakash Angappan | Engineering Manager | Game Development</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="loading-overlay" class="loading-overlay">
-        <span class="accent">⬢</span> Loading Systems...
+      <span class="accent">⬢</span> Loading Systems...
     </div>
-   
+
     <div class="main-bg"></div>
-	<nav class="top-nav">
-        <div class="nav-links">
-            <button onclick="showPage('home')" class="nav-btn active" id="btn-home">Home</button>
-            <button onclick="showPage('projects')" class="nav-btn" id="btn-projects">Projects</button>
-            <button onclick="showPage('contact')" class="nav-btn" id="btn-contact">Contact</button>
-        </div>
+
+    <nav class="top-nav">
+      <div class="nav-links">
+        <button onclick="showPage('home')" class="nav-btn active" id="btn-home">
+          Home
+        </button>
+        <button
+          onclick="showPage('projects')"
+          class="nav-btn"
+          id="btn-projects"
+        >
+          Projects
+      </div>
     </nav>
 
-<div class="container">
-        
-        <section id="home" class="page-section">
-            <div class="hero">
-                <img id="hero-img" class="profile-img" src="" alt="Profile Picture">
-                
-                <div class="hero-text">
-                    <h1 id="hero-name"></h1>
-                    <h2 id="hero-title"></h2>
-                    <p id="hero-summary" class="muted-text"></p>
-                    
-                    <div id="hero-stats" class="stats">
-                    </div>
-                    <div id="action-row" class="action-row">
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+      <section id="home" class="page-section">
+        <div class="hero" style="gap: 30px">
+          <img
+            id="hero-img"
+            class="profile-img"
+            src=""
+            alt="Profile Picture"
+            style="width: 180px; height: 180px"
+          />
+          <div class="hero-text">
+            <h1 id="hero-name" style="font-size: 2.2rem"></h1>
+            <h2 id="hero-title" style="font-size: 1.3rem"></h2>
+            <p
+              id="hero-summary"
+              class="muted-text"
+              style="font-size: 0.95rem; margin-bottom: 15px"
+            ></p>
+            <div id="hero-stats" class="stats"></div>
+            <div
+              id="action-row"
+              class="action-row"
+              style="margin-top: 15px"
+            ></div>
+          </div>
+        </div>
 
-		<div class="section-divider">
-                <h2>Tech Stack</h2>
-            </div>
-            
-            <div id="tech-grid" class="grid tech-grid">
-                </div>
+        <div class="section-divider" style="margin-top: 25px">
+          <h2>Technical Expertise</h2>
+        </div>
+        <div id="tech-grid" class="grid tech-grid" style="gap: 20px"></div>
 
-            <div class="section-divider">
-                <h2>Leadership & Production</h2>
-            </div>
-            
-            <div id="management-grid" class="skills-grid">
-            </div>
-        </section>
+        <div class="section-divider" style="margin-top: 25px">
+          <h2>Featured Projects</h2>
+        </div>
+        <div id="featured-grid" class="featured-grid"></div>
 
-        <section id="projects" class="page-section" style="display: none;">
-            <h2>Career Highlights & Featured Projects</h2>
-            <div id="timeline-container" class="timeline">
-            </div>
-        </section>
+        <div class="section-divider" style="margin-top: 25px">
+          <h2>Leadership & Production</h2>
+        </div>
+        <div id="management-grid" class="skills-grid"></div>
+      </section>
 
-        <section id="contact" class="page-section" style="display: none;">
-            <h2>Let's build something great.</h2>
-            <div class="glass-card contact-card">
-                <p id="contact-intro" class="muted-text"></p>
-                
-                <div class="contact-details muted-text" style="margin: 20px 0;">
-                    <p><strong>Location:</strong> <span id="contact-location"></span></p>
-                    <p><strong>Phone:</strong> <span id="contact-phone"></span></p>
-                </div>
+      <section id="projects" class="page-section" style="display: none">
+        <div class="section-divider">
+          <h2>Shipped Titles</h2>
+        </div>
+        <div id="timeline-container"></div>
+      </section>
 
-                <div class="contact-links">
-                    <a id="btn-email" href="" class="action-btn">Email Me</a>
-                    <a id="btn-linkedin" href="" class="action-btn" target="_blank">LinkedIn</a>
-                    <a id="btn-resume" href="" class="action-btn" download>Download Resume</a>
-                </div>
-            </div>
-        </section>
+      <section id="contact" class="page-section" style="display: none">
+        <div class="section-divider">
+          <h2>Let's build something great.</h2>
+        </div>
+        <div class="glass-card contact-card">
+          <p id="contact-intro" class="muted-text"></p>
 
+          <div class="contact-details muted-text" style="margin: 20px 0">
+            <p>
+              <strong>Location:</strong> <span id="contact-location"></span>
+            </p>
+            <p><strong>Phone:</strong> <span id="contact-phone"></span></p>
+          </div>
+
+          <div class="contact-links">
+            <a id="btn-email" href="" class="action-btn">Email Me</a>
+            <a id="btn-linkedin" href="" class="action-btn" target="_blank"
+              >LinkedIn</a
+            >
+            <a id="btn-resume" href="" class="action-btn" download
+              >Download Resume</a
+            >
+          </div>
+        </div>
+      </section>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

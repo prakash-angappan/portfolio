@@ -1,5 +1,5 @@
 {
-"hero": {
+  "hero": {
     "name": "Prakash Angappan",
     "title": "Engineering Manager | Game Development",
     "summary": "Engineering leader with 17+ years of experience delivering commercial games across PC, console, mobile, and web platforms.",
@@ -35,6 +35,12 @@
       ]
     }
   },
+  "featured_projects": [
+    { "title": "Radiant Dark", "image": "images/games/radiant-dark-banner.png" },
+    { "title": "Jolly Rogers Pirates Rumble", "image": "images/games/jolly-rogers-pirates-rumble-banner.png" },
+    { "title": "Captain Kosmo", "image": "images/games/captain-kosmo-banner.png" },
+    { "title": "Cart Kings", "image": "images/games/cart-kings-banner.png" }
+  ],
   "management": [
     {
       "category": "Engineering Leadership",

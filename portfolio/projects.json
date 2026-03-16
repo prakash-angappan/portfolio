@@ -15,10 +15,10 @@
           "team_size": "Led Team of 3",
           "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/bharatrun-banner.png",
-          "desc": "An endless runner demo built with Unity 6, focused on maximizing mobile performance..",
+          "desc": "An endless runner demo built with Unity 6, focused on maximizing mobile performance.",
           "tasks": [
             "Designed the core technical architecture for the vertical slice, ensuring scalability for future content additions.",
-            "Led the engineering team to deliver a production-ready build within a tight 3-months timeline.",
+            "Led the engineering team to deliver a production-ready build within a tight three-month timeline.",
             "Established a culture of technical ownership and rapid prototyping for new gameplay mechanics."
           ]
         },
@@ -29,10 +29,10 @@
           "team_size": "Led Team of 5",
           "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/hands-of-victory-banner.png",
-          "desc": "An online multiplayer card game ported from Web to PC",
+          "desc": "An online multiplayer card game ported from Web to PC.",
           "tasks": [
             "Architected the technical migration strategy for a seamless Web-to-PC transition.",
-            "Handled Steam integration and released the demo."
+            "Handled Steam integration and released a demo on the Steam platform."
           ],
           "link": { "label": "Steam", "url": "https://store.steampowered.com/app/2265080/Hands_of_Victory/", "icon": "🎮" }
         },
@@ -71,9 +71,9 @@
           "platforms": [{ "name": "HTML5", "icon": "images/icons/platforms/web.png" }],
           "icon": "images/icons/gameengines/godot.png",
           "image": "images/games/halloween-banner.png",
-          "desc": "Navigate intricate levels, avoid deadly foes, and collect the keys to progress. A classic 2D puzzle experience built for casual play",
+          "desc": "A classic 2D puzzle experience built for casual play where you navigate intricate levels, avoid deadly foes, and collect keys to progress.",
           "tasks": [
-            "Oversaw development and mentored junior developer.",
+            "Oversaw development and mentored a junior developer.",
             "Ensured smooth gameplay and a high-quality experience."
           ],
           "link": { "label": "iXieSite", "url": "https://play.ixiegaming.com/halloween/", "icon": "🌐" }
@@ -94,7 +94,7 @@
           "video": "https://www.youtube.com/embed/T7I799DRj2U",
           "desc": "A combat-focused action RPG set in Indian mythology. Play as the last hero fighting to win back the world from Asuras, featuring high-end graphics and massive battles with 100+ enemies.",
           "tasks": [
-            "Contributed to the game design and level design",
+            "Contributed to the game design and level design.",
             "Architected the technical foundation for a complex combat-focused RPG.",
             "Spearheaded R&D into the Gameplay Ability System (GAS) and Lyra framework integration."
           ],
@@ -109,7 +109,7 @@
           "image": "images/games/last-bastion-banner.png",
           "desc": "An award-winning 2D turn-based roguelite where you fight unique enemies to reclaim a lost kingdom. Features deep strategy mechanics and a heavy, story-driven narrative.",
           "tasks": [
-            "Took over a project delayed by over a year. Led a team of three to fast-track development and release the game on Steam.",
+            "Led a team to fast-track development and release the game on Steam after taking over a project delayed by over a year.",
             "Developed complex Enemy AI using Behavior Trees for dynamic tactical encounters."
           ],
           "link": { "label": "Steam", "url": "https://store.steampowered.com/app/1520880/The_Last_Bastion/", "icon": "🎮" }
@@ -130,7 +130,7 @@
           "image": "images/games/city-block-builder-banner.png",
           "desc": "A tycoon-style city builder where you manage businesses like cinemas, bars, and restaurants. Hire staff to run your shops and serve AI citizens with unique traits and interests. Features deep strategic mechanics and a complex social simulation.",
           "tasks": [
-            "Architected technical systems to manage massive crowd and worker simulation.",
+            "Architected technical systems to manage massive crowd and worker simulations.",
             "Integrated Playmaker and Behavior Trees to drive realistic NPC behaviors.",
             "Defined the project's scalable technical architecture for future expansions."
           ],
@@ -152,7 +152,7 @@
           ],
           "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/atlas-mission-banner.png",
-          "desc": "An education platform where kids learn math, science, and English through growing collection of fun mini-games.",
+          "desc": "An education platform where kids learn math, science, and English through a growing collection of fun mini-games.",
           "tasks": [
             "Improved the overall workflow of the application.",
             "Developed two mini-games: 'Catch the Pet' and 'Pet Room'."
@@ -172,7 +172,7 @@
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
           "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/jolly-rogers-pirates-rumble-banner.png",
-          "desc": "A 4-player couch co-op game with unique characters and skills. Play together on one system across different modes like Last Man Standing, Capture the Flag, Football, and a beer-drinking competition.",
+          "desc": "A four-player couch co-op game with unique characters and skills. Play together on one system across different modes like Last Man Standing, Capture the Flag, Football, and a beer-drinking competition.",
           "tasks": [
             "Contributed to the game design and technical design.",
             "Developed competitive modes like Capture the Flag and Team Deathmatch.",
@@ -218,7 +218,7 @@
           ],
           "icon": "images/icons/gameengines/unity.png",
           "video": "https://www.youtube.com/embed/-gS9FBzB1mE",
-          "desc": "A 2D word puzzle game for kids with engaging visuals and mechanics designed to keep young learners motivated",
+          "desc": "A 2D word puzzle game for kids with engaging visuals and mechanics designed to keep young learners motivated.",
           "tasks": [
             "Architected the UI system and integrated game audio.",
             "Ensured smooth cross-platform deployment on both Android and iOS."
@@ -241,7 +241,7 @@
           ],
           "icon": "images/icons/gameengines/unity.png",
           "video": "https://www.youtube.com/embed/lq0rvx0aEFE",
-          "desc": "A collection of mini-games featuring the well-known sailor Captain Sharky. Explore his world and complete different challenges on this adventure-based platform",
+          "desc": "A collection of mini-games featuring the well-known sailor Captain Sharky. Explore his world and complete different challenges on this adventure-based platform.",
           "tasks": [
             "Architected a generic profile system shared across the entire application suite.",
             "Developed platforming mechanics for a side-scrolling mini-game."
@@ -261,10 +261,10 @@
           "platforms": [{ "name": "PS3 Move", "icon": "images/icons/platforms/ps3move.png" }],
           "icon": "images/icons/gameengines/phyre.png",
           "video": "https://www.youtube.com/embed/KbZFrEOE95w",
-          "desc": "A realistic kite-fighting game featuring physics-based controls. Master the art of kite flying in single-player mode or challenge another player in competitive combat",
+          "desc": "A realistic kite-fighting game featuring physics-based controls. Master the art of kite flying in single-player mode or challenge another player in competitive combat.",
           "tasks": [
-            "Implemented interactive UI.",
-            "Developed balloon popping logic."
+            "Implemented an interactive UI.",
+            "Developed balloon-popping logic."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         },
@@ -277,10 +277,10 @@
           ],
           "icon": "images/icons/gameengines/vicious.png",
           "video": "https://www.youtube.com/embed/T93d5E7Yhyo",
-          "desc": "A unique bullock cart racing game featuring famous Indian cartoon characters like Suppandi. Compete against AI, dodge obstacles, and use fun power-ups to defeat your opponents.",
+          "desc": "A unique bullock cart racing game featuring famous Indian cartoon characters like Suppandi. Compete, dodge obstacles, and use fun power-ups to defeat your opponents.",
           "tasks": [
             "Contributed to the game design, level design, and technical design.",
-            "Implemented power ups in the game."
+            "Implemented power-ups in the game."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         },
@@ -293,7 +293,7 @@
           "desc": "A story-driven platform featuring a bundle of traditional Indian games, including Kabaddi, Dandiya, and Gilli Dhanda.",
           "tasks": [
             "Developed the rhythm-based dance mini-game logic.",
-            "Integration of all mini-games into a single release package.",
+            "Integrated all mini-games into a single release package.",
             "Received the 'Best Performer Award' for contributions."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
@@ -304,7 +304,7 @@
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/windows.png" }],
           "icon": "images/icons/gameengines/blitzmax.png",
           "video": "https://www.youtube.com/embed/34qZm_12Bnc",
-          "desc": "A nostalgic puzzle-platformer based on 'Etch A Sketch' mechanics. Follow the story of a knob searching for his kidnapped partner through challenging levels and unique environments",
+          "desc": "A nostalgic puzzle-platformer based on Etch A Sketch mechanics. Follow the story of a knob searching for his kidnapped partner through challenging levels and unique environments.",
           "tasks": [
             "Implemented collectible systems and contributed to the level design."
           ],

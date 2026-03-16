@@ -500,10 +500,10 @@ position: absolute;
 
 /* 4. icon and text adjustments */
 .mgmt-badge-icon {
-    width: 32px !important; 
-    height: 32px !important;
-    margin-bottom: 0 !important; /* removes the old bottom spacing */
-    flex-shrink: 0; /* stops the icon from squishing if the text is long */
+    width: 42px !important;  /* Change this number to make the icon wider */
+    height: 42px !important; /* Change this number to make the icon taller */
+    margin-bottom: 0 !important; 
+    flex-shrink: 0; 
 }
 
 .mgmt-text-label {
@@ -601,3 +601,34 @@ position: absolute;
 
 @keyframes pulse { from { text-shadow: 0 0 5px var(--accent); opacity: 0.8; } to { text-shadow: 0 0 20px var(--accent); opacity: 1; } }
 .loading-overlay .accent { animation: pulse 1s infinite alternate; }
+
+/* --- Mobile Layout Fixes for Hero Section --- */
+@media (max-width: 900px) {
+    /* Stack the text and image, and center the text */
+    .hero {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    /* Force the text container to center its contents */
+    .hero-text {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    /* Make the action buttons wrap to a new line instead of overflowing */
+    #action-row {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    /* Shrink the profile picture to fit the mobile screen */
+    #hero-img {
+        width: 180px !important;
+        height: 180px !important;
+        margin-top: 30px !important;
+    }
+}

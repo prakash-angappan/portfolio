@@ -260,12 +260,25 @@ body {
 /* Base State for the Media Wrapper (Fix Overflow and Alignment) */
 .project-media-wrapper { 
     width: 100% !important;
-    height: 100% !important; /* Lets the image fill the empty space below it */
+    height: 100% !important; 
     position: relative;
     overflow: hidden; 
     border-radius: 6px; 
     box-shadow: 0 2px 10px rgba(0,0,0,0.5); 
-    background: #000;
+    background: #0F172A; /* Dark base color */
+}
+
+/* --- THE CINEMATIC FADE EFFECT --- */
+.project-media-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%; /* Creates a smooth gradient over the bottom area */
+    background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 42, 1) 90%);
+    z-index: 20; /* Sits above the image but below the buttons */
+    pointer-events: none; /* Ensures hover buttons still click */
 }
 
 /* --- Internal Scale-up on Hover --- */
@@ -280,17 +293,16 @@ body {
     transform: scale(1);
     filter: brightness(0.8);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     z-index: 10;
 }
 
-.image-media-container { background: #0F172A; }
+.image-media-container { background: transparent; }
 
 .media-banner { 
     width: 100% !important; 
     height: 100% !important; 
     object-fit: cover !important; 
-    object-position: center !important; 
+    object-position: top center !important; /* Locks the image to the top */
     display: block; 
 }
 

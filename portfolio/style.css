@@ -260,7 +260,8 @@ body {
 /* Base State for the Media Wrapper (Fix Overflow and Alignment) */
 .project-media-wrapper { 
     width: 100% !important;
-    height: 240px !important; /* Strict height applied here */
+    height: auto !important; 
+    aspect-ratio: 16 / 9 !important; /* Perfect widescreen box for everything */
     position: relative;
     overflow: hidden; 
     border-radius: 6px; 
@@ -273,7 +274,8 @@ body {
 .image-media-container { 
     width: 100% !important; 
     height: 100% !important; 
-    position: relative; 
+    position: absolute; /* Changed to stick to the edges */
+    top: 0; left: 0;
     overflow: hidden; 
     border-radius: 6px; 
     transform: scale(1);

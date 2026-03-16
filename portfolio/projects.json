@@ -6,49 +6,74 @@
       "duration": "Jan 2025 - Present",
       "projects": [
         {
+          "title": "BharatRun",
+          "engine": "Unity 6",
+          "platform": "Android & iOS",
+          "icon": "images/icons/unity.png",
+          "image": "images/games/bharatrun-banner.png",
+          "desc": "An ambitious endless runner demo leveraging Unity 6 to push mobile performance boundaries [cite: 28-29].",
+          "tasks": [
+            "Spearheaded technical design and systems architecture for a high-performance vertical slice[cite: 32].",
+            "Directed a multi-disciplinary engineering team to ensure production-readiness[cite: 21, 27].",
+            "Established a culture of technical ownership and rapid prototyping for new gameplay mechanics[cite: 30]."
+          ],
+          "link": { "label": "Demo", "url": "#", "icon": "📱" }
+        },
+        {
           "title": "Hands of Victory",
           "engine": "Unity",
+          "platform": "PC",
           "icon": "images/icons/unity.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "An online multiplayer card game ported from Web to PC.",
+          "image": "images/games/hands-of-victory-banner.png",
+          "desc": "A sophisticated online multiplayer card game successfully ported from Web to PC[cite: 43].",
           "tasks": [
-            "Managed a team of 5 developers.",
-            "Defined the technical architecture and Steam integration."
+            "Architected the technical migration strategy for a seamless Web-to-PC transition[cite: 43].",
+            "Managed a team of 5 developers, overseeing the full Steam API integration and backend connectivity[cite: 44].",
+            "Refined the game's core architecture to support expanded PC-specific features and performance[cite: 44]."
           ],
-          "link": { "label": "Steam", "url": "#", "icon": "🎮" }
+          "link": { "label": "Steam", "url": "https://store.steampowered.com/app/2265080/Hands_of_Victory/", "icon": "🎮" }
         },
         {
           "title": "Railflow",
           "engine": "Unity",
+          "platform": "Android & iOS",
           "icon": "images/icons/unity.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Strategy/Endless/Train controller for Android and iOS.",
+          "image": "images/games/railflow-banner.png",
+          "desc": "A complex strategy and simulation title centered on endless train management[cite: 46].",
           "tasks": [
-            "Directed engineering execution and technical design for a team of 3 developers."
+            "Directed engineering execution, ensuring the technical design met rigorous mobile standards[cite: 47].",
+            "Optimized gameplay loop and train-controller logic for smooth performance on mobile hardware[cite: 47, 61].",
+            "Mentored team members in scalable system design and efficient C# coding practices[cite: 26, 65]."
           ],
-          "link": { "label": "PlayStore", "url": "#", "icon": "📱" }
+          "link": { "label": "PlayStore", "url": "https://play.google.com/store/apps/details?id=com.railflow.cargotransport", "icon": "📱" }
         },
         {
           "title": "Math Match",
           "engine": "Unity",
+          "platform": "HTML5",
           "icon": "images/icons/unity.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "HTML5 Math Puzzle Game.",
+          "image": "images/games/math-match-banner.png",
+          "desc": "A polished educational puzzle game designed for rapid browser-based play[cite: 66].",
           "tasks": [
-            "Mentored a junior developer and developed the game from concept to release[cite: 79, 80]."
+            "Guided the end-to-end development cycle from initial concept to commercial release[cite: 67].",
+            "Mentored a junior programmer, focusing on puzzle logic architecture and clean UI implementation[cite: 14, 67].",
+            "Delivered a highly optimized HTML5 experience with cross-browser compatibility[cite: 53, 66]."
           ],
-          "link": { "label": "iXieWebsite", "url": "#", "icon": "🌐" }
+          "link": { "label": "iXieSite", "url": "https://play.ixiegaming.com/mathmatch/", "icon": "🌐" }
         },
         {
           "title": "Pumpkin Head's Quest",
           "engine": "Godot",
+          "platform": "HTML5",
           "icon": "images/icons/godot.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "HTML5 Puzzle/Side Scroller[cite: 82].",
+          "image": "images/games/halloween-banner.png",
+          "desc": "An atmospheric puzzle side-scroller built on the lightweight Godot Engine[cite: 41, 69].",
           "tasks": [
-            "Mentored a junior developer and delivered the game."
+            "Oversaw development and mentored junior staff in Godot's node-based architecture[cite: 26, 70].",
+            "Implemented responsive platforming physics and optimized assets for web deployment[cite: 61, 69].",
+            "Ensured a high-quality user experience within strict web-performance constraints[cite: 61, 70]."
           ],
-          "link": { "label": "iXieWebsite", "url": "#", "icon": "🌐" }
+          "link": { "label": "iXieSite", "url": "https://play.ixiegaming.com/halloween/", "icon": "🌐" }
         }
       ]
     },
@@ -60,25 +85,28 @@
         {
           "title": "Radiant Dark",
           "engine": "Unreal 5.3",
+          "platform": "PC",
           "icon": "images/icons/unreal.png",
-          "video": "https://www.youtube.com/embed/watch?v=T7I799DRj2U&feature=youtu.be?autoplay=1&mute=1&rel=0",
-          "desc": "Action RPG Vertical Slice for PC.",
+          "video": "https://www.youtube.com/embed/T7I799DRj2U",
+          "desc": "A high-fidelity Action RPG vertical slice pushing the limits of Unreal Engine 5[cite: 74].",
           "tasks": [
-            "Led a team of 4 developers and defined the technical architecture.",
-            "Implemented VFX using Animation Notifies.",
-            "R&D: FCS (Flexible Combat System) plugin, Lyra Starter Game, and Gameplay Ability System."
+            "Architected the technical foundation for a complex combat-focused RPG[cite: 75].",
+            "Spearheaded R&D into the Gameplay Ability System (GAS) and Lyra framework integration[cite: 77].",
+            "Engineered advanced VFX systems triggered by precise Animation Notifies for immersive combat[cite: 76]."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         },
         {
           "title": "The Last Bastion",
           "engine": "Unity",
+          "platform": "PC",
           "icon": "images/icons/unity.png",
           "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Strategy/RogueLite. Gem Award Winner 'Best Hardcore Game - 2022' & IGDC Nominee.",
+          "desc": "An award-winning Strategy-RogueLite title recognized for its deep gameplay systems[cite: 79].",
           "tasks": [
-            "Directed a team of 2 developers.",
-            "Implemented Enemy AI and FTUE systems."
+            "Led a dedicated team through the full development cycle to win 'Best Hardcore Game'[cite: 80, 81].",
+            "Developed complex Enemy AI using Behavior Trees for dynamic tactical encounters[cite: 59, 80].",
+            "Designed and implemented the critical First-Time User Experience (FTUE) systems[cite: 80]."
           ],
           "link": { "label": "Steam", "url": "#", "icon": "🎮" }
         }
@@ -92,12 +120,14 @@
         {
           "title": "City Block Builder",
           "engine": "Unity",
+          "platform": "PC",
           "icon": "images/icons/unity.png",
           "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Tycoon style city building game for PC.",
+          "desc": "A deeply systemic Tycoon-style city builder featuring complex simulation [cite: 86-87].",
           "tasks": [
-            "Led a team of 4 developers and defined the technical architecture.",
-            "Implemented crowd and worker AI using Playmaker and Behavior Trees."
+            "Architected technical systems to manage massive crowd and worker simulation[cite: 88].",
+            "Integrated Playmaker and Behavior Trees to drive realistic NPC behaviors [cite: 89-90].",
+            "Defined the project's scalable technical architecture for future expansions[cite: 88]."
           ],
           "link": { "label": "Steam", "url": "#", "icon": "🎮" }
         }
@@ -109,14 +139,16 @@
       "duration": "May 2018 - Oct 2018",
       "projects": [
         {
-          "title": "AtlasMission",
+          "title": "Atlas Mission",
           "engine": "Unity",
+          "platform": "Android & iOS",
           "icon": "images/icons/unity.png",
           "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Bundle of mini games for Android and iOS.",
+          "desc": "A diverse bundle of educational mini-games designed for mobile learning [cite: 95-96].",
           "tasks": [
-            "Improved application architecture and workflow efficiency.",
-            "Developed mini-games including Catch the Pet and Pet Room."
+            "Modernized the application architecture to significantly increase workflow efficiency[cite: 97].",
+            "Engineered several key mini-games, including core mechanics for 'Catch the Pet' and 'Pet Room' [cite: 98-99].",
+            "Optimized asset pipelines for cross-platform mobile delivery[cite: 61, 97]."
           ],
           "link": { "label": "PlayStore", "url": "#", "icon": "📱" }
         }
@@ -130,34 +162,54 @@
         {
           "title": "Jolly Rogers Pirates Rumble",
           "engine": "Unity",
+          "platform": "PC",
           "icon": "images/icons/unity.png",
           "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "4 players couch co-op game for PC.",
+          "desc": "A fast-paced 4-player couch co-op brawler with multiple competitive modes [cite: 118-119].",
           "tasks": [
-            "Defined technical design and implemented collectibles and map obstacles.",
-            "Developed game modes including Capture the Flag and Team Deathmatch."
+            "Led the technical design for core competitive modes like Capture the Flag and Team Deathmatch[cite: 120].",
+            "Implemented interactive map obstacles and complex collectible systems[cite: 120].",
+            "Managed the technical pipeline for multi-input local cooperative play[cite: 120]."
           ],
           "link": { "label": "Steam", "url": "#", "icon": "🎮" }
         },
         {
           "title": "Captain Kosmo",
           "engine": "Unity",
+          "platform": "Android & iOS",
           "icon": "images/icons/unity.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Endless runner for Android and iOS.",
+          "video": "https://www.youtube.com/embed/X9LGO1iva4Q",
+          "desc": "A visually vibrant endless runner featuring challenging tactical boss fights[cite: 124].",
           "tasks": [
-            "Implemented Boss AI, collectibles, obstacles, and UI systems."
+            "Engineered complex Boss AI and procedural obstacle systems[cite: 125].",
+            "Architected robust UI and reward systems for long-term player engagement [cite: 125-126].",
+            "Balanced mobile performance with high-quality visual effects[cite: 61, 125]."
+          ],
+          "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
+        },
+        {
+          "title": "Jallikattu Run 2",
+          "engine": "Unity",
+          "platform": "Android",
+          "icon": "images/icons/unity.png",
+          "video": "https://www.youtube.com/embed/-TrewU1Ns6E",
+          "desc": "A culturally-themed endless runner developed for mobile devices[cite: 122].",
+          "tasks": [
+            "Designed and implemented the comprehensive in-game shop and monetization system[cite: 123].",
+            "Optimized gameplay performance for a wide range of Android hardware[cite: 61]."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         },
         {
           "title": "Spell Easy",
           "engine": "Unity",
+          "platform": "Android & iOS",
           "icon": "images/icons/unity.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Word puzzle game for kids on Android and iOS.",
+          "video": "https://www.youtube.com/embed/-gS9FBzB1mE",
+          "desc": "An engaging word puzzle game tailored for early childhood education[cite: 128].",
           "tasks": [
-            "Implemented UI and integrated game audio."
+            "Architected the dynamic UI and integrated high-fidelity game audio[cite: 129].",
+            "Ensured smooth cross-platform deployment on both Android and iOS[cite: 52, 128]."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         }
@@ -171,12 +223,14 @@
         {
           "title": "Captain Sharky",
           "engine": "Unity",
+          "platform": "Android & iOS",
           "icon": "images/icons/unity.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Bundle of mini games for Android and iOS.",
+          "video": "https://www.youtube.com/embed/lq0rvx0aEFE",
+          "desc": "A diverse mobile mini-game bundle based on a popular IP[cite: 135].",
           "tasks": [
-            "Developed a platform-style side-scrolling mini-game.",
-            "Implemented a generic profile system shared across all mini-games."
+            "Architected a generic profile system shared across the entire application suite[cite: 136].",
+            "Developed core platforming mechanics for side-scrolling mini-games[cite: 136].",
+            "Integrated social and progression features into the unified mobile package[cite: 136]."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         }
@@ -188,47 +242,57 @@
       "duration": "Apr 2007 - Sept 2012",
       "projects": [
         {
-          "title": "Kite fight",
+          "title": "Kite Fight",
           "engine": "Phyre Engine",
+          "platform": "PS3 Move",
           "icon": "images/icons/phyre.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Kite flying and fighting game for PS3 Move.",
+          "video": "https://www.youtube.com/embed/KbZFrEOE95w",
+          "desc": "An innovative PS3 Move motion-controlled kite combat experience[cite: 145].",
           "tasks": [
-            "Implemented balloon popping mechanics and UI."
+            "Implemented core motion-based gameplay mechanics and interactive UI[cite: 146].",
+            "Engineered physics-driven balloon popping and combat-kite logic[cite: 146].",
+            "Leveraged the Sony Phyre engine for high-performance console delivery[cite: 36, 145]."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         },
         {
           "title": "Cart Kings",
           "engine": "Vicious Cycle Engine",
+          "platform": "PS2 & PSP",
           "icon": "images/icons/vicious.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Bullock cart racing game for PS2 and PSP.",
+          "video": "https://www.youtube.com/embed/T93d5E7Yhyo",
+          "desc": "A unique cultural racing game featuring traditional bullock cart competition[cite: 163].",
           "tasks": [
-            "Implemented gameplay power-ups."
+            "Engineered racing power-up systems and vehicle handling physics[cite: 164].",
+            "Optimized gameplay for simultaneous release on PS2 and PSP platforms[cite: 51, 163].",
+            "Collaborated on technical design to maintain consistent racing feel across devices[cite: 163]."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         },
         {
           "title": "Desi Adda",
           "engine": "Vicious Cycle Engine",
+          "platform": "PS2",
           "icon": "images/icons/vicious.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Bundle of mini games for PS2.",
+          "video": "https://www.youtube.com/embed/UOg4AEiJsHs",
+          "desc": "A cultural-centric bundle of Indian mini-games, awarded for excellence[cite: 166].",
           "tasks": [
-            "Developed a button-matching dance mini-game.",
-            "Integrated all mini-games into a single game package."
+            "Developed the rhythm-based dance mini-game logic[cite: 167].",
+            "Spearheaded the integration of all mini-games into a single release package[cite: 167].",
+            "Received the 'Best Performer Award' for contributions to this milestone title[cite: 17]."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         },
         {
           "title": "EtchASketch",
           "engine": "BlitzMax",
+          "platform": "PC",
           "icon": "images/icons/blitzmax.png",
-          "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-          "desc": "Casual Action/Adventure for PC.",
+          "video": "https://www.youtube.com/embed/34qZm_12Bnc",
+          "desc": "A nostalgic casual Action/Adventure title developed for PC[cite: 168].",
           "tasks": [
-            "Implemented collectibles and contributed to level design."
+            "Engineered collectible systems and contributed significantly to level design[cite: 169].",
+            "Optimized asset management within the BlitzMax framework[cite: 39, 168]."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         }

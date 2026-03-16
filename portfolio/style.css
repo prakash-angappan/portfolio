@@ -438,7 +438,6 @@ h2 { font-size: 1.8rem; font-weight: normal; margin-top: 0; }
     padding: 30px 15px 15px 15px;
     height: auto;
 }
-
 /* =========================================
    Mobile & Tablet Responsiveness & Optimization
    ========================================= */
@@ -457,44 +456,117 @@ h2 { font-size: 1.8rem; font-weight: normal; margin-top: 0; }
     }
 
     .nav-btn {
-        width: 100%; /* Full width makes it easy to tap with a thumb */
+        width: 100%;
         margin: 0;
         padding: 12px;
     }
 
-    /* Reduce the scale effect on mobile to prevent horizontal overflow */
     .nav-btn:hover, .nav-btn.active {
         transform: scale(1.02); 
     }
 
-    /* Hero: Stack image and text */
     .hero {
         flex-direction: column;
         text-align: center;
         gap: 25px;
     }
 
-    /* Stats: Wrap neatly */
     .stats {
         justify-content: center;
         flex-wrap: wrap;
     }
 
-    /* Typography: Scale down for small screens */
     h1 { font-size: 2.2rem; }
     h2 { font-size: 1.3rem; }
     .section-divider h3 { font-size: 1.2rem; }
 
-    /* Layout Spacing: Tighter margins for mobile */
     .container { margin: 30px auto; }
     .section-divider { margin-top: 35px; }
 
-    /* Grids: Force single column on small phones */
-    .grid {
-        grid-template-columns: 1fr;
+    .grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+} /* <-- THIS BRACE CLOSES THE MOBILE SECTION */
+
+/* =========================================
+   Banner Hover Animations & Glow Effect (Desktop & Mobile)
+   ========================================= */
+
+/* 1. Scale up and glow the entire box */
+    .image-media-container:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 25px rgba(46, 204, 113, 0.4); 
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
+    /* 2. Dim the background image */
+    .image-media-container:hover .media-banner {
+        transform: scale(1.05);
     }
-}
+
+    /* 3. Fade in the dark overlay */
+    .image-media-container:hover .media-overlay {
+        opacity: 1 !important;
+    }
+
+    /* 4. Spring the button up into view */
+    .image-media-container:hover .hover-action-btn {
+        transform: translateY(0) !important;
+    }
+
+    /* 5. Button hover highlight (Glow and Scale ONLY, no fill color change) */
+    .hover-action-btn:hover {
+        box-shadow: 0 0 20px rgba(46, 204, 113, 0.8) !important;
+        transform: scale(1.05) !important;
+    }
+    
+    .project-info ul {
+        list-style: none;
+    }
+
+    .project-info li {
+        position: relative;
+        margin-bottom: 8px;
+    }
+
+    .project-info li::before {
+        content: "■";
+        color: var(--accent);
+        position: absolute;
+        left: -18px;
+        font-size: 0.7rem;
+        top: 2px;
+    }
+    
+    /* --- Global Media Hover (Works for both Image and Video containers) --- */
+
+    .video-media-container, .image-media-container {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Glow and Scale for Video Box */
+    .video-media-container:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 25px rgba(46, 204, 113, 0.4); /* Green accent glow */
+    }
+
+    /* Glow and Scale for Image Box */
+    .image-media-container:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 25px rgba(46, 204, 113, 0.4);
+    }
+
+    .image-media-container:hover .media-banner {
+        transform: scale(1.05);
+    }
+
+    .image-media-container:hover .media-overlay {
+        opacity: 1 !important;
+    }
+
+    .image-media-container:hover .hover-action-btn {
+        transform: scale(1) !important;
+    }
+
+    .hover-action-btn:hover {
+        box-shadow: 0 0 20px rgba(46, 204, 113, 0.8) !important;
+        transform: scale(1.05) !important;
+    }

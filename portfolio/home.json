@@ -42,13 +42,23 @@
     { "title": "Cart Kings", "image": "images/games/cart-kings-banner.png" }
   ],
   "management": [
-    {
-      "category": "Engineering Leadership",
-      "items": ["Team Building", "Technical Direction", "Mentoring and Training", "High Quality Standards", "Ownership Culture"]
-    },
-    {
-      "category": "Production & Management",
-      "items": ["Agile/Scrum", "Strategic Planning", "Client Success", "Full-Lifecycle Delivery", "Delivery Accountability"]
-    }
-  ]
+  {
+    "category": "Leadership & Strategy",
+    "items": [
+      { "name": "Team Leadership & Hiring", "icon": "images/icons/teamleadership-hiring.png" },
+      { "name": "Strategic Planning & Roadmapping", "icon": "images/icons/strategic-planning-roadmapping.png" },
+      { "name": "Project Lifecycle Management", "icon": "images/icons/project-lifecycle-management.png" },
+      { "name": "Stakeholder Management", "icon": "images/icons/stakeholder-management.png" }
+    ]
+  },
+  {
+    "category": "Production & Operations",
+    "items": [
+      { "name": "Agile (Scrum) Methodologies", "icon": "images/icons/agile-scrum.png" },
+      { "name": "P&L, Budgeting & Cost Control", "icon": "images/icons/budgetting.png" },
+      { "name": "Risk Mitigation & Management", "icon": "images/icons/risk-mitigation.png" },
+      { "name": "Vendor & Outsourcing Management", "icon": "images/icons/outsourcing.png" }
+    ]
+  }
+]
 }

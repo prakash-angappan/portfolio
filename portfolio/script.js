@@ -78,12 +78,25 @@ function loadHomeData() {
                 </div>
             </div>`).join('');
 
-        mgmtContainer.innerHTML = homeData.management.map(block => {
-            let stripsHtml = block.items.map(item => `<div class="skill-strip">${item}</div>`).join('');
+        // Replace lines 114-122 in script.js (inside loadHomeData()):
+/* In your script.js file, inside loadHomeData() */
+
+        // 1. Management Grids (Updated to load icons from JSON)
+        const managementData = homeData.management || [];
+        mgmtContainer.innerHTML = managementData.map(block => {
+            
+            // 2. Map items to high-density badges with custom icons
+            const managementGridHtml = block.items.map(item => `
+                <div class="glass-card mgmt-badge">
+                    <img src="${item.icon}" alt="${item.name}" class="mgmt-badge-icon">
+                    <span class="mgmt-text-label">${item.name}</span>
+                </div>`).join('');
+
+            // 3. Return the standard dialog-box container
             return `
-                <div class="glass-card tech-card">
+                <div class="glass-card tech-card management-block">
                     <div class="dialog-title-box">${block.category}</div>
-                    <div class="skill-strip-grid">${stripsHtml}</div>
+                    <div class="management-items-grid">${managementGridHtml}</div>
                 </div>`;
         }).join('');
 
@@ -150,11 +163,11 @@ function loadProjectsData() {
             }).join('');
             
             timelineContainer.innerHTML += `
-    <div class="company-block">
-        <h2>${job.company}</h2>
-        <div class="project-role-text">${job.role} | ${job.duration}</div>
-        ${projectsHtml}
-    </div>`;
+            <div class="company-block">
+                <h2>${job.company}</h2>
+                <div class="project-role-text">${job.role} | ${job.duration}</div>
+                ${projectsHtml}
+            </div>`;
         });
         isProjectsLoaded = true;
         hideLoader();

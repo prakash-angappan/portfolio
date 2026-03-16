@@ -135,6 +135,7 @@ body {
     justify-content: center;
     overflow: visible;
 }
+
 .stat-number {
     font-size: 2rem; 
     font-weight: 900;
@@ -145,12 +146,13 @@ body {
     letter-spacing: -2px;
 }
 
+/* Ensure the title box stays absolute at the top */
 .dialog-title-box {
-    position: absolute;
+position: absolute;
     top: -18px; 
     left: 50%;
     transform: translateX(-50%);
-    z-index: 50;
+    z-index: 50;/* Perfectly centered horizontally */
     background: #111d33;
     border: 1px solid var(--accent);
     padding: 2px 12px;
@@ -471,6 +473,72 @@ body {
     text-shadow: 0 0 8px var(--accent);
 }
 
+/* --- Stay-Transparent Colored Icons Fix --- */
+.management-block {
+    grid-column: span 2; /* Full width */
+}
+
+.management-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+    gap: 15px; 
+    justify-items: center;
+    margin-top: 10px;
+}
+
+/* Lighter Glass Background for Colored Icons */
+.mgmt-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Lighter, translucent background to pop colored icons */
+    background: rgba(31, 58, 95, 0.45); 
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    max-width: 130px; 
+    min-height: 100px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.mgmt-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(46, 204, 113, 0.3);
+    border-color: var(--accent);
+}
+
+/* Specific styling for the colored management icons */
+.mgmt-badge-icon {
+    width: 48px;  /* Optimal size for the compact badge */
+    height: 48px;
+    margin-bottom: 8px;
+    object-fit: contain;
+    
+    /* CRITICAL: Removed the brightness/invert filter that forced icons white */
+    filter: none !important; 
+    transition: filter 0.3s ease;
+}
+
+/* Hover: Slight brightness boost to colored icons */
+.mgmt-badge:hover .mgmt-badge-icon {
+    filter: brightness(1.1) !important;
+}
+
+.mgmt-text-label {
+    font-size: 0.8rem;
+    color: #FFFFFF; /* Brighter white for high contrast */
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    flex: 1;
+    display: flex;
+    align-items: center; 
+}
 
 @media (max-width: 900px) {
     .skills-grid, .skill-strip-grid, .project-card { grid-template-columns: 1fr; }

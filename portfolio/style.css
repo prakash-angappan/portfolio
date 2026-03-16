@@ -260,8 +260,7 @@ body {
 /* Base State for the Media Wrapper (Fix Overflow and Alignment) */
 .project-media-wrapper { 
     width: 100% !important;
-    height: auto !important; 
-    aspect-ratio: 16 / 9 !important; /* Perfect widescreen box for everything */
+    height: 100% !important; /* Lets the image fill the empty space below it */
     position: relative;
     overflow: hidden; 
     border-radius: 6px; 
@@ -274,7 +273,7 @@ body {
 .image-media-container { 
     width: 100% !important; 
     height: 100% !important; 
-    position: absolute; /* Changed to stick to the edges */
+    position: absolute; 
     top: 0; left: 0;
     overflow: hidden; 
     border-radius: 6px; 
@@ -364,9 +363,10 @@ body {
 
 .project-header-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Pulls the icons right next to the title */
     align-items: center;
-    margin-bottom: 5px; 
+    gap: 15px; /* Space between the title and the divider */
+    margin-bottom: 10px; 
 }
 
 .project-header-row h3 {
@@ -393,7 +393,25 @@ body {
 
 .project-header-icons {
     display: flex;
+    align-items: center;
     gap: 6px;
+    border-left: 2px solid rgba(255, 255, 255, 0.15); /* The vertical divider */
+    padding-left: 15px; /* Space between the divider and the icons */
+}
+
+/* Mobile fix so the icons drop to the next line nicely if the title is long */
+@media (max-width: 600px) {
+    .project-header-row {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .project-header-icons {
+        border-left: none; 
+        border-top: 2px solid rgba(255, 255, 255, 0.15); 
+        padding-left: 0;
+        padding-top: 10px;
+        width: 100%;
+    }
 }
 
 /* --- Powerful Vertical Timeline Separator --- */

@@ -160,6 +160,9 @@ function loadProjectsData() {
                 }
 
                 // Compact badges for the title row
+                // Check if team_size exists in the JSON, and create a badge if it does
+                const teamBadgeHtml = proj.team_size ? `<div class="team-size-badge">${proj.team_size}</div>` : '';
+
                 const engineBadge = `<div class="compact-tech-badge"><img src="${proj.icon}" title="${proj.engine}"></div>`;
                 const platformBadges = proj.platforms.map(plat => `<div class="compact-tech-badge"><img src="${plat.icon}" title="${plat.name}"></div>`).join('');
 
@@ -169,7 +172,11 @@ function loadProjectsData() {
                         <div class="project-info">
                             <div class="project-header-row">
                                 <h3>${proj.title}</h3>
-                                <div class="project-header-icons">${engineBadge}${platformBadges}</div>
+                                <div class="project-header-icons">
+                                    ${teamBadgeHtml}
+                                    ${engineBadge}
+                                    ${platformBadges}
+                                </div>
                             </div>
                             <p class="project-description">${proj.desc}</p>
                             <div class="contribution-section">

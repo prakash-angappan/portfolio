@@ -625,3 +625,20 @@ body {
         max-width: 100%; 
     }
 }
+
+/* --- Team Size Leadership Badge --- */
+.team-size-badge {
+    background: rgba(46, 204, 113, 0.1); /* Subtle green glow */
+    color: var(--accent); /* Bright green text */
+    border: 1px solid var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px; /* Makes it a nice pill shape */
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Keeps the text on one line */
+    margin-right: 8px; /* Adds space before the engine icons */
+}

@@ -212,3 +212,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (['home', 'projects', 'contact'].includes(currentHash)) showPage(currentHash);
     else showPage('home');
 });
+
+function showProjects() {
+    const container = document.getElementById('projects-container');
+    
+    // Clear jitter by hiding before loading
+    container.classList.remove('loaded');
+    
+    // Your existing logic to render projects...
+    renderProjects(); 
+
+    // Small delay to let the browser process the new DOM elements
+    setTimeout(() => {
+        container.classList.add('loaded');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 50);
+}

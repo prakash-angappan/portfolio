@@ -90,8 +90,8 @@ body {
 
 /* --- Optimized Profile Circle Area --- */
 .profile-img {
-    width: 240px !important;
-    height: 240px !important;
+    width: 280px !important;
+    height: 280px !important;
     border-radius: 50%;
     object-fit: cover;
     object-position: center 20%;
@@ -162,10 +162,13 @@ body {
 }
 
 .action-icon {
-    width: 18px; 
-    height: 18px;
-    margin-right: 12px;
+    width: 18px !important; /* Kept small so the button doesn't grow */
+    height: 18px !important;
+    margin-right: 12px; /* Added slightly more space for the scaled icon */
     object-fit: contain;
+    /* Scale the icon 1.6x without affecting the button container */
+    transform: scale(1.6); 
+    transform-origin: center;
 }
 
 .btn-action {
@@ -174,7 +177,7 @@ body {
     background: transparent;
     border: 1px solid var(--accent);
     color: var(--text); 
-    padding: 10px 20px; 
+    padding: 10px 14px; 
     border-radius: 8px; 
     text-decoration: none; 
     font-weight: 600; 
@@ -653,4 +656,21 @@ body {
     align-items: center;
     white-space: nowrap; /* Keeps the text on one line */
     margin-right: 8px; /* Adds space before the engine icons */
+}
+
+/* Prevent layout shift by giving the container a minimum height */
+#projects-container {
+    min-height: 100vh; /* Keeps the page long so the scrollbar doesn't vanish/appear suddenly */
+    display: block;
+    opacity: 0; /* Start hidden for a smooth fade-in */
+    transition: opacity 0.3s ease-in-out;
+}
+
+#projects-container.loaded {
+    opacity: 1;
+}
+
+/* Ensure the scrollbar is always visible to prevent horizontal jumping */
+html {
+    overflow-y: scroll;
 }

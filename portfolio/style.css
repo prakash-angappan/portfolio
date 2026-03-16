@@ -466,72 +466,125 @@ position: absolute;
     top: 4px; /* Realigned to match larger font height */
     text-shadow: 0 0 8px var(--accent);
 }
+/* --- management section 2x2 layout (compact) --- */
 
-/* --- Stay-Transparent Colored Icons Fix --- */
-.management-block {
-    grid-column: span 2; /* Full width */
+/* 1. put leadership and production side-by-side on the same row */
+#management-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; 
+    gap: 20px;
+    margin-top: 30px;
 }
 
+/* 2. make the points inside a 2x2 grid */
 .management-items-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-    gap: 15px; 
-    justify-items: center;
-    margin-top: 10px;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px; /* tight gap between boxes */
+    margin-top: 15px;
 }
-
-/* Lighter Glass Background for Colored Icons */
+/* 3. icon left + text right layout inside the boxes */
 .mgmt-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    /* Lighter, translucent background to pop colored icons */
-    background: rgba(31, 58, 95, 0.45); 
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.15); 
-    
-    border-radius: 8px;
-    padding: 10px;
-    width: 100%;
-    max-width: 130px; 
-    min-height: 100px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
+    display: flex !important;
+    flex-direction: row !important; /* this forces them side-by-side */
+    justify-content: flex-start !important; /* aligns content to the left edge */
+    align-items: center !important;
+    text-align: left !important;
+    padding: 10px 15px !important; /* comfortable padding on the sides */
+    min-height: 70px !important; 
+    margin: 0 !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    gap: 15px !important; /* creates perfect spacing between icon and text */
 }
 
-.mgmt-badge:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(46, 204, 113, 0.3);
-    border-color: var(--accent);
-}
-
-/* Specific styling for the colored management icons */
+/* 4. icon and text adjustments */
 .mgmt-badge-icon {
-    width: 48px;  /* Optimal size for the compact badge */
-    height: 48px;
-    margin-bottom: 8px;
-    object-fit: contain;
-    
-    /* CRITICAL: Removed the brightness/invert filter that forced icons white */
-    filter: none !important; 
-    transition: filter 0.3s ease;
-}
-
-/* Hover: Slight brightness boost to colored icons */
-.mgmt-badge:hover .mgmt-badge-icon {
-    filter: brightness(1.1) !important;
+    width: 32px !important; 
+    height: 32px !important;
+    margin-bottom: 0 !important; /* removes the old bottom spacing */
+    flex-shrink: 0; /* stops the icon from squishing if the text is long */
 }
 
 .mgmt-text-label {
-    font-size: 0.8rem;
-    color: #FFFFFF; /* Brighter white for high contrast */
+    font-size: 0.85rem !important;
+    line-height: 1.3;
     font-weight: 700;
-    text-align: center;
-    line-height: 1.2;
-    flex: 1;
+}
+
+/* stack them on top of each other on mobile phones */
+@media (max-width: 900px) {
+    #management-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+/* 4. stack them on top of each other on mobile phones */
+@media (max-width: 900px) {
+    #management-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* --- 2x2 DASHBOARD FIX --- */
+.stats-dashboard {
     display: flex;
-    align-items: center; 
+    gap: 30px; 
+    margin: 40px 0;
+    width: 100%;
+}
+
+.stat-group {
+    flex: 1;
+    position: relative;
+    padding: 25px 15px 15px 15px;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 10px; 
+}
+
+/* Override old stat rules specifically for the dashboard */
+.stats-dashboard .stat {
+    background: rgba(15, 23, 42, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 10px !important;
+    margin-top: 0 !important;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 60px;
+    width: auto !important;
+}
+
+.stats-dashboard .stat-number {
+    font-size: 1.1rem !important; 
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Fix title position for these boxes */
+.stat-group .dialog-title-box {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    transform: none;
+}
+
+/* Stack them on phones */
+@media (max-width: 900px) {
+    .stats-dashboard {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 900px) {

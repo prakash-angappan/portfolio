@@ -16,8 +16,8 @@
         { "name": "Unreal", "icon": "images/icons/unreal.png" },
         { "name": "Unity", "icon": "images/icons/unity.png" },
         { "name": "Godot", "icon": "images/icons/godot.png" },
-        { "name": "Phyre Engine", "icon": "images/icons/phyre.png" },
-        { "name": "Vicious Cycle", "icon": "images/icons/vicious.png" },
+        { "name": "Phyre", "icon": "images/icons/phyre.png" },
+        { "name": "Vicious", "icon": "images/icons/vicious.png" },
         { "name": "BlitzMax", "icon": "images/icons/blitzmax.png" },
         { "name": "Torque", "icon": "images/icons/torque.png" }
       ]

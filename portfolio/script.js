@@ -18,7 +18,6 @@ function showPage(pageId) {
     if (pageId === 'home' && !isHomeLoaded) loadHomeData();
     if (pageId === 'projects' && !isProjectsLoaded) loadProjectsData();
 }
-
 function loadHomeData() {
     const statsContainer = document.getElementById('hero-stats');
     const techContainer = document.getElementById('tech-grid');
@@ -31,76 +30,95 @@ function loadHomeData() {
         fetch('contact.json').then(res => res.json())
     ])
     .then(([homeData, contactData]) => {
-        document.getElementById('hero-img').src = homeData.hero.profile_img;
-        document.getElementById('hero-name').innerText = homeData.hero.name;
-        document.getElementById('hero-title').innerText = homeData.hero.title;
-        document.getElementById('hero-summary').innerText = homeData.hero.summary;
+        
+        // hero text
+        const imgEl = document.getElementById('hero-img');
+        if (imgEl) imgEl.src = homeData.hero.profile_img;
+        
+        const nameEl = document.getElementById('hero-name');
+        if (nameEl) nameEl.innerText = homeData.hero.name;
+        
+        const titleEl = document.getElementById('hero-title');
+        if (titleEl) titleEl.innerText = homeData.hero.title;
+        
+        const summaryEl = document.getElementById('hero-summary');
+        if (summaryEl) summaryEl.innerText = homeData.hero.summary;
 
-        statsContainer.innerHTML = homeData.hero.stats.map(stat => `
-            <div class="glass-card stat">
-                <div class="dialog-title-box">${stat.label}</div>
-                <div class="stat-number">${stat.value}</div>
-            </div>`).join('');
-
-        actionRow.innerHTML = ''; 
-        contactData.actions.forEach(action => {
-            const iconHtml = `<img src="${action.icon}" class="action-icon">`;
-            actionRow.innerHTML += `
-                <a href="${action.link}" class="btn-action" 
-                   ${action.type === 'download' ? 'download' : 'target="_blank"'}>
-                   ${iconHtml}${action.label}
-                </a>`;
-        });
-
-        techContainer.innerHTML = '';
-        ['engines', 'platforms'].forEach(key => {
-            const category = homeData.tech_stack[key];
-            let itemsHtml = category.items.map(item => `
-                <div class="tech-badge">
-                    <img src="${item.icon}">
-                    <span>${item.name}</span>
+        // old stats container (line 39 error fix)
+        if (statsContainer && homeData.hero.stats) {
+            statsContainer.innerHTML = homeData.hero.stats.map(stat => `
+                <div class="glass-card stat">
+                    <div class="dialog-title-box">${stat.label}</div>
+                    <div class="stat-number">${stat.value}</div>
                 </div>`).join('');
-            
-            techContainer.innerHTML += `
-                <div class="glass-card tech-card">
-                    <div class="dialog-title-box">${category.title}</div>
-                    <div class="tech-items">${itemsHtml}</div>
-                </div>`;
-        });
+        }
 
-        featuredContainer.innerHTML = homeData.featured_projects.map(proj => `
-            <div class="featured-project-card glass-card" onclick="navigateToProject('${proj.title}')">
-                <div class="featured-banner-wrapper">
-                    <img src="${proj.image}" alt="${proj.title}" onerror="this.src='images/icons/unity.png'; this.style.padding='20px';">
-                </div>
-                <div class="featured-footer">
-                    <span>${proj.title}</span>
-                </div>
-            </div>`).join('');
+        // action buttons
+        if (actionRow && contactData.actions) {
+            actionRow.innerHTML = ''; 
+            contactData.actions.forEach(action => {
+                const iconHtml = `<img src="${action.icon}" class="action-icon">`;
+                actionRow.innerHTML += `
+                    <a href="${action.link}" class="btn-action" 
+                       ${action.type === 'download' ? 'download' : 'target="_blank"'}>
+                       ${iconHtml}${action.label}
+                    </a>`;
+            });
+        }
 
-        // Replace lines 114-122 in script.js (inside loadHomeData()):
-/* In your script.js file, inside loadHomeData() */
+        // tech grid
+        if (techContainer && homeData.tech_stack) {
+            techContainer.innerHTML = '';
+            ['engines', 'platforms'].forEach(key => {
+                const category = homeData.tech_stack[key];
+                let itemsHtml = category.items.map(item => `
+                    <div class="tech-badge">
+                        <img src="${item.icon}">
+                        <span>${item.name}</span>
+                    </div>`).join('');
+                
+                techContainer.innerHTML += `
+                    <div class="glass-card tech-card">
+                        <div class="dialog-title-box">${category.title}</div>
+                        <div class="tech-items">${itemsHtml}</div>
+                    </div>`;
+            });
+        }
 
-        // 1. Management Grids (Updated to load icons from JSON)
-        const managementData = homeData.management || [];
-        mgmtContainer.innerHTML = managementData.map(block => {
-            
-            // 2. Map items to high-density badges with custom icons
-            const managementGridHtml = block.items.map(item => `
-                <div class="glass-card mgmt-badge">
-                    <img src="${item.icon}" alt="${item.name}" class="mgmt-badge-icon">
-                    <span class="mgmt-text-label">${item.name}</span>
+        // featured projects
+        if (featuredContainer && homeData.featured_projects) {
+            featuredContainer.innerHTML = homeData.featured_projects.map(proj => `
+                <div class="featured-project-card glass-card" onclick="navigateToProject('${proj.title}')">
+                    <div class="featured-banner-wrapper">
+                        <img src="${proj.image}" alt="${proj.title}" onerror="this.src='images/icons/unity.png'; this.style.padding='20px';">
+                    </div>
+                    <div class="featured-footer">
+                        <span>${proj.title}</span>
+                    </div>
                 </div>`).join('');
+        }
 
-            // 3. Return the standard dialog-box container
-            return `
-                <div class="glass-card tech-card management-block">
-                    <div class="dialog-title-box">${block.category}</div>
-                    <div class="management-items-grid">${managementGridHtml}</div>
-                </div>`;
-        }).join('');
+        // management grid (your new 2x2 layout!)
+        if (mgmtContainer && homeData.management) {
+            mgmtContainer.innerHTML = homeData.management.map(block => {
+                const managementGridHtml = block.items.map(item => `
+                    <div class="glass-card mgmt-badge">
+                        <img src="${item.icon}" alt="${item.name}" class="mgmt-badge-icon">
+                        <span class="mgmt-text-label">${item.name}</span>
+                    </div>`).join('');
+
+                return `
+                    <div class="glass-card tech-card management-block">
+                        <div class="dialog-title-box">${block.category}</div>
+                        <div class="management-items-grid">${managementGridHtml}</div>
+                    </div>`;
+            }).join('');
+        }
 
         isHomeLoaded = true;
+        hideLoader();
+    }).catch(err => {
+        console.error("error loading data:", err);
         hideLoader();
     });
 }

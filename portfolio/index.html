@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prakash Angappan | Engineering Manager | Game Development</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="data:,">
   </head>
   <body>
     <div id="loading-overlay" class="loading-overlay">
@@ -29,29 +30,16 @@
 
     <div class="container">
       <section id="home" class="page-section">
-        <div class="hero" style="gap: 30px">
-          <img
-            id="hero-img"
-            class="profile-img"
-            src=""
-            alt="Profile Picture"
-            style="width: 180px; height: 180px"
-          />
-          <div class="hero-text">
-            <h1 id="hero-name" style="font-size: 2.2rem"></h1>
-            <h2 id="hero-title" style="font-size: 1.3rem"></h2>
-            <p
-              id="hero-summary"
-              class="muted-text"
-              style="font-size: 0.95rem; margin-bottom: 15px"
-            ></p>
-            <div id="hero-stats" class="stats"></div>
-            <div
-              id="action-row"
-              class="action-row"
-              style="margin-top: 15px"
-            ></div>
-          </div>
+        <div class="hero">
+            <div class="hero-text">
+                <h1 id="hero-name"></h1>
+                <p id="hero-title"></p>
+                <p id="hero-summary"></p>
+
+                <div id="action-row" style="display: flex; gap: 15px; margin-top: 20px;"></div>
+            </div>
+            
+            <img id="hero-img" class="profile-img" src="" alt="Profile">
         </div>
 
         <div class="section-divider" style="margin-top: 25px">

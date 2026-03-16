@@ -106,12 +106,6 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-.profile-img:hover {
-    transform: translateY(-4px) scale(1.02);
-    filter: brightness(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-}
-
 /* --- Stats Row Spacing --- */
 .stats {
     display: flex;
@@ -554,15 +548,3 @@ position: absolute;
 
 @keyframes pulse { from { text-shadow: 0 0 5px var(--accent); opacity: 0.8; } to { text-shadow: 0 0 20px var(--accent); opacity: 1; } }
 .loading-overlay .accent { animation: pulse 1s infinite alternate; }
-
-/* Global Subtle Floating Animation Keyframes (retained from previous polish) */
-@keyframes subtleFloat {
-    0%, 100% {
-        transform: translateY(0px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    }
-    50% {
-        transform: translateY(-4px); /* Very tiny 4px movement */
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7); /* Shadow softens slightly */
-    }
-}

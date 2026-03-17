@@ -67,7 +67,8 @@ body {
 #hero-title { font-size: 1.6rem !important; color: var(--muted); font-weight: 600; margin: 0 0 25px 0 !important; text-transform: uppercase; letter-spacing: 2px; line-height: 1; }
 #hero-summary { font-size: 1.15rem !important; line-height: 1.5; max-width: 800px; color: #cbd5e1; margin-bottom: 10px !important; }
 
-.profile-img { width: 280px !important; height: 280px !important; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); background-color: #1a2235; flex-shrink: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); }
+.profile-img { width: 280px !important; height: 280px !important; border-radius: 50%; object-fit: cover; /* Adjust this '1.08' (108%) value. A little bit more zoom. */
+    transform: scale(1.08) !important;object-position: center 10% !important; border: 3px solid var(--accent); background-color: #1a2235; flex-shrink: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); }
 
 /* --- STATS --- */
 .stats { display: flex; flex-direction: row !important; align-items: center; gap: 15px; margin: 5px 0 25px 0 !important; flex-wrap: wrap; }
@@ -302,6 +303,20 @@ html { overflow-y: scroll; scroll-behavior: smooth; scroll-padding-top: 90px; }
     /* Ensure the header wraps cleanly if the screen is super narrow */
     .header-left-group {
         gap: 6px !important;
+    }
+    .hero {
+        /* Adds a safe gap at the top so the circle doesn't touch the navbar */
+        margin-top: 40px !important; 
+        padding-top: 10px !important;
+    }
+
+    .profile-img {
+        /* Slightly reduce size for smaller screens to ensure it fits the width */
+        width: 260px !important; 
+        height: 260px !important;
+        
+        /* Adjust position slightly for the smaller scale */
+        object-position: center 10% !important; 
     }
 }
 

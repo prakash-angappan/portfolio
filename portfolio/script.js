@@ -9,8 +9,19 @@ function showPage(pageId) {
     const buttons = document.querySelectorAll('.nav-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
 
-    document.getElementById(pageId).style.display = 'block';
-    document.getElementById('btn-' + pageId).classList.add('active');
+    // FIX START: Define the 'page' variable properly
+    const page = document.getElementById(pageId);
+    
+    if (!page) {
+        console.warn(`Page element with ID "${pageId}" not found. Skipping.`);
+        return; 
+    }
+    // FIX END
+
+    page.style.display = 'block'; // Use 'page' variable here
+    
+    const btn = document.getElementById('btn-' + pageId);
+    if (btn) btn.classList.add('active');
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
     window.history.pushState(null, null, '#' + pageId);
@@ -18,6 +29,7 @@ function showPage(pageId) {
     if (pageId === 'home' && !isHomeLoaded) loadHomeData();
     if (pageId === 'projects' && !isProjectsLoaded) loadProjectsData();
 }
+
 function loadHomeData() {
     const statsContainer = document.getElementById('hero-stats');
     const techContainer = document.getElementById('tech-grid');

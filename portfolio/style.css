@@ -14,6 +14,8 @@ body {
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    /* Prevent content from hiding behind the fixed navbar */
+    padding-top: 80px; 
 }
 
 .main-bg {
@@ -32,21 +34,49 @@ body {
     transition: all 0.3s ease;
 }
 
+/* --- FIXED NAVBAR WITH GLOW LINE --- */
 .top-nav {
-    display: flex; justify-content: center; align-items: center; padding: 15px 5%;
-    background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 100;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 15px 0;
+    background: rgba(15, 23, 42, 0.95); /* High opacity for readability */
+    backdrop-filter: blur(10px);
+    
+    /* THE FIX: Fixed positioning */
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    box-sizing: border-box;
+
+    /* THE GLOW LINE: Bottom edge differentiation */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.nav-links { display: flex; gap: 10px; }
+.nav-links { display: flex; gap: 20px; /* Increased from 10px to 20px for more breathing room */ }
 
 .nav-btn {
-    background: rgba(255, 255, 255, 0.05); border: 1px solid transparent; padding: 8px 20px;
-    border-radius: 6px; color: var(--muted); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: 0.3s;
+    background: rgba(255, 255, 255, 0.12) !important; /* Made back box more visible */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    padding: 8px 20px;
+    border-radius: 6px; 
+    color: var(--muted); 
+    font-size: 0.9rem; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.3s;
 }
 
+/* NO BLUE FILL - Only Scale and Original Green Glow */
 .nav-btn:hover, .nav-btn.active {
-    color: var(--text); background: rgba(46, 204, 113, 0.1); border-color: var(--accent); text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+    color: var(--text); 
+    background: rgba(46, 204, 113, 0.2) !important; 
+    border-color: var(--accent) !important; 
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+    transform: scale(1.1); /* Added hover scale */
 }
 
 .container { max-width: 1100px; margin: 40px auto; padding: 0 30px; }
@@ -106,6 +136,12 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
+@keyframes subtleFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
 /* --- Stats Row Spacing --- */
 .stats {
     display: flex;
@@ -162,11 +198,10 @@ body {
 }
 
 .action-icon {
-    width: 18px !important; /* Kept small so the button doesn't grow */
+    width: 18px !important; 
     height: 18px !important;
-    margin-right: 12px; /* Added slightly more space for the scaled icon */
+    margin-right: 12px; 
     object-fit: contain;
-    /* Scale the icon 1.6x without affecting the button container */
     transform: scale(1.6); 
     transform-origin: center;
 }
@@ -185,7 +220,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Hover: Only Outer Glow and Movement */
 .btn-action:hover { 
     background: transparent; 
     color: var(--text) !important;
@@ -210,7 +244,6 @@ body {
 
 .tech-badge img { width: 54px; height: 54px; background: white; padding: 4px !important; border-radius: 4px; object-fit: contain; }
 
-/* --- Ultra-Readable Tech Labels --- */
 .tech-badge span { 
     font-size: 0.85rem; 
     color: #cbd5e1;     
@@ -222,7 +255,6 @@ body {
     line-height: 1.2;
 }
 
-/* Featured Grid & Square Banner Styles */
 .featured-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; }
 
 .featured-project-card { display: flex; flex-direction: column; padding: 0 !important; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -239,14 +271,6 @@ body {
 
 .featured-project-card:hover .featured-banner-wrapper img { transform: scale(1.1); }
 
-/* --- Projects Page Formatting & Optimization --- */
-
-/* Hover: Scale and Highlight the Project Card */
-.project-card:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-    border-color: rgba(255,255,255,0.2);
-}
-
 .project-card { 
     margin-bottom: 15px; 
     background: rgba(15, 23, 42, 0.6); 
@@ -260,7 +284,11 @@ body {
     cursor: default;
 }
 
-/* Base State for the Media Wrapper (Fix Overflow and Alignment) */
+.project-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    border-color: rgba(255,255,255,0.2);
+}
+
 .project-media-wrapper { 
     width: 100% !important;
     height: 100% !important; 
@@ -268,23 +296,21 @@ body {
     overflow: hidden; 
     border-radius: 6px; 
     box-shadow: 0 2px 10px rgba(0,0,0,0.5); 
-    background: #0F172A; /* Dark base color */
+    background: #0F172A; 
 }
 
-/* --- THE CINEMATIC FADE EFFECT --- */
 .project-media-wrapper::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60%; /* Creates a smooth gradient over the bottom area */
+    height: 60%; 
     background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 42, 1) 90%);
-    z-index: 20; /* Sits above the image but below the buttons */
-    pointer-events: none; /* Ensures hover buttons still click */
+    z-index: 20; 
+    pointer-events: none; 
 }
 
-/* --- Internal Scale-up on Hover --- */
 .video-media-container,
 .image-media-container { 
     width: 100% !important; 
@@ -305,7 +331,7 @@ body {
     width: 100% !important; 
     height: 100% !important; 
     object-fit: cover !important; 
-    object-position: top center !important; /* Locks the image to the top */
+    object-position: top center !important; 
     display: block; 
 }
 
@@ -315,7 +341,6 @@ body {
     border: none !important;
 }
 
-/* Hover State: The Scale Trigger */
 .project-card:hover .video-media-container,
 .project-card:hover .image-media-container { 
     transform: scale(1.08); 
@@ -324,7 +349,6 @@ body {
     z-index: 15;
 }
 
-/* --- Button (Overlay) Spacing and Alignment --- */
 .media-overlay { 
     position: absolute; 
     top: 50%;
@@ -341,7 +365,6 @@ body {
 
 .project-card:hover .media-overlay { opacity: 1; }
 
-/* --- Clean Action Button (No Icon) --- */
 .hover-action-btn {
     text-decoration: none;
     color: #fff;
@@ -359,7 +382,6 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* --- Stay-Transparent Hover (No Fill) --- */
 .hover-action-btn:hover {
     background: rgba(15, 23, 42, 0.6) !important; 
     color: #fff !important; 
@@ -367,7 +389,6 @@ body {
     transform: translateY(-2px) scale(1.03); 
 }
 
-/* --- Compact Project Layout --- */
 .project-role-text {
     color: #cbd5e1; 
     font-weight: 600;
@@ -378,9 +399,9 @@ body {
 
 .project-header-row {
     display: flex;
-    justify-content: flex-start; /* Pulls the icons right next to the title */
+    justify-content: flex-start; 
     align-items: center;
-    gap: 15px; /* Space between the title and the divider */
+    gap: 15px; 
     margin-bottom: 10px; 
 }
 
@@ -390,7 +411,6 @@ body {
     color: var(--text);
 }
 
-/* --- Optimized Vertical Spacing for Projects Page --- */
 .project-info {
     flex: 1;
     display: flex;
@@ -398,7 +418,6 @@ body {
     justify-content: flex-start; 
 }
 
-/* --- Enhanced Project Legibility --- */
 .project-description {
     margin: 0 0 12px 0; 
     font-size: 1.05rem; 
@@ -410,26 +429,10 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
-    border-left: 2px solid rgba(255, 255, 255, 0.15); /* The vertical divider */
-    padding-left: 15px; /* Space between the divider and the icons */
+    border-left: 2px solid rgba(255, 255, 255, 0.15); 
+    padding-left: 15px; 
 }
 
-/* Mobile fix so the icons drop to the next line nicely if the title is long */
-@media (max-width: 600px) {
-    .project-header-row {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    .project-header-icons {
-        border-left: none; 
-        border-top: 2px solid rgba(255, 255, 255, 0.15); 
-        padding-left: 0;
-        padding-top: 10px;
-        width: 100%;
-    }
-}
-
-/* --- Powerful Vertical Timeline Separator --- */
 .company-block {
     position: relative;
     padding-left: 30px; 
@@ -502,7 +505,6 @@ body {
     text-shadow: 0 0 8px var(--accent);
 }
 
-/* --- management section 2x2 layout (compact) --- */
 #management-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important; 
@@ -544,7 +546,6 @@ body {
     font-weight: 700;
 }
 
-/* --- 2x2 DASHBOARD FIX --- */
 .stats-dashboard {
     display: flex;
     gap: 30px; 
@@ -582,7 +583,7 @@ body {
     width: auto !important;
 }
 
-.stats-dashboard .stat-number {
+.stat-number {
     font-size: 1.1rem !important; 
     color: var(--text);
     font-weight: 700;
@@ -602,7 +603,6 @@ body {
 @keyframes pulse { from { text-shadow: 0 0 5px var(--accent); opacity: 0.8; } to { text-shadow: 0 0 20px var(--accent); opacity: 1; } }
 .loading-overlay .accent { animation: pulse 1s infinite alternate; }
 
-/* --- Mobile Breakpoints & Layout Fixes --- */
 @media (max-width: 900px) {
     .skills-grid, .skill-strip-grid, .project-card { grid-template-columns: 1fr; }
     .hero { flex-direction: column !important; text-align: center !important; }
@@ -641,28 +641,26 @@ body {
     }
 }
 
-/* --- Team Size Leadership Badge --- */
 .team-size-badge {
-    background: rgba(46, 204, 113, 0.1); /* Subtle green glow */
-    color: var(--accent); /* Bright green text */
+    background: rgba(46, 204, 113, 0.1); 
+    color: var(--accent); 
     border: 1px solid var(--accent);
     padding: 4px 12px;
-    border-radius: 20px; /* Makes it a nice pill shape */
+    border-radius: 20px; 
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
-    white-space: nowrap; /* Keeps the text on one line */
-    margin-right: 8px; /* Adds space before the engine icons */
+    white-space: nowrap; 
+    margin-right: 8px; 
 }
 
-/* Prevent layout shift by giving the container a minimum height */
 #projects-container {
-    min-height: 100vh; /* Keeps the page long so the scrollbar doesn't vanish/appear suddenly */
+    min-height: 100vh; 
     display: block;
-    opacity: 0; /* Start hidden for a smooth fade-in */
+    opacity: 0; 
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -670,7 +668,9 @@ body {
     opacity: 1;
 }
 
-/* Ensure the scrollbar is always visible to prevent horizontal jumping */
 html {
     overflow-y: scroll;
+    /* Smooth scroll with offset for fixed navbar */
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }

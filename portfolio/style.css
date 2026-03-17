@@ -65,7 +65,7 @@ body {
 .hero-text { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; }
 #hero-name { font-size: 3rem !important; font-weight: 800; letter-spacing: -1.5px; margin: 0 0 25px 0 !important; color: #FFFFFF; line-height: 1; }
 #hero-title { font-size: 1.6rem !important; color: var(--muted); font-weight: 600; margin: 0 0 25px 0 !important; text-transform: uppercase; letter-spacing: 2px; line-height: 1; }
-#hero-summary { font-size: 1.15rem !important; line-height: 1.5; max-width: 800px; color: #cbd5e1; margin-bottom: 10px !important; }
+#hero-summary { font-size: 1.15rem !important; line-height: 1.5; max-width: 800px; color: #FFFFFF; margin-bottom: 10px !important; }
 
 .profile-img { width: 280px !important; height: 280px !important; border-radius: 50%; object-fit: cover; /* Adjust this '1.08' (108%) value. A little bit more zoom. */
     transform: scale(1.08) !important;object-position: center 10% !important; border: 3px solid var(--accent); background-color: #1a2235; flex-shrink: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); }
@@ -78,8 +78,39 @@ body {
 
 /* --- SECTION TITLES & BOXES --- */
 .section-divider h2 { text-transform: uppercase; letter-spacing: 2px; color: var(--text); border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 20px; }
-.dialog-title-box { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); z-index: 50; background: #111d33; border: 1px solid var(--accent); padding: 2px 12px; font-size: 0.95rem; font-weight: bold; white-space: nowrap; }
+/* --- SUBDUED TECH SECTION TITLES --- */
 
+/* --- TIGHTENED & CENTERED TECH TITLES --- */
+
+.dialog-title-box {
+    position: absolute !important; 
+    top: -18px !important; 
+    
+    /* --- THE CENTERING FIX --- */
+    left: 50% !important; 
+    transform: translateX(-50%) !important; 
+    
+    /* --- THE WRAPPER BOX FIX --- */
+    width: fit-content !important; /* Shrinks the box to only fit the text */
+    padding: 4px 14px !important; /* Minimal internal space */
+    
+    background: #111d33 !important;
+    border: 1px solid rgba(46, 204, 113, 0.4) !important; /* Low glow border */
+    border-radius: 4px !important;
+    
+    /* --- TEXT STYLING --- */
+    color: #cbd5e1 !important; /* Subdued brightness */
+    font-size: 0.85rem !important; 
+    font-weight: 700 !important; 
+    text-align: center !important; /* Ensures text is dead center within the box */
+    
+    letter-spacing: 0.5px;
+    
+    white-space: nowrap !important; /* Prevents text from wrapping */
+    z-index: 50 !important;
+    box-shadow: none !important; /* Removes outer box glow */
+    text-shadow: none !important; /* Removes text glow */
+}
 /* --- TECH GRID --- */
 #tech-grid .tech-card { padding: 8px !important; margin-top: 25px !important; background: transparent !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; box-shadow: none !important; }
 
@@ -94,10 +125,16 @@ body {
 
 .skills-container::-webkit-scrollbar { display: none; }
 
-.skill-item {
-    display: flex !important; flex-direction: column !important; align-items: center !important;
-    width: 58px !important; min-width: 58px !important; 
-    background: transparent !important; padding: 0 !important; border: none !important;
+.skill-item img {
+    /* Softened from pure #FFFFFF to 75% opacity */
+    background: rgba(255, 255, 255, 0.75) !important; 
+    
+    padding: 5px !important; 
+    border-radius: 8px !important; 
+    width: 44px !important; 
+    height: 44px !important; 
+    object-fit: contain !important;
+    margin-bottom: 6px !important; 
 }
 
 .skill-item img {
@@ -236,8 +273,17 @@ body {
 .header-pipe { color: rgba(255, 255, 255, 0.2) !important; font-size: 1.1rem; font-weight: 300; margin: 0 4px; }
 
 .compact-tech-badge {
-    background: #FFFFFF !important; padding: 3px !important; border-radius: 4px !important;
-    width: 20px !important; height: 20px !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0;
+    /* Softened from pure #FFFFFF to 75% opacity */
+    background: rgba(255, 255, 255, 0.75) !important; 
+    
+    padding: 3px !important; 
+    border-radius: 4px !important;
+    width: 20px !important; 
+    height: 20px !important; 
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important; 
+    flex-shrink: 0;
 }
 .compact-tech-badge img { width: 100% !important; height: 100% !important; object-fit: contain !important; }
 
@@ -378,4 +424,68 @@ html { overflow-y: scroll; scroll-behavior: smooth; scroll-padding-top: 90px; }
     flex-wrap: wrap !important; 
     gap: 15px !important; 
     width: 100% !important; 
+}
+
+/* --- ENHANCED LEADERSHIP GRID --- */
+
+#management-grid { 
+    display: grid !important; 
+    grid-template-columns: repeat(4, 1fr) !important; 
+    gap: 18px !important; /* More space between badges */
+    margin-top: 30px !important; 
+}
+
+.mgmt-badge { 
+    display: flex !important; 
+    flex-direction: row !important; 
+    align-items: center !important; 
+    padding: 9px 12px !important; /* Larger internal padding */
+    min-height: 65px !important; /* Taller cards for better presence */
+    background: rgba(31, 58, 95, 0.6) !important; /* Darker background for better text contrast */
+    backdrop-filter: blur(15px) !important; 
+    border: 1px solid rgba(46, 204, 113, 0.3) !important; /* Subtle accent border */
+    border-radius: 10px !important; 
+    gap: 15px !important;
+    transition: all 0.3s ease !important;
+}
+.mgmt-badge-icon { 
+    width: 36px !important; /* Larger icons */
+    height: 36px !important; 
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+.mgmt-text-label { 
+    font-size: 1rem !important; /* Increased font size (approx 16px) */
+    line-height: 1.3 !important; 
+    font-weight: 100 !important; 
+    color: #FFFFFF !important; /* Pure white for maximum readability */
+    letter-spacing: 0.3px !important;
+}
+
+/* Responsive fix for smaller screens */
+@media (max-width: 900px) {
+    #management-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 500px) {
+    #management-grid { grid-template-columns: 1fr !important; }
+}
+
+.profile-img {
+    /* Keep your existing size and position settings */
+    border: 3px solid var(--accent);
+    
+    /* --- SOFTENED GLOW FIX --- */
+    /* Layer 1: Subtle inner glow | Layer 2: Wide, soft outer bloom */
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.2), 
+                0 0 40px rgba(0, 0, 0, 0.5) !important;
+    
+    transition: box-shadow 0.5s ease !important;
+}
+
+.profile-img:hover {
+    /* Slight increase on hover for interactivity */
+    box-shadow: 0 0 25px rgba(46, 204, 113, 0.3), 
+                0 0 50px rgba(0, 0, 0, 0.6) !important;
 }

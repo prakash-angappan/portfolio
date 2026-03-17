@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prakash Angappan | Engineering Manager | Game Development</title>
-    <link rel="stylesheet" href="style.css?v=2" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="data:," />
   </head>
   <body>
@@ -13,6 +13,7 @@
     </div>
 
     <div class="main-bg"></div>
+
     <nav class="top-nav">
       <div class="nav-links">
         <button class="nav-btn active" id="btn-home" onclick="showPage('home')">
@@ -36,31 +37,33 @@
             <h1 id="hero-name"></h1>
             <p id="hero-title"></p>
             <p id="hero-summary"></p>
-
             <div id="hero-stats" class="stats"></div>
           </div>
-
           <img id="hero-img" class="profile-img" src="" alt="Profile" />
         </div>
 
         <div class="section-divider" style="margin-top: 25px">
-          <h2>Technical Expertise</h2>
+          <h2>TECHNICAL EXPERTISE</h2>
         </div>
-        <div id="tech-grid" class="grid tech-grid" style="gap: 20px"></div>
+        <div
+          id="tech-grid"
+          class="grid tech-grid"
+          style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px"
+        ></div>
 
-        <div class="section-divider" style="margin-top: 25px">
+        <div class="section-divider" style="margin-top: 40px">
           <h2>Featured Projects</h2>
         </div>
         <div id="featured-grid" class="featured-grid"></div>
 
-        <div class="section-divider" style="margin-top: 25px">
+        <div class="section-divider" style="margin-top: 40px">
           <h2>Leadership & Production</h2>
         </div>
         <div id="management-grid" class="skills-grid"></div>
 
         <div
           id="contact"
-          style="margin-top: 80px; padding-bottom: 40px; text-align: center"
+          style="margin-top: 40px; padding-bottom: 40px; text-align: center"
         >
           <div class="section-divider">
             <h2>Let's Connect</h2>
@@ -75,6 +78,14 @@
               align-items: center;
             "
           >
+            <p
+              id="contact-intro"
+              style="
+                color: var(--muted);
+                margin-bottom: 25px;
+                font-size: 1.1rem;
+              "
+            ></p>
             <div
               id="action-row"
               class="action-row"

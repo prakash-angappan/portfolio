@@ -9,18 +9,14 @@ function showPage(pageId) {
     buttons.forEach(btn => btn.classList.remove('active'));
 
     const page = document.getElementById(pageId);
-    
-    if (!page) {
-        console.warn(`Page element with ID "${pageId}" not found. Skipping.`);
-        return; 
-    }
+    if (!page) return; 
 
     page.style.display = 'block'; 
     
     const btn = document.getElementById('btn-' + pageId);
     if (btn) btn.classList.add('active');
     
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
     window.history.pushState(null, null, '#' + pageId);
 
     if (pageId === 'home' && !isHomeLoaded) loadHomeData();
@@ -40,20 +36,12 @@ function loadHomeData() {
     ])
     .then(([homeData, contactData]) => {
         
-        // Populate Hero Text
-        const imgEl = document.getElementById('hero-img');
-        if (imgEl) imgEl.src = homeData.hero.profile_img;
-        
-        const nameEl = document.getElementById('hero-name');
-        if (nameEl) nameEl.innerText = homeData.hero.name;
-        
-        const titleEl = document.getElementById('hero-title');
-        if (titleEl) titleEl.innerText = homeData.hero.title;
-        
-        const summaryEl = document.getElementById('hero-summary');
-        if (summaryEl) summaryEl.innerText = homeData.hero.summary;
+        // Hero Data
+        document.getElementById('hero-img').src = homeData.hero.profile_img;
+        document.getElementById('hero-name').innerText = homeData.hero.name;
+        document.getElementById('hero-title').innerText = homeData.hero.title;
+        document.getElementById('hero-summary').innerText = homeData.hero.summary;
 
-        // 1. INJECT ONLY STAT BOXES (No Resume Button Here)
         if (statsContainer && homeData.hero.stats) {
             statsContainer.innerHTML = homeData.hero.stats.map(stat => `
                 <div class="glass-card stat">
@@ -61,36 +49,30 @@ function loadHomeData() {
                     <div class="stat-label">${stat.label}</div>
                 </div>`).join('');
         }
+
+        // Contact Actions (Compact)
         if (actionRow && contactData.actions) {
+            const introEl = document.getElementById('contact-intro');
+            if(introEl && contactData.contact.intro) introEl.innerText = contactData.contact.intro;
+
             const downloadAction = contactData.actions.find(a => a.type === 'download');
             const otherActions = contactData.actions.filter(a => a.type !== 'download');
             
             let actionsHtml = '';
-            
-            // Add Resume Button First
             if (downloadAction) {
-                actionsHtml += `
-                    <a href="${downloadAction.link}" class="btn-action" download>
-                        <img src="${downloadAction.icon}" class="action-icon">${downloadAction.label}
-                    </a>`;
+                actionsHtml += `<a href="${downloadAction.link}" class="btn-action" download><img src="${downloadAction.icon}" class="action-icon">${downloadAction.label}</a>`;
             }
-            
-            // Add the rest of the buttons (Email, LinkedIn, etc.)
-            actionsHtml += otherActions.map(action => `
-                <a href="${action.link}" class="btn-action" target="_blank">
-                    <img src="${action.icon}" class="action-icon">${action.label}
-                </a>`).join('');
-
+            actionsHtml += otherActions.map(action => `<a href="${action.link}" class="btn-action" target="_blank"><img src="${action.icon}" class="action-icon">${action.label}</a>`).join('');
             actionRow.innerHTML = actionsHtml;
         }
 
-        // Tech grid
+        // Tech Grid
         if (techContainer && homeData.tech_stack) {
             techContainer.innerHTML = '';
             ['engines', 'platforms'].forEach(key => {
                 const category = homeData.tech_stack[key];
                 let itemsHtml = category.items.map(item => `
-                    <div class="tech-badge">
+                    <div class="skill-item">
                         <img src="${item.icon}">
                         <span>${item.name}</span>
                     </div>`).join('');
@@ -98,7 +80,7 @@ function loadHomeData() {
                 techContainer.innerHTML += `
                     <div class="glass-card tech-card">
                         <div class="dialog-title-box">${category.title}</div>
-                        <div class="tech-items">${itemsHtml}</div>
+                        <div class="skills-container">${itemsHtml}</div>
                     </div>`;
             });
         }
@@ -108,7 +90,7 @@ function loadHomeData() {
             featuredContainer.innerHTML = homeData.featured_projects.map(proj => `
                 <div class="featured-project-card glass-card" onclick="navigateToProject('${proj.title}')">
                     <div class="featured-banner-wrapper">
-                        <img src="${proj.image}" alt="${proj.title}" onerror="this.src='images/icons/unity.png'; this.style.padding='20px';">
+                        <img src="${proj.image}" alt="${proj.title}" onerror="this.src='images/icons/gameengines/unity.png'; this.style.padding='20px';">
                     </div>
                     <div class="featured-footer">
                         <span>${proj.title}</span>
@@ -116,21 +98,13 @@ function loadHomeData() {
                 </div>`).join('');
         }
 
-        // Management grid
+        // Management Grid
         if (mgmtContainer && homeData.management) {
-            mgmtContainer.innerHTML = homeData.management.map(block => {
-                const managementGridHtml = block.items.map(item => `
-                    <div class="glass-card mgmt-badge">
-                        <img src="${item.icon}" alt="${item.name}" class="mgmt-badge-icon">
-                        <span class="mgmt-text-label">${item.name}</span>
-                    </div>`).join('');
-
-                return `
-                    <div class="glass-card tech-card management-block">
-                        <div class="dialog-title-box">${block.category}</div>
-                        <div class="management-items-grid">${managementGridHtml}</div>
-                    </div>`;
-            }).join('');
+            mgmtContainer.innerHTML = homeData.management.map(item => `
+                <div class="glass-card mgmt-badge">
+                    <img src="${item.icon}" alt="${item.name}" class="mgmt-badge-icon">
+                    <span class="mgmt-text-label">${item.name}</span>
+                </div>`).join('');
         }
 
         isHomeLoaded = true;
@@ -150,50 +124,62 @@ window.navigateToProject = function(projectTitle) {
             target.scrollIntoView({ behavior: 'smooth', block: 'center' });
             const card = target.closest('.project-card');
             card.style.borderColor = 'var(--accent)';
-            setTimeout(() => card.style.borderColor = 'rgba(255, 255, 255, 0.1)', 2000);
+            setTimeout(() => card.style.borderColor = 'var(--glass-border)', 2000);
             clearInterval(checkExist);
         }
     }, 100);
 };
 
+// --- PROJECTS DATA: Horizontal Layout & Specific Header Sequence ---
 function loadProjectsData() {
     fetch('projects.json').then(res => res.json()).then(data => {
         const timelineContainer = document.getElementById('timeline-container');
         timelineContainer.innerHTML = '';
-        data.work_experience.forEach(job => {
 
+        data.work_experience.forEach(job => {
             const projectsHtml = job.projects.map(proj => {
                 const tasksHtml = proj.tasks.map(task => `<li>${task}</li>`).join('');
                 const storeUrl = proj.link ? proj.link.url : '#';
-                const buttonLabel = proj.link ? `View on ${proj.link.label}` : 'View Project';
-                
+                const buttonLabel = proj.link ? `View on ${proj.link.label}` : '';
+                const hoverButtonHtml = proj.link ? `<a href="${storeUrl}" target="_blank" class="hover-action-btn">${buttonLabel}</a>` : '';
+
+                // Header Sequence Elements
+                const bgColor = proj.team_bg ? proj.team_bg : 'rgba(46, 204, 113, 0.15)';
+                const teamTag = proj.team_size ? `<span class="team-badge-inline" style="background: ${bgColor}">${proj.team_size}</span>` : '';
+                const engineIcon = `<div class="compact-tech-badge"><img src="${proj.icon}" title="${proj.engine}"></div>`;
+                const platformIcons = proj.platforms ? proj.platforms.map(plat => `<div class="compact-tech-badge"><img src="${plat.icon}" title="${plat.name}"></div>`).join('') : '';
+
+                // Media Elements
                 let mediaContentHtml = '';
                 if (proj.video) {
-                    mediaContentHtml = `<div class="video-media-container"><iframe src="${proj.video}" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe></div>`;
+                    mediaContentHtml = `
+                        <div class="video-media-container">
+                            <iframe src="${proj.video}" loading="lazy" allowfullscreen></iframe>
+                            <div class="media-overlay">${hoverButtonHtml}</div>
+                        </div>`;
                 } else if (proj.image) {
-                    const hoverButtonHtml = proj.link ? `<a href="${storeUrl}" target="_blank" class="hover-action-btn">${buttonLabel}</a>` : '';
-                    mediaContentHtml = `<div class="image-media-container"><img class="media-banner" src="${proj.image}" alt="${proj.title}"><div class="media-overlay">${hoverButtonHtml}</div></div>`;
+                    mediaContentHtml = `
+                        <div class="image-media-container">
+                            <img class="media-banner" src="${proj.image}" alt="${proj.title}">
+                            <div class="media-overlay">${hoverButtonHtml}</div>
+                        </div>`;
                 }
-
-                const teamBadgeHtml = proj.team_size ? `<div class="team-size-badge">${proj.team_size}</div>` : '';
-                const engineBadge = `<div class="compact-tech-badge"><img src="${proj.icon}" title="${proj.engine}"></div>`;
-                const platformBadges = proj.platforms ? proj.platforms.map(plat => `<div class="compact-tech-badge"><img src="${plat.icon}" title="${plat.name}"></div>`).join('') : '';
 
                 return `
                     <div class="project-card">
                         <div class="project-media-wrapper">${mediaContentHtml}</div>
                         <div class="project-info">
                             <div class="project-header-row">
-                                <h3>${proj.title}</h3>
-                                <div class="project-header-icons">
-                                    ${teamBadgeHtml}
-                                    ${engineBadge}
-                                    ${platformBadges}
+                                <div class="header-left-group">
+                                    <h3>${proj.title}</h3>
+                                    ${teamTag}
+                                    <span class="header-pipe">|</span>
+                                    ${engineIcon}
+                                    ${platformIcons}
                                 </div>
                             </div>
                             <p class="project-description">${proj.desc}</p>
                             <div class="contribution-section">
-                                <strong class="contribution-title">Contributions:</strong>
                                 <ul class="glowing-tasks-list">${tasksHtml}</ul>
                             </div>
                         </div>
@@ -204,7 +190,9 @@ function loadProjectsData() {
             <div class="company-block">
                 <h2>${job.company}</h2>
                 <div class="project-role-text">${job.role} | ${job.duration}</div>
-                ${projectsHtml}
+                <div class="company-project-grid">
+                    ${projectsHtml}
+                </div>
             </div>`;
         });
         isProjectsLoaded = true;
@@ -215,8 +203,9 @@ function loadProjectsData() {
 function hideLoader() {
     const loader = document.getElementById('loading-overlay');
     if(loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => loader.style.display = 'none', 500);
+        requestAnimationFrame(() => {
+            loader.style.display = 'none';
+        });
     }
 }
 
@@ -226,16 +215,12 @@ document.addEventListener('DOMContentLoaded', () => {
     else showPage('home');
 });
 
-// --- Global function to route to Home and scroll to Contact ---
 window.goToContact = function() {
-    // 1. Switch to the home page first
     showPage('home'); 
-    
-    // 2. Wait a split second for the page to render, then scroll down
     setTimeout(() => {
         const contactSection = document.getElementById('contact');
         if (contactSection) {
             contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    }, 100);
+    }, 50);
 };

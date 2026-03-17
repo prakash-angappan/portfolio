@@ -41,24 +41,16 @@
     { "title": "Captain Kosmo", "image": "images/games/captain-kosmo-banner.png" },
     { "title": "Cart Kings", "image": "images/games/cart-kings-banner.png" }
   ],
+
   "management": [
-  {
-    "category": "Leadership & Strategy",
-    "items": [
-      { "name": "Team Leadership & Hiring", "icon": "images/icons/leadership&production/teamleadership-hiring.png" },
-      { "name": "Strategic Planning & Roadmapping", "icon": "images/icons/leadership&production/strategic-planning-roadmapping.png" },
-      { "name": "Project Lifecycle Management", "icon": "images/icons/leadership&production/project-lifecycle-management.png" },
-      { "name": "Stakeholder Management", "icon": "images/icons/leadership&production/stakeholder-management.png" }
-    ]
-  },
-  {
-    "category": "Production & Operations",
-    "items": [
-      { "name": "Agile (Scrum) Methodologies", "icon": "images/icons/leadership&production/agile-scrum.png" },
-      { "name": "P&L, Budgeting & Cost Control", "icon": "images/icons/leadership&production/budgetting.png" },
-      { "name": "Risk Mitigation & Management", "icon": "images/icons/leadership&production/risk-mitigation.png" },
-      { "name": "Vendor & Outsourcing Management", "icon": "images/icons/leadership&production/outsourcing.png" }
-    ]
-  }
-]
+    { "name": "Team Leadership & Hiring", "icon": "images/icons/leadership&production/teamleadership-hiring.png" },
+    { "name": "Strategic Planning & Roadmapping", "icon": "images/icons/leadership&production/strategic-planning-roadmapping.png" },
+    { "name": "Project Lifecycle Management", "icon": "images/icons/leadership&production/project-lifecycle-management.png" },
+    { "name": "Stakeholder Management", "icon": "images/icons/leadership&production/stakeholder-management.png" },
+    { "name": "Agile (Scrum) Methodologies", "icon": "images/icons/leadership&production/agile-scrum.png" },
+    { "name": "P&L, Budgeting & Cost Control", "icon": "images/icons/leadership&production/budgetting.png" },
+    { "name": "Risk Mitigation & Management", "icon": "images/icons/leadership&production/risk-mitigation.png" },
+    { "name": "Vendor & Outsourcing Management", "icon": "images/icons/leadership&production/outsourcing.png" }
+  ]
+
 }

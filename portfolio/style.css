@@ -336,6 +336,9 @@ html { overflow-y: scroll; scroll-behavior: smooth; scroll-padding-top: 90px; }
 
 /* --- SCALED CONTACT BUTTONS --- */
 /* --- EXTRA SCALED CONTACT BUTTONS (+10% MORE) --- */
+/* --- EXTRA SCALED CONTACT BUTTONS (+10% MORE) --- */
+
+/* --- SCALED CONTACT BUTTONS --- */
 
 .btn-action {
     display: inline-flex !important; 
@@ -344,34 +347,35 @@ html { overflow-y: scroll; scroll-behavior: smooth; scroll-padding-top: 90px; }
     border: 1px solid var(--accent) !important;
     color: var(--text) !important; 
     
-    /* Further increased padding and font size */
-    padding: 10px 20px !important; 
-    font-size: 1rem !important; 
+    /* Scaled up padding and font size (~10%) */
+    padding: 8px 16px !important; 
+    font-size: 0.9rem !important; 
     
-    border-radius: 10px !important; 
+    border-radius: 8px !important; 
     text-decoration: none !important; 
-    font-weight: 700 !important; /* Made slightly bolder for better legibility */
+    font-weight: 600 !important; 
     transition: all 0.3s ease !important;
 }
 
 .btn-action:hover { 
     background: rgba(46, 204, 113, 0.1) !important; 
-    box-shadow: 0 0 20px rgba(46, 204, 113, 0.5) !important; 
-    transform: translateY(-4px) !important; 
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4) !important; 
+    transform: translateY(-3px) !important; 
 }
 
 .action-icon { 
-    /* Scaled icon to match 1rem font */
-    width: 32px !important; 
-    height: 32px !important; 
-    margin-right: 10px !important; 
+    /* Scaled icon size to match text */
+    width: 18px !important; 
+    height: 18px !important; 
+    margin-right: 8px !important; 
     object-fit: contain !important; 
 }
 
+/* Adjust the gap between buttons */
 .action-row { 
     display: flex !important; 
     justify-content: center !important; 
     flex-wrap: wrap !important; 
-    gap: 18px !important; /* Added more gap to accommodate larger buttons */
+    gap: 15px !important; 
     width: 100% !important; 
 }

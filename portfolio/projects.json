@@ -119,16 +119,16 @@
     {
       "company": "Tentworks Interactive",
       "role": "Lead Game Developer",
-      "duration": "Jan 2019 - Nov 2020( 1 Year 11 months )",
+      "duration": "Jan 2019 - Nov 2020 ( 1 Year 11 months )",
       "projects": [
-      {
+        {
           "title": "City Block Builder",
           "engine": "Unity",
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
           "team_size": "Led Team of 4",
           "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/city-block-builder-banner.png",
-          "desc": "A tycoon-style city builder where you manage businesses like cinemas, bars, and restaurants. Hire staff to run your shops and serve AI citizens with unique traits and interests. Features deep strategic mechanics and a complex social simulation.",
+          "desc": "A tycoon-style city builder where you manage businesses like cinemas, bars, and restaurants. Hire staff to run your shops and serve AI citizens with unique traits and interests.",
           "tasks": [
             "Architected technical systems to manage massive crowd and worker simulations.",
             "Integrated Playmaker and Behavior Trees to drive realistic NPC behaviors.",
@@ -172,7 +172,7 @@
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
           "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/jolly-rogers-pirates-rumble-banner.png",
-          "desc": "A four-player couch co-op game with unique characters and skills. Play together on one system across different modes like Last Man Standing, Capture the Flag, Football, and a beer-drinking competition.",
+          "desc": "A four-player couch co-op game with unique characters and skills. Play together on one system across different modes like Last Man Standing and Capture the Flag.",
           "tasks": [
             "Contributed to the game design and technical design.",
             "Developed competitive modes like Capture the Flag and Team Deathmatch.",
@@ -203,7 +203,7 @@
           "platforms": [{ "name": "Android", "icon": "images/icons/platforms/android.png" }],
           "icon": "images/icons/gameengines/unity.png",
           "video": "https://www.youtube.com/embed/-TrewU1Ns6E",
-          "desc": "A cultural endless runner based on the South Indian sport Jallikattu. Play as a bull and survive by dodging obstacles and avoiding players trying to catch you. Features different bull types, a shop, and collectibles.",
+          "desc": "A cultural endless runner based on the South Indian sport Jallikattu. Play as a bull and survive by dodging obstacles.",
           "tasks": [
             "Designed and implemented the in-game shop."
           ],
@@ -241,7 +241,7 @@
           ],
           "icon": "images/icons/gameengines/unity.png",
           "video": "https://www.youtube.com/embed/lq0rvx0aEFE",
-          "desc": "A collection of mini-games featuring the well-known sailor Captain Sharky. Explore his world and complete different challenges on this adventure-based platform.",
+          "desc": "A collection of mini-games featuring the well-known sailor Captain Sharky. Explore his world and complete different challenges.",
           "tasks": [
             "Architected a generic profile system shared across the entire application suite.",
             "Developed platforming mechanics for a side-scrolling mini-game."
@@ -261,7 +261,7 @@
           "platforms": [{ "name": "PS3 Move", "icon": "images/icons/platforms/ps3move.png" }],
           "icon": "images/icons/gameengines/phyre.png",
           "video": "https://www.youtube.com/embed/KbZFrEOE95w",
-          "desc": "A realistic kite-fighting game featuring physics-based controls. Master the art of kite flying in single-player mode or challenge another player in competitive combat.",
+          "desc": "A realistic kite-fighting game featuring physics-based controls using PS3 Move.",
           "tasks": [
             "Implemented an interactive UI.",
             "Developed balloon-popping logic."
@@ -277,7 +277,7 @@
           ],
           "icon": "images/icons/gameengines/vicious.png",
           "video": "https://www.youtube.com/embed/T93d5E7Yhyo",
-          "desc": "A unique bullock cart racing game featuring famous Indian cartoon characters like Suppandi. Compete, dodge obstacles, and use fun power-ups to defeat your opponents.",
+          "desc": "A unique bullock cart racing game featuring famous Indian cartoon characters like Suppandi.",
           "tasks": [
             "Contributed to the game design, level design, and technical design.",
             "Implemented power-ups in the game."
@@ -290,7 +290,7 @@
           "platforms": [{ "name": "PS2", "icon": "images/icons/platforms/ps2.png" }],
           "icon": "images/icons/gameengines/vicious.png",
           "video": "https://www.youtube.com/embed/UOg4AEiJsHs",
-          "desc": "A story-driven platform featuring a bundle of traditional Indian games, including Kabaddi, Dandiya, and Gilli Dhanda.",
+          "desc": "A story-driven platform featuring traditional Indian games like Kabaddi and Dandiya.",
           "tasks": [
             "Developed the rhythm-based dance mini-game logic.",
             "Integrated all mini-games into a single release package.",
@@ -304,7 +304,7 @@
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/windows.png" }],
           "icon": "images/icons/gameengines/blitzmax.png",
           "video": "https://www.youtube.com/embed/34qZm_12Bnc",
-          "desc": "A nostalgic puzzle-platformer based on Etch A Sketch mechanics. Follow the story of a knob searching for his kidnapped partner through challenging levels and unique environments.",
+          "desc": "A nostalgic puzzle-platformer based on Etch A Sketch mechanics.",
           "tasks": [
             "Implemented collectible systems and contributed to the level design."
           ],

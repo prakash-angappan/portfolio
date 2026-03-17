@@ -1,4 +1,3 @@
-// Verification: Ensure this is how your stats render
 let isHomeLoaded = false;
 let isProjectsLoaded = false;
 
@@ -9,16 +8,14 @@ function showPage(pageId) {
     const buttons = document.querySelectorAll('.nav-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
 
-    // FIX START: Define the 'page' variable properly
     const page = document.getElementById(pageId);
     
     if (!page) {
         console.warn(`Page element with ID "${pageId}" not found. Skipping.`);
         return; 
     }
-    // FIX END
 
-    page.style.display = 'block'; // Use 'page' variable here
+    page.style.display = 'block'; 
     
     const btn = document.getElementById('btn-' + pageId);
     if (btn) btn.classList.add('active');
@@ -43,7 +40,7 @@ function loadHomeData() {
     ])
     .then(([homeData, contactData]) => {
         
-        // hero text
+        // Populate Hero Text
         const imgEl = document.getElementById('hero-img');
         if (imgEl) imgEl.src = homeData.hero.profile_img;
         
@@ -56,29 +53,38 @@ function loadHomeData() {
         const summaryEl = document.getElementById('hero-summary');
         if (summaryEl) summaryEl.innerText = homeData.hero.summary;
 
-        // old stats container (line 39 error fix)
+        // 1. INJECT ONLY STAT BOXES (No Resume Button Here)
         if (statsContainer && homeData.hero.stats) {
             statsContainer.innerHTML = homeData.hero.stats.map(stat => `
                 <div class="glass-card stat">
-                    <div class="dialog-title-box">${stat.label}</div>
                     <div class="stat-number">${stat.value}</div>
+                    <div class="stat-label">${stat.label}</div>
                 </div>`).join('');
         }
-
-        // action buttons
         if (actionRow && contactData.actions) {
-            actionRow.innerHTML = ''; 
-            contactData.actions.forEach(action => {
-                const iconHtml = `<img src="${action.icon}" class="action-icon">`;
-                actionRow.innerHTML += `
-                    <a href="${action.link}" class="btn-action" 
-                       ${action.type === 'download' ? 'download' : 'target="_blank"'}>
-                       ${iconHtml}${action.label}
+            const downloadAction = contactData.actions.find(a => a.type === 'download');
+            const otherActions = contactData.actions.filter(a => a.type !== 'download');
+            
+            let actionsHtml = '';
+            
+            // Add Resume Button First
+            if (downloadAction) {
+                actionsHtml += `
+                    <a href="${downloadAction.link}" class="btn-action" download>
+                        <img src="${downloadAction.icon}" class="action-icon">${downloadAction.label}
                     </a>`;
-            });
+            }
+            
+            // Add the rest of the buttons (Email, LinkedIn, etc.)
+            actionsHtml += otherActions.map(action => `
+                <a href="${action.link}" class="btn-action" target="_blank">
+                    <img src="${action.icon}" class="action-icon">${action.label}
+                </a>`).join('');
+
+            actionRow.innerHTML = actionsHtml;
         }
 
-        // tech grid
+        // Tech grid
         if (techContainer && homeData.tech_stack) {
             techContainer.innerHTML = '';
             ['engines', 'platforms'].forEach(key => {
@@ -97,7 +103,7 @@ function loadHomeData() {
             });
         }
 
-        // featured projects
+        // Featured projects
         if (featuredContainer && homeData.featured_projects) {
             featuredContainer.innerHTML = homeData.featured_projects.map(proj => `
                 <div class="featured-project-card glass-card" onclick="navigateToProject('${proj.title}')">
@@ -110,7 +116,7 @@ function loadHomeData() {
                 </div>`).join('');
         }
 
-        // management grid (your new 2x2 layout!)
+        // Management grid
         if (mgmtContainer && homeData.management) {
             mgmtContainer.innerHTML = homeData.management.map(block => {
                 const managementGridHtml = block.items.map(item => `
@@ -163,20 +169,15 @@ function loadProjectsData() {
                 
                 let mediaContentHtml = '';
                 if (proj.video) {
-                    // Optimized video container, no fixed height
                     mediaContentHtml = `<div class="video-media-container"><iframe src="${proj.video}" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe></div>`;
                 } else if (proj.image) {
-                    // Optimized image container (icons removed)
                     const hoverButtonHtml = proj.link ? `<a href="${storeUrl}" target="_blank" class="hover-action-btn">${buttonLabel}</a>` : '';
                     mediaContentHtml = `<div class="image-media-container"><img class="media-banner" src="${proj.image}" alt="${proj.title}"><div class="media-overlay">${hoverButtonHtml}</div></div>`;
                 }
 
-                // Compact badges for the title row
-                // Check if team_size exists in the JSON, and create a badge if it does
                 const teamBadgeHtml = proj.team_size ? `<div class="team-size-badge">${proj.team_size}</div>` : '';
-
                 const engineBadge = `<div class="compact-tech-badge"><img src="${proj.icon}" title="${proj.engine}"></div>`;
-                const platformBadges = proj.platforms.map(plat => `<div class="compact-tech-badge"><img src="${plat.icon}" title="${plat.name}"></div>`).join('');
+                const platformBadges = proj.platforms ? proj.platforms.map(plat => `<div class="compact-tech-badge"><img src="${plat.icon}" title="${plat.name}"></div>`).join('') : '';
 
                 return `
                     <div class="project-card">
@@ -225,18 +226,16 @@ document.addEventListener('DOMContentLoaded', () => {
     else showPage('home');
 });
 
-function showProjects() {
-    const container = document.getElementById('projects-container');
+// --- Global function to route to Home and scroll to Contact ---
+window.goToContact = function() {
+    // 1. Switch to the home page first
+    showPage('home'); 
     
-    // Clear jitter by hiding before loading
-    container.classList.remove('loaded');
-    
-    // Your existing logic to render projects...
-    renderProjects(); 
-
-    // Small delay to let the browser process the new DOM elements
+    // 2. Wait a split second for the page to render, then scroll down
     setTimeout(() => {
-        container.classList.add('loaded');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 50);
-}
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 100);
+};

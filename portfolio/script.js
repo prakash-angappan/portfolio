@@ -130,7 +130,7 @@ window.navigateToProject = function(projectTitle) {
     }, 100);
 };
 
-// --- PROJECTS DATA: Horizontal Layout & Specific Header Sequence ---
+// --- PROJECTS DATA ---
 function loadProjectsData() {
     fetch('projects.json').then(res => res.json()).then(data => {
         const timelineContainer = document.getElementById('timeline-container');
@@ -139,9 +139,13 @@ function loadProjectsData() {
         data.work_experience.forEach(job => {
             const projectsHtml = job.projects.map(proj => {
                 const tasksHtml = proj.tasks.map(task => `<li>${task}</li>`).join('');
-                const storeUrl = proj.link ? proj.link.url : '#';
-                const buttonLabel = proj.link ? `View on ${proj.link.label}` : '';
-                const hoverButtonHtml = proj.link ? `<a href="${storeUrl}" target="_blank" class="hover-action-btn">${buttonLabel}</a>` : '';
+                
+                // Only create buttons if a REAL url exists (not "#")
+                const hasRealLink = proj.link && proj.link.url !== "#";
+                const storeUrl = hasRealLink ? proj.link.url : null;
+                const buttonLabel = hasRealLink ? `View on ${proj.link.label}` : '';
+                const hoverButtonHtml = hasRealLink ? `<a href="${storeUrl}" target="_blank" class="hover-action-btn">${buttonLabel}</a>` : '';
+                const overlayHtml = hasRealLink ? `<div class="media-overlay">${hoverButtonHtml}</div>` : '';
 
                 // Header Sequence Elements
                 const bgColor = proj.team_bg ? proj.team_bg : 'rgba(46, 204, 113, 0.15)';
@@ -154,14 +158,14 @@ function loadProjectsData() {
                 if (proj.video) {
                     mediaContentHtml = `
                         <div class="video-media-container">
-                            <iframe src="${proj.video}" loading="lazy" allowfullscreen></iframe>
-                            <div class="media-overlay">${hoverButtonHtml}</div>
+                            <iframe src="${proj.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; position: relative; z-index: 10;"></iframe>
+                            ${overlayHtml}
                         </div>`;
                 } else if (proj.image) {
                     mediaContentHtml = `
                         <div class="image-media-container">
                             <img class="media-banner" src="${proj.image}" alt="${proj.title}">
-                            <div class="media-overlay">${hoverButtonHtml}</div>
+                            ${overlayHtml}
                         </div>`;
                 }
 

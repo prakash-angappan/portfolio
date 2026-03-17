@@ -333,3 +333,45 @@ html { overflow-y: scroll; scroll-behavior: smooth; scroll-padding-top: 90px; }
     #management-grid { grid-template-columns: 1fr !important; }
     .mgmt-badge { width: 100% !important; box-sizing: border-box !important; padding: 12px !important; }
 }
+
+/* --- SCALED CONTACT BUTTONS --- */
+/* --- EXTRA SCALED CONTACT BUTTONS (+10% MORE) --- */
+
+.btn-action {
+    display: inline-flex !important; 
+    align-items: center !important; 
+    background: rgba(255, 255, 255, 0.03) !important; 
+    border: 1px solid var(--accent) !important;
+    color: var(--text) !important; 
+    
+    /* Further increased padding and font size */
+    padding: 10px 20px !important; 
+    font-size: 1rem !important; 
+    
+    border-radius: 10px !important; 
+    text-decoration: none !important; 
+    font-weight: 700 !important; /* Made slightly bolder for better legibility */
+    transition: all 0.3s ease !important;
+}
+
+.btn-action:hover { 
+    background: rgba(46, 204, 113, 0.1) !important; 
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.5) !important; 
+    transform: translateY(-4px) !important; 
+}
+
+.action-icon { 
+    /* Scaled icon to match 1rem font */
+    width: 32px !important; 
+    height: 32px !important; 
+    margin-right: 10px !important; 
+    object-fit: contain !important; 
+}
+
+.action-row { 
+    display: flex !important; 
+    justify-content: center !important; 
+    flex-wrap: wrap !important; 
+    gap: 18px !important; /* Added more gap to accommodate larger buttons */
+    width: 100% !important; 
+}

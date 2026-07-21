@@ -4,110 +4,150 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prakash Angappan | Engineering Manager | Game Development</title>
+    <meta
+      name="description"
+      content="Prakash Angappan — Engineering Manager & Head of Engineering in Game Development. 17+ years building high-performing teams and shipping 15+ commercial titles across PC, Console, Mobile, and Web."
+    />
+    <meta name="author" content="Prakash Angappan" />
+    <meta name="theme-color" content="#0F172A" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://prakashangappan.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Prakash Angappan" />
+    <meta
+      property="og:title"
+      content="Prakash Angappan | Engineering Manager | Game Development"
+    />
+    <meta
+      property="og:description"
+      content="17+ years building high-performing teams and shipping 15+ commercial titles across PC, Console, Mobile, and Web."
+    />
+    <meta property="og:image" content="https://prakashangappan.com/images/profile.webp" />
+    <meta property="og:url" content="https://prakashangappan.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Prakash Angappan | Engineering Manager | Game Development"
+    />
+    <meta
+      name="twitter:description"
+      content="17+ years building high-performing teams and shipping 15+ commercial titles across PC, Console, Mobile, and Web."
+    />
+    <meta name="twitter:image" content="https://prakashangappan.com/images/profile.webp" />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="images/profile.webp" as="image" type="image/webp" fetchpriority="high" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="data:," />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Prakash Angappan",
+        "jobTitle": "Engineering Manager | Game Development",
+        "description": "Engineering Manager and Head of Engineering in Game Development with 17+ years of experience shipping commercial titles across PC, Console, Mobile, and Web.",
+        "url": "https://prakashangappan.com/",
+        "image": "https://prakashangappan.com/images/profile.webp",
+        "email": "mailto:aprakash.mca@gmail.com",
+        "telephone": "+91-9900370190",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangalore",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/prakash-angappan-91b0819/"
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="loading-overlay" class="loading-overlay">
-      <span class="accent">⬢</span> Loading Systems...
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div id="loading-overlay" class="loading-overlay" role="status" aria-live="polite">
+      <span class="accent" aria-hidden="true">⬢</span>
+      <span>Loading Systems...</span>
     </div>
 
-    <div class="main-bg"></div>
+    <div class="main-bg" aria-hidden="true"></div>
 
-    <nav class="top-nav">
+    <nav class="top-nav" aria-label="Primary">
       <div class="nav-links">
-        <button class="nav-btn active" id="btn-home" onclick="showPage('home')">
+        <button type="button" class="nav-btn active" id="btn-home" aria-current="page">
           Home
         </button>
-        <button
-          class="nav-btn"
-          id="btn-projects"
-          onclick="showPage('projects')"
-        >
-          Projects
-        </button>
-        <button class="nav-btn" onclick="goToContact()">Contact</button>
+        <button type="button" class="nav-btn" id="btn-projects">Projects</button>
+        <button type="button" class="nav-btn" id="btn-contact">Contact</button>
       </div>
     </nav>
 
-    <div class="container">
-      <section id="home" class="page-section">
+    <main class="container" id="main-content">
+      <section id="home" class="page-section" aria-labelledby="hero-name">
         <div class="hero">
           <div class="hero-text">
             <h1 id="hero-name"></h1>
             <p id="hero-title"></p>
             <p id="hero-summary"></p>
-            <div id="hero-stats" class="stats"></div>
+            <div id="hero-stats" class="stats" aria-label="Career highlights"></div>
           </div>
-          <img id="hero-img" class="profile-img" src="" alt="Profile" />
+          <img
+            id="hero-img"
+            class="profile-img"
+            src="images/profile.webp"
+            alt="Portrait of Prakash Angappan"
+            width="280"
+            height="280"
+            fetchpriority="high"
+            decoding="async"
+          />
         </div>
 
-        <div class="section-divider" style="margin-top: 25px">
-          <h2>TECHNICAL EXPERTISE</h2>
-        </div>
-        <div
-          id="tech-grid"
-          class="grid tech-grid"
-          style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px"
-        ></div>
-
-        <div class="section-divider" style="margin-top: 40px">
-          <h2>Featured Projects</h2>
-        </div>
-        <div id="featured-grid" class="featured-grid"></div>
-
-        <div class="section-divider" style="margin-top: 40px">
-          <h2>Leadership & Production</h2>
-        </div>
-        <div id="management-grid" class="skills-grid"></div>
-
-        <div
-          id="contact"
-          style="margin-top: 40px; padding-bottom: 40px; text-align: center"
-        >
+        <div class="section-block">
           <div class="section-divider">
-            <h2>Let's Connect</h2>
+            <h2>Technical Expertise</h2>
           </div>
-          <div
-            class="glass-card"
-            style="
-              padding: 30px;
-              margin-top: 30px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-            "
-          >
-            <p
-              id="contact-intro"
-              style="
-                color: var(--muted);
-                margin-bottom: 25px;
-                font-size: 1.1rem;
-              "
-            ></p>
-            <div
-              id="action-row"
-              class="action-row"
-              style="
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 15px;
-              "
-            ></div>
-          </div>
+          <div id="tech-grid" class="tech-grid"></div>
         </div>
+
+        <div class="section-block">
+          <div class="section-divider">
+            <h2>Featured Projects</h2>
+          </div>
+          <div id="featured-grid" class="featured-grid"></div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-divider">
+            <h2>Leadership &amp; Production</h2>
+          </div>
+          <div id="management-grid" class="skills-grid"></div>
+        </div>
+
+        <section id="contact" aria-labelledby="contact-heading">
+          <div class="section-divider">
+            <h2 id="contact-heading">Let's Connect</h2>
+          </div>
+          <div class="glass-card">
+            <p id="contact-intro"></p>
+            <div id="action-row" class="action-row"></div>
+          </div>
+        </section>
       </section>
 
-      <section id="projects" class="page-section" style="display: none">
+      <section
+        id="projects"
+        class="page-section is-hidden"
+        style="display: none"
+        aria-labelledby="projects-heading"
+      >
         <div class="section-divider">
-          <h2>Shipped Titles</h2>
+          <h2 id="projects-heading">Shipped Titles</h2>
         </div>
         <div id="timeline-container"></div>
       </section>
-    </div>
+    </main>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

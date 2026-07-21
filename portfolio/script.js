@@ -1,230 +1,437 @@
-let isHomeLoaded = false;
-let isProjectsLoaded = false;
+(() => {
+  "use strict";
 
-function showPage(pageId) {
-    const sections = document.querySelectorAll('.page-section');
-    sections.forEach(section => section.style.display = 'none');
+  let isHomeLoaded = false;
+  let isProjectsLoaded = false;
+  let projectScrollTimer = null;
 
-    const buttons = document.querySelectorAll('.nav-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
+  const VALID_PAGES = new Set(["home", "projects", "contact"]);
 
-    const page = document.getElementById(pageId);
-    if (!page) return; 
+  /* -------------------------------------------------------------------------
+     Helpers
+     ------------------------------------------------------------------------- */
 
-    page.style.display = 'block'; 
-    
-    const btn = document.getElementById('btn-' + pageId);
-    if (btn) btn.classList.add('active');
-    
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    window.history.pushState(null, null, '#' + pageId);
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
 
-    if (pageId === 'home' && !isHomeLoaded) loadHomeData();
-    if (pageId === 'projects' && !isProjectsLoaded) loadProjectsData();
-}
+  function escapeAttr(value) {
+    return escapeHtml(value).replace(/`/g, "&#96;");
+  }
 
-function loadHomeData() {
-    const statsContainer = document.getElementById('hero-stats');
-    const techContainer = document.getElementById('tech-grid');
-    const mgmtContainer = document.getElementById('management-grid');
-    const featuredContainer = document.getElementById('featured-grid');
-    const actionRow = document.getElementById('action-row');
-
-    Promise.all([
-        fetch('home.json').then(res => res.json()),
-        fetch('contact.json').then(res => res.json())
-    ])
-    .then(([homeData, contactData]) => {
-        
-        // Hero Data
-        document.getElementById('hero-img').src = homeData.hero.profile_img;
-        document.getElementById('hero-name').innerText = homeData.hero.name;
-        document.getElementById('hero-title').innerText = homeData.hero.title;
-        document.getElementById('hero-summary').innerText = homeData.hero.summary;
-
-        if (statsContainer && homeData.hero.stats) {
-            statsContainer.innerHTML = homeData.hero.stats.map(stat => `
-                <div class="glass-card stat">
-                    <div class="stat-number">${stat.value}</div>
-                    <div class="stat-label">${stat.label}</div>
-                </div>`).join('');
-        }
-
-        // Contact Actions (Compact)
-        if (actionRow && contactData.actions) {
-            const introEl = document.getElementById('contact-intro');
-            if(introEl && contactData.contact.intro) introEl.innerText = contactData.contact.intro;
-
-            const downloadAction = contactData.actions.find(a => a.type === 'download');
-            const otherActions = contactData.actions.filter(a => a.type !== 'download');
-            
-            let actionsHtml = '';
-            if (downloadAction) {
-                actionsHtml += `<a href="${downloadAction.link}" class="btn-action" download><img src="${downloadAction.icon}" class="action-icon">${downloadAction.label}</a>`;
-            }
-            actionsHtml += otherActions.map(action => `<a href="${action.link}" class="btn-action" target="_blank"><img src="${action.icon}" class="action-icon">${action.label}</a>`).join('');
-            actionRow.innerHTML = actionsHtml;
-        }
-
-        // Tech Grid
-        if (techContainer && homeData.tech_stack) {
-            techContainer.innerHTML = '';
-            ['engines', 'platforms'].forEach(key => {
-                const category = homeData.tech_stack[key];
-                let itemsHtml = category.items.map(item => `
-                    <div class="skill-item">
-                        <img src="${item.icon}">
-                        <span>${item.name}</span>
-                    </div>`).join('');
-                
-                techContainer.innerHTML += `
-                    <div class="glass-card tech-card">
-                        <div class="dialog-title-box">${category.title}</div>
-                        <div class="skills-container">${itemsHtml}</div>
-                    </div>`;
-            });
-        }
-
-        // Featured projects
-        if (featuredContainer && homeData.featured_projects) {
-            featuredContainer.innerHTML = homeData.featured_projects.map(proj => `
-                <div class="featured-project-card glass-card" onclick="navigateToProject('${proj.title}')">
-                    <div class="featured-banner-wrapper">
-                        <img src="${proj.image}" alt="${proj.title}" onerror="this.src='images/icons/gameengines/unity.png'; this.style.padding='20px';">
-                    </div>
-                    <div class="featured-footer">
-                        <span>${proj.title}</span>
-                    </div>
-                </div>`).join('');
-        }
-
-        // Management Grid
-        if (mgmtContainer && homeData.management) {
-            mgmtContainer.innerHTML = homeData.management.map(item => `
-                <div class="glass-card mgmt-badge">
-                    <img src="${item.icon}" alt="${item.name}" class="mgmt-badge-icon">
-                    <span class="mgmt-text-label">${item.name}</span>
-                </div>`).join('');
-        }
-
-        isHomeLoaded = true;
-        hideLoader();
-    }).catch(err => {
-        console.error("error loading data:", err);
-        hideLoader();
-    });
-}
-
-window.navigateToProject = function(projectTitle) {
-    showPage('projects');
-    const checkExist = setInterval(() => {
-        const elements = document.querySelectorAll('h3');
-        const target = Array.from(elements).find(el => el.innerText === projectTitle);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            const card = target.closest('.project-card');
-            card.style.borderColor = 'var(--accent)';
-            setTimeout(() => card.style.borderColor = 'var(--glass-border)', 2000);
-            clearInterval(checkExist);
-        }
-    }, 100);
-};
-
-// --- PROJECTS DATA ---
-function loadProjectsData() {
-    fetch('projects.json').then(res => res.json()).then(data => {
-        const timelineContainer = document.getElementById('timeline-container');
-        timelineContainer.innerHTML = '';
-
-        data.work_experience.forEach(job => {
-            const projectsHtml = job.projects.map(proj => {
-                const tasksHtml = proj.tasks.map(task => `<li>${task}</li>`).join('');
-                
-                // Only create buttons if a REAL url exists (not "#")
-                const hasRealLink = proj.link && proj.link.url !== "#";
-                const storeUrl = hasRealLink ? proj.link.url : null;
-                const buttonLabel = hasRealLink ? `View on ${proj.link.label}` : '';
-                const hoverButtonHtml = hasRealLink ? `<a href="${storeUrl}" target="_blank" class="hover-action-btn">${buttonLabel}</a>` : '';
-                const overlayHtml = hasRealLink ? `<div class="media-overlay">${hoverButtonHtml}</div>` : '';
-
-                // Header Sequence Elements
-                const bgColor = proj.team_bg ? proj.team_bg : 'rgba(46, 204, 113, 0.15)';
-                const teamTag = proj.team_size ? `<span class="team-badge-inline" style="background: ${bgColor}">${proj.team_size}</span>` : '';
-                const engineIcon = `<div class="compact-tech-badge"><img src="${proj.icon}" title="${proj.engine}"></div>`;
-                const platformIcons = proj.platforms ? proj.platforms.map(plat => `<div class="compact-tech-badge"><img src="${plat.icon}" title="${plat.name}"></div>`).join('') : '';
-
-                // Media Elements
-                let mediaContentHtml = '';
-                if (proj.video) {
-                    mediaContentHtml = `
-                        <div class="video-media-container">
-                            <iframe src="${proj.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; position: relative; z-index: 10;"></iframe>
-                            ${overlayHtml}
-                        </div>`;
-                } else if (proj.image) {
-                    mediaContentHtml = `
-                        <div class="image-media-container">
-                            <img class="media-banner" src="${proj.image}" alt="${proj.title}">
-                            ${overlayHtml}
-                        </div>`;
-                }
-
-                return `
-                    <div class="project-card">
-                        <div class="project-media-wrapper">${mediaContentHtml}</div>
-                        <div class="project-info">
-                            <div class="project-header-row">
-                                <div class="header-left-group">
-                                    <h3>${proj.title}</h3>
-                                    ${teamTag}
-                                    <span class="header-pipe">|</span>
-                                    ${engineIcon}
-                                    ${platformIcons}
-                                </div>
-                            </div>
-                            <p class="project-description">${proj.desc}</p>
-                            <div class="contribution-section">
-                                <ul class="glowing-tasks-list">${tasksHtml}</ul>
-                            </div>
-                        </div>
-                    </div>`;
-            }).join('');
-            
-            timelineContainer.innerHTML += `
-            <div class="company-block">
-                <h2>${job.company}</h2>
-                <div class="project-role-text">${job.role} | ${job.duration}</div>
-                <div class="company-project-grid">
-                    ${projectsHtml}
-                </div>
-            </div>`;
-        });
-        isProjectsLoaded = true;
-        hideLoader();
-    }).catch(err => { console.error("Error:", err); hideLoader(); });
-}
-
-function hideLoader() {
-    const loader = document.getElementById('loading-overlay');
-    if(loader) {
-        requestAnimationFrame(() => {
-            loader.style.display = 'none';
-        });
+  async function fetchJson(url) {
+    const res = await fetch(url, { cache: "no-cache" });
+    if (!res.ok) {
+      throw new Error(`Failed to load ${url} (${res.status})`);
     }
-}
+    return res.json();
+  }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const currentHash = window.location.hash.substring(1); 
-    if (['home', 'projects', 'contact'].includes(currentHash)) showPage(currentHash);
-    else showPage('home');
-});
+  function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value ?? "";
+  }
 
-window.goToContact = function() {
-    showPage('home'); 
-    setTimeout(() => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+  function showLoadError(message) {
+    const main = document.getElementById("main-content");
+    if (!main) return;
+    let banner = document.getElementById("load-error");
+    if (!banner) {
+      banner = document.createElement("div");
+      banner.id = "load-error";
+      banner.className = "load-error";
+      banner.setAttribute("role", "alert");
+      main.prepend(banner);
+    }
+    banner.textContent = message;
+  }
+
+  function hideLoader() {
+    const loader = document.getElementById("loading-overlay");
+    if (!loader) return;
+    loader.classList.add("is-hidden");
+    window.setTimeout(() => {
+      loader.style.display = "none";
+    }, 350);
+  }
+
+  function youtubeEmbedUrl(url) {
+    return String(url || "").replace("www.youtube.com", "www.youtube-nocookie.com");
+  }
+
+  function projectSlug(title) {
+    return String(title || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+  }
+
+  /* -------------------------------------------------------------------------
+     Navigation
+     ------------------------------------------------------------------------- */
+
+  function showPage(pageId) {
+    const targetId = pageId === "contact" ? "home" : pageId;
+
+    document.querySelectorAll(".page-section").forEach((section) => {
+      section.classList.add("is-hidden");
+      section.style.display = "none";
+    });
+
+    document.querySelectorAll(".nav-btn").forEach((btn) => {
+      btn.classList.remove("active");
+      btn.removeAttribute("aria-current");
+    });
+
+    const page = document.getElementById(targetId);
+    if (!page) return;
+
+    page.classList.remove("is-hidden");
+    page.style.display = "block";
+
+    const btn = document.getElementById(`btn-${pageId === "contact" ? "contact" : targetId}`);
+    if (btn) {
+      btn.classList.add("active");
+      btn.setAttribute("aria-current", "page");
+    }
+
+    if (pageId !== "contact") {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+    window.history.pushState(null, "", `#${pageId}`);
+
+    if (targetId === "home" && !isHomeLoaded) loadHomeData();
+    if (targetId === "projects" && !isProjectsLoaded) loadProjectsData();
+  }
+
+  function goToContact() {
+    showPage("contact");
+    window.setTimeout(() => {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }, 50);
-};
+  }
+
+  function navigateToProject(projectTitle) {
+    showPage("projects");
+
+    if (projectScrollTimer) {
+      clearInterval(projectScrollTimer);
+      projectScrollTimer = null;
+    }
+
+    const slug = projectSlug(projectTitle);
+    let attempts = 0;
+
+    projectScrollTimer = setInterval(() => {
+      attempts += 1;
+      const target =
+        document.getElementById(`project-${slug}`) ||
+        Array.from(document.querySelectorAll(".project-card h3")).find(
+          (el) => el.textContent === projectTitle
+        );
+
+      if (target) {
+        clearInterval(projectScrollTimer);
+        projectScrollTimer = null;
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+        const card = target.closest(".project-card");
+        if (card) {
+          card.classList.add("is-highlighted");
+          window.setTimeout(() => card.classList.remove("is-highlighted"), 2000);
+        }
+      } else if (attempts > 50) {
+        clearInterval(projectScrollTimer);
+        projectScrollTimer = null;
+      }
+    }, 100);
+  }
+
+  /* -------------------------------------------------------------------------
+     Home
+     ------------------------------------------------------------------------- */
+
+  function renderStats(stats) {
+    return (stats || [])
+      .map(
+        (stat) => `
+      <div class="glass-card stat">
+        <div class="stat-number">${escapeHtml(stat.value)}</div>
+        <div class="stat-label">${escapeHtml(stat.label)}</div>
+      </div>`
+      )
+      .join("");
+  }
+
+  function renderActions(actions) {
+    if (!actions || !actions.length) return "";
+
+    const downloadAction = actions.find((a) => a.type === "download");
+    const otherActions = actions.filter((a) => a.type !== "download");
+    const parts = [];
+
+    if (downloadAction) {
+      parts.push(`
+        <a href="${escapeAttr(downloadAction.link)}" class="btn-action" download>
+          <img src="${escapeAttr(downloadAction.icon)}" class="action-icon" alt="" loading="lazy" decoding="async" width="18" height="18">
+          ${escapeHtml(downloadAction.label)}
+        </a>`);
+    }
+
+    otherActions.forEach((action) => {
+      const external = action.link.startsWith("http");
+      const rel = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+      parts.push(`
+        <a href="${escapeAttr(action.link)}" class="btn-action"${rel}>
+          <img src="${escapeAttr(action.icon)}" class="action-icon" alt="" loading="lazy" decoding="async" width="18" height="18">
+          ${escapeHtml(action.label)}
+        </a>`);
+    });
+
+    return parts.join("");
+  }
+
+  function renderTechGrid(techStack) {
+    return ["engines", "platforms"]
+      .map((key) => {
+        const category = techStack[key];
+        if (!category) return "";
+        const itemsHtml = (category.items || [])
+          .map(
+            (item) => `
+          <div class="skill-item">
+            <img src="${escapeAttr(item.icon)}" alt="${escapeAttr(item.name)}" loading="lazy" decoding="async" width="44" height="44">
+            <span>${escapeHtml(item.name)}</span>
+          </div>`
+          )
+          .join("");
+
+        return `
+          <div class="glass-card tech-card">
+            <div class="dialog-title-box">${escapeHtml(category.title)}</div>
+            <div class="skills-container">${itemsHtml}</div>
+          </div>`;
+      })
+      .join("");
+  }
+
+  function renderFeatured(projects) {
+    return (projects || [])
+      .map((proj) => {
+        const title = escapeHtml(proj.title);
+        const titleAttr = escapeAttr(proj.title);
+        return `
+        <button type="button" class="featured-project-card glass-card" data-project-title="${titleAttr}" aria-label="View ${titleAttr} details">
+          <div class="featured-banner-wrapper">
+            <img src="${escapeAttr(proj.image)}" alt="${titleAttr}" loading="lazy" decoding="async" width="480" height="480">
+          </div>
+          <div class="featured-footer">
+            <span>${title}</span>
+          </div>
+        </button>`;
+      })
+      .join("");
+  }
+
+  function renderManagement(items) {
+    return (items || [])
+      .map(
+        (item) => `
+      <div class="glass-card mgmt-badge">
+        <img src="${escapeAttr(item.icon)}" alt="" class="mgmt-badge-icon" loading="lazy" decoding="async" width="36" height="36">
+        <span class="mgmt-text-label">${escapeHtml(item.name)}</span>
+      </div>`
+      )
+      .join("");
+  }
+
+  async function loadHomeData() {
+    try {
+      const [homeData, contactData] = await Promise.all([
+        fetchJson("home.json"),
+        fetchJson("contact.json"),
+      ]);
+
+      const heroImg = document.getElementById("hero-img");
+      if (heroImg && homeData.hero?.profile_img) {
+        heroImg.src = homeData.hero.profile_img;
+        heroImg.decoding = "async";
+      }
+
+      setText("hero-name", homeData.hero?.name);
+      setText("hero-title", homeData.hero?.title);
+      setText("hero-summary", homeData.hero?.summary);
+
+      const statsContainer = document.getElementById("hero-stats");
+      if (statsContainer) statsContainer.innerHTML = renderStats(homeData.hero?.stats);
+
+      const introEl = document.getElementById("contact-intro");
+      if (introEl && contactData.contact?.intro) {
+        introEl.textContent = contactData.contact.intro;
+      }
+
+      const actionRow = document.getElementById("action-row");
+      if (actionRow) actionRow.innerHTML = renderActions(contactData.actions);
+
+      const techContainer = document.getElementById("tech-grid");
+      if (techContainer) techContainer.innerHTML = renderTechGrid(homeData.tech_stack || {});
+
+      const featuredContainer = document.getElementById("featured-grid");
+      if (featuredContainer) {
+        featuredContainer.innerHTML = renderFeatured(homeData.featured_projects);
+        featuredContainer.querySelectorAll("[data-project-title]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            navigateToProject(btn.getAttribute("data-project-title"));
+          });
+        });
+      }
+
+      const mgmtContainer = document.getElementById("management-grid");
+      if (mgmtContainer) mgmtContainer.innerHTML = renderManagement(homeData.management);
+
+      isHomeLoaded = true;
+    } catch (err) {
+      console.error("Error loading home data:", err);
+      showLoadError("Unable to load portfolio content. Please refresh the page.");
+    } finally {
+      hideLoader();
+    }
+  }
+
+  /* -------------------------------------------------------------------------
+     Projects
+     ------------------------------------------------------------------------- */
+
+  function renderProjectCard(proj) {
+    const title = escapeHtml(proj.title);
+    const slug = projectSlug(proj.title);
+    const hasRealLink = proj.link && proj.link.url && proj.link.url !== "#";
+    const overlayHtml = hasRealLink
+      ? `<div class="media-overlay">
+           <a href="${escapeAttr(proj.link.url)}" target="_blank" rel="noopener noreferrer" class="hover-action-btn">
+             View on ${escapeHtml(proj.link.label)}
+           </a>
+         </div>`
+      : "";
+
+    const teamTag = proj.team_size
+      ? `<span class="team-badge-inline">${escapeHtml(proj.team_size)}</span>`
+      : "";
+
+    const engineIcon = proj.icon
+      ? `<div class="compact-tech-badge"><img src="${escapeAttr(proj.icon)}" title="${escapeAttr(proj.engine)}" alt="${escapeAttr(proj.engine)}" loading="lazy" decoding="async" width="22" height="22"></div>`
+      : "";
+
+    const platformIcons = (proj.platforms || [])
+      .map(
+        (plat) =>
+          `<div class="compact-tech-badge"><img src="${escapeAttr(plat.icon)}" title="${escapeAttr(plat.name)}" alt="${escapeAttr(plat.name)}" loading="lazy" decoding="async" width="22" height="22"></div>`
+      )
+      .join("");
+
+    let mediaContentHtml = "";
+    if (proj.video) {
+      mediaContentHtml = `
+        <div class="video-media-container">
+          <iframe
+            src="${escapeAttr(youtubeEmbedUrl(proj.video))}"
+            title="${escapeAttr(proj.title)} gameplay video"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          ${overlayHtml}
+        </div>`;
+    } else if (proj.image) {
+      mediaContentHtml = `
+        <div class="image-media-container">
+          <img class="media-banner" src="${escapeAttr(proj.image)}" alt="${escapeAttr(proj.title)}" loading="lazy" decoding="async" width="960" height="540">
+          ${overlayHtml}
+        </div>`;
+    }
+
+    const tasksHtml = (proj.tasks || [])
+      .map((task) => `<li>${escapeHtml(task)}</li>`)
+      .join("");
+
+    return `
+      <article class="project-card" id="project-${slug}">
+        <div class="project-media-wrapper">${mediaContentHtml}</div>
+        <div class="project-info">
+          <div class="project-header-row">
+            <div class="header-left-group">
+              <h3>${title}</h3>
+              ${teamTag}
+              <span class="header-pipe" aria-hidden="true">|</span>
+              ${engineIcon}
+              ${platformIcons}
+            </div>
+          </div>
+          <p class="project-description">${escapeHtml(proj.desc)}</p>
+          <div class="contribution-section">
+            <ul class="glowing-tasks-list">${tasksHtml}</ul>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  async function loadProjectsData() {
+    try {
+      const data = await fetchJson("projects.json");
+      const timelineContainer = document.getElementById("timeline-container");
+      if (!timelineContainer) return;
+
+      const html = (data.work_experience || [])
+        .map((job) => {
+          const projectsHtml = (job.projects || []).map(renderProjectCard).join("");
+          return `
+            <section class="company-block">
+              <h2>${escapeHtml(job.company)}</h2>
+              <div class="project-role-text">${escapeHtml(job.role)} | ${escapeHtml(job.duration)}</div>
+              <div class="company-project-grid">
+                ${projectsHtml}
+              </div>
+            </section>`;
+        })
+        .join("");
+
+      timelineContainer.innerHTML = html;
+      isProjectsLoaded = true;
+    } catch (err) {
+      console.error("Error loading projects:", err);
+      showLoadError("Unable to load project history. Please refresh the page.");
+    } finally {
+      hideLoader();
+    }
+  }
+
+  /* -------------------------------------------------------------------------
+     Boot
+     ------------------------------------------------------------------------- */
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("btn-home")?.addEventListener("click", () => showPage("home"));
+    document.getElementById("btn-projects")?.addEventListener("click", () => showPage("projects"));
+    document.getElementById("btn-contact")?.addEventListener("click", () => goToContact());
+
+    const hash = window.location.hash.substring(1);
+    if (VALID_PAGES.has(hash)) {
+      if (hash === "contact") goToContact();
+      else showPage(hash);
+    } else {
+      showPage("home");
+    }
+  });
+
+  // Expose for any remaining inline callers / debugging
+  window.showPage = showPage;
+  window.goToContact = goToContact;
+  window.navigateToProject = navigateToProject;
+})();

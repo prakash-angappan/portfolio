@@ -14,7 +14,7 @@
           ],
           "team_size": "Led Team of 3",
           "icon": "images/icons/gameengines/unity.png",
-          "image": "images/games/bharatrun-banner.png",
+          "image": "images/games/bharatrun-banner.webp",
           "desc": "An endless runner demo built with Unity 6, focused on maximizing mobile performance.",
           "tasks": [
             "Designed the core technical architecture for the vertical slice, ensuring scalability for future content additions.",
@@ -28,7 +28,7 @@
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/windows.png" }],
           "team_size": "Led Team of 5",
           "icon": "images/icons/gameengines/unity.png",
-          "image": "images/games/hands-of-victory-banner.png",
+          "image": "images/games/hands-of-victory-banner.webp",
           "desc": "An online multiplayer card game ported from Web to PC.",
           "tasks": [
             "Architected the technical migration strategy for a seamless Web-to-PC transition.",
@@ -45,7 +45,7 @@
           ],
           "team_size": "Led Team of 2",
           "icon": "images/icons/gameengines/unity.png",
-          "image": "images/games/railflow-banner.png",
+          "image": "images/games/railflow-banner.webp",
           "desc": "A mobile management game where you fully control a train to load and unload cargo, remove obstacles, and deliver goods before time runs out.",
           "tasks": [
             "Directed engineering execution, ensuring the technical design met rigorous mobile standards.",
@@ -58,7 +58,7 @@
           "engine": "Unity",
           "platforms": [{ "name": "HTML5", "icon": "images/icons/platforms/web.png" }],
           "icon": "images/icons/gameengines/unity.png",
-          "image": "images/games/math-match-banner.png",
+          "image": "images/games/math-match-banner.webp",
           "desc": "A browser-based mathematical puzzle game.",
           "tasks": [
             "Mentored a junior programmer, focusing on puzzle logic architecture and clean UI implementation."
@@ -70,7 +70,7 @@
           "engine": "Godot",
           "platforms": [{ "name": "HTML5", "icon": "images/icons/platforms/web.png" }],
           "icon": "images/icons/gameengines/godot.png",
-          "image": "images/games/halloween-banner.png",
+          "image": "images/games/halloween-banner.webp",
           "desc": "A classic 2D puzzle experience built for casual play where you navigate intricate levels, avoid deadly foes, and collect keys to progress.",
           "tasks": [
             "Oversaw development and mentored a junior developer.",
@@ -106,7 +106,7 @@
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
           "team_size": "Led Team of 2",
           "icon": "images/icons/gameengines/unity.png",
-          "image": "images/games/last-bastion-banner.png",
+          "image": "images/games/last-bastion-banner.webp",
           "desc": "An award-winning 2D turn-based roguelite where you fight unique enemies to reclaim a lost kingdom. Features deep strategy mechanics and a heavy, story-driven narrative.",
           "tasks": [
             "Led a team to fast-track development and release the game on Steam after taking over a project delayed by over a year.",
@@ -127,7 +127,7 @@
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
           "team_size": "Led Team of 4",
           "icon": "images/icons/gameengines/unity.png",
-          "image": "images/games/city-block-builder-banner.png",
+          "image": "images/games/city-block-builder-banner.webp",
           "desc": "A tycoon-style city builder where you manage businesses like cinemas, bars, and restaurants. Hire staff to run your shops and serve AI citizens with unique traits and interests.",
           "tasks": [
             "Architected technical systems to manage massive crowd and worker simulations.",
@@ -151,7 +151,7 @@
             { "name": "iOS", "icon": "images/icons/platforms/ios.png" }
           ],
           "icon": "images/icons/gameengines/unity.png",
-          "image": "images/games/atlas-mission-banner.png",
+          "image": "images/games/atlas-mission-banner.webp",
           "desc": "An education platform where kids learn math, science, and English through a growing collection of fun mini-games.",
           "tasks": [
             "Improved the overall workflow of the application.",
@@ -171,7 +171,7 @@
           "engine": "Unity",
           "platforms": [{ "name": "PC", "icon": "images/icons/platforms/steam.png" }],
           "icon": "images/icons/gameengines/unity.png",
-          "image": "images/games/jolly-rogers-pirates-rumble-banner.png",
+          "image": "images/games/jolly-rogers-pirates-rumble-banner.webp",
           "desc": "A four-player couch co-op game with unique characters and skills. Play together on one system across different modes like Last Man Standing and Capture the Flag.",
           "tasks": [
             "Contributed to the game design and technical design.",

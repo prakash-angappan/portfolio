@@ -1,54 +1,54 @@
 {
   "hero": {
     "name": "Prakash Angappan",
-    "title": "Head of Engineering | Technical Leadership | Game Development",
-    "summary": "Engineering leader with 17+ years delivering games across console, PC, and mobile. As Head of Engineering, I drive technical strategy and software architecture with predictable, on-time delivery, overseeing budgeting, resource planning, and cross-functional execution across Engineering, Design, and Art. I build scalable, data-driven, LiveOps-ready systems and advance AI-assisted workflows that improve productivity, reduce development friction, strengthen production stability, and optimize the full game development lifecycle.",
+    "title": "Head of Engineering | Game Development",
+    "summary": "Head of Engineering with 17+ years shipping 15+ games across console, PC, and mobile. I lead technical strategy, LiveOps-ready architecture, and predictable delivery for cross-functional teams, owning budgeting, resource planning, and production stability. Recent wins include AI-accelerated pipelines, contract expansions, and zero-slippage Steam releases.",
     "profile_img": "images/profile.webp",
     "stats": [
       { "label": "Years Experience", "value": "17+" },
-      { "label": "Shipped Titles", "value": "15+" }
+      { "label": "Shipped Titles", "value": "15+" },
+      { "label": "Engineers Led", "value": "10+" }
     ]
   },
-  "core_competencies": [
-    { "name": "Team Building & Mentorship", "icon": "images/icons/leadership&production/teamleadership-hiring.png" },
-    { "name": "Career Progression & OKRs", "icon": "images/icons/leadership&production/strategic-planning-roadmapping.png" },
-    { "name": "Budgeting & Resources", "icon": "images/icons/leadership&production/budgetting.png" },
-    { "name": "Release & Incident Mgmt", "icon": "images/icons/leadership&production/project-lifecycle-management.png" },
-    { "name": "Agile / Scrum", "icon": "images/icons/leadership&production/agile-scrum.png" },
-    { "name": "Cross-Functional Collaboration", "icon": "images/icons/leadership&production/stakeholder-management.png" },
-    { "name": "Scope & Priority Planning", "icon": "images/icons/leadership&production/outsourcing.png" },
-    { "name": "Production Stability", "icon": "images/icons/leadership&production/risk-mitigation.png" }
-  ],
   "key_achievements": [
     {
-      "title": "Revenue & Scope Expansion",
+      "title": "100-Title Contract Expansion",
       "badge": "Kiosk / Casino Mini Games",
-      "desc": "Anticipated the need for a cost-efficient engine and made the technical decision to build the catalog (2 games/week) on Godot instead of commercial engines, saving licensing costs; directed a 10-game test phase that secured a 100-title contract expansion."
+      "desc": "Chose Godot over commercial engines to cut licensing cost on a 2-games/week live catalog; led a 10-game proof phase that unlocked a 100-title contract expansion."
     },
     {
-      "title": "On-Time Delivery & Billing Growth",
+      "title": "Zero-Slippage Steam Delivery",
       "badge": "Hands of Victory",
-      "desc": "Directed the entire release and production for the demo on Steam (PC), maintaining zero failed deliveries, meeting all milestones, and securing a 3-month contract extension and additional studio billing."
+      "desc": "Owned release and production for the PC Steam demo with zero failed deliveries; hit every milestone and secured a 3-month contract extension plus additional studio billing."
     },
     {
-      "title": "AI-Accelerated Delivery",
+      "title": "AI Pipeline Ahead of Schedule",
       "badge": "BharatRun",
-      "desc": "Established AI-assisted development workflows to accelerate the engineering pipeline, delivering the MVP before the deadline and securing the full game development contract."
+      "desc": "Stood up AI-assisted engineering workflows that shipped the MVP early and converted the demo into a full commercial game development contract."
     },
     {
-      "title": "Team Scalability",
-      "desc": "Established engineering career progression paths and led performance evaluations for graduate engineers, building a sustainable talent pipeline into core production roles to support studio growth."
+      "title": "Engineering Talent Pipeline",
+      "badge": "Studio Growth",
+      "desc": "Built career progression paths and ran performance evaluations for graduate engineers, creating a sustainable pipeline into core production roles."
     },
     {
-      "title": "Studio Prestige",
+      "title": "Award-Winning Technical Delivery",
       "badge": "The Last Bastion",
-      "desc": "Directed technical delivery, winning Best Hardcore Game (AnimXpress 2022) and earning an Indie Game of the Year nomination (IGDC 2022)."
+      "desc": "Directed technical delivery for an award-winning Unity title: Best Hardcore Game (AnimXpress 2022) and Indie Game of the Year nominee (IGDC 2022)."
     },
     {
-      "title": "Recognition",
+      "title": "Best Performer Recognition",
       "badge": "Desi Adda",
-      "desc": "Received the Best Performer Award at Gameshastra for Desi Adda."
+      "desc": "Earned the Best Performer Award at Gameshastra for optimization and performance work on Desi Adda (PS2)."
     }
+  ],
+  "core_competencies": [
+    { "name": "Team Building & Mentorship", "icon": "images/icons/leadership&production/teamleadership-hiring.png" },
+    { "name": "LiveOps & Release Mgmt", "icon": "images/icons/leadership&production/project-lifecycle-management.png" },
+    { "name": "Budgeting & Resources", "icon": "images/icons/leadership&production/budgetting.png" },
+    { "name": "Cross-Functional Leadership", "icon": "images/icons/leadership&production/stakeholder-management.png" },
+    { "name": "Career Progression & OKRs", "icon": "images/icons/leadership&production/strategic-planning-roadmapping.png" },
+    { "name": "Scope & Priority Planning", "icon": "images/icons/leadership&production/outsourcing.png" }
   ],
   "tech_stack": {
     "programming_engines": {
@@ -69,18 +69,6 @@
         { "name": "Unreal GAS", "icon": "images/icons/gameengines/unreal.png" }
       ]
     },
-    "platforms": {
-      "title": "Target Platforms",
-      "items": [
-        { "name": "PS2", "icon": "images/icons/platforms/ps2.png" },
-        { "name": "PS3 Move", "icon": "images/icons/platforms/ps3move.png" },
-        { "name": "PSP", "icon": "images/icons/platforms/psp.png" },
-        { "name": "Android", "icon": "images/icons/platforms/android.png" },
-        { "name": "iOS", "icon": "images/icons/platforms/ios.png" },
-        { "name": "PC", "icon": "images/icons/platforms/windows.png" },
-        { "name": "Web", "icon": "images/icons/platforms/web.png" }
-      ]
-    },
     "ai_workflows": {
       "title": "AI-Assisted Workflows",
       "items": [
@@ -91,6 +79,18 @@
         { "name": "Gemini", "icon": "images/icons/ai/gemini.png" },
         { "name": "Midjourney", "icon": "images/icons/ai/midjourney.png" },
         { "name": "Meshy", "icon": "images/icons/ai/meshyai.png" }
+      ]
+    },
+    "platforms": {
+      "title": "Target Platforms",
+      "items": [
+        { "name": "PS2", "icon": "images/icons/platforms/ps2.png" },
+        { "name": "PS3 Move", "icon": "images/icons/platforms/ps3move.png" },
+        { "name": "PSP", "icon": "images/icons/platforms/psp.png" },
+        { "name": "Android", "icon": "images/icons/platforms/android.png" },
+        { "name": "iOS", "icon": "images/icons/platforms/ios.png" },
+        { "name": "PC", "icon": "images/icons/platforms/windows.png" },
+        { "name": "Web", "icon": "images/icons/platforms/web.png" }
       ]
     },
     "tools": {
@@ -111,9 +111,9 @@
     }
   },
   "featured_projects": [
+    { "title": "Hands of Victory", "image": "images/games/hands-of-victory-banner.webp" },
+    { "title": "The Last Bastion", "image": "images/games/last-bastion-banner.webp" },
     { "title": "Radiant Dark", "image": "images/games/radiant-dark-banner.webp" },
-    { "title": "Jolly Rogers Pirates Rumble", "image": "images/games/jolly-rogers-pirates-rumble-banner.webp" },
-    { "title": "Captain Kosmo", "image": "images/games/captain-kosmo-banner.webp" },
-    { "title": "Cart Kings", "image": "images/games/cart-kings-banner.webp" }
+    { "title": "BharatRun", "image": "images/games/bharatrun-banner.webp" }
   ]
 }

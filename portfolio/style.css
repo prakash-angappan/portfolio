@@ -552,7 +552,7 @@ button:focus-visible,
 #timeline-container {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: 72px;
   width: 100%;
   margin-top: var(--space-md);
 }
@@ -560,22 +560,66 @@ button:focus-visible,
 .company-block {
   width: 100%;
   position: relative;
-  padding-left: var(--space-md);
-  border-left: 3px solid var(--accent);
+  padding: 24px 22px 28px 26px;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background: rgba(31, 58, 95, 0.28);
+  border-top: 1px solid var(--glass-border);
+  border-right: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.company-block + .company-block {
+  margin-top: 12px;
+}
+
+/* Strong divider between companies */
+.company-block + .company-block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -42px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(46, 204, 113, 0.15) 8%,
+    rgba(46, 204, 113, 0.85) 50%,
+    rgba(46, 204, 113, 0.15) 92%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(46, 204, 113, 0.35);
+}
+
+.company-block + .company-block::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -48px;
+  width: 12px;
+  height: 12px;
+  transform: translateX(-50%) rotate(45deg);
+  background: var(--accent);
+  border: 2px solid #0f172a;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.55);
 }
 
 .company-block h2 {
-  font-size: 1.7rem;
+  font-size: 1.55rem;
   color: var(--text);
-  margin: 0 0 4px;
+  margin: 0 0 6px;
+  letter-spacing: 0.2px;
 }
 
 .project-role-text {
   display: block;
   color: var(--accent);
   font-weight: 600;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   font-size: 0.95rem;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .company-project-grid {

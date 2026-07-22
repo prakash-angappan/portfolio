@@ -1,37 +1,112 @@
 {
   "hero": {
     "name": "Prakash Angappan",
-    "title": "Engineering Manager | Game Development",
-    "summary": "Dedicated to building high-performing teams and delivering successful commercial titles. With experience across PC, Console, Mobile, and Web, I bridge technical architecture and product vision to create scalable, engaging experiences",
+    "title": "Head of Engineering | Technical Leadership | Game Development",
+    "summary": "Engineering leader with 17+ years delivering games across console, PC, and mobile. As Head of Engineering, I drive technical strategy and software architecture with predictable, on-time delivery, overseeing budgeting, resource planning, and cross-functional execution across Engineering, Design, and Art. I build scalable, data-driven, LiveOps-ready systems and advance AI-assisted workflows that improve productivity, reduce development friction, strengthen production stability, and optimize the full game development lifecycle.",
     "profile_img": "images/profile.webp",
     "stats": [
       { "label": "Years Experience", "value": "17+" },
       { "label": "Shipped Titles", "value": "15+" }
     ]
   },
+  "core_competencies": [
+    { "name": "Team Building & Mentorship", "icon": "images/icons/leadership&production/teamleadership-hiring.png" },
+    { "name": "Career Progression & OKRs", "icon": "images/icons/leadership&production/strategic-planning-roadmapping.png" },
+    { "name": "Budgeting & Resources", "icon": "images/icons/leadership&production/budgetting.png" },
+    { "name": "Release & Incident Mgmt", "icon": "images/icons/leadership&production/project-lifecycle-management.png" },
+    { "name": "Agile / Scrum", "icon": "images/icons/leadership&production/agile-scrum.png" },
+    { "name": "Cross-Functional Collaboration", "icon": "images/icons/leadership&production/stakeholder-management.png" },
+    { "name": "Scope & Priority Planning", "icon": "images/icons/leadership&production/outsourcing.png" },
+    { "name": "Production Stability", "icon": "images/icons/leadership&production/risk-mitigation.png" }
+  ],
+  "key_achievements": [
+    {
+      "title": "Revenue & Scope Expansion",
+      "badge": "Kiosk / Casino Mini Games",
+      "desc": "Anticipated the need for a cost-efficient engine and made the technical decision to build the catalog (2 games/week) on Godot instead of commercial engines, saving licensing costs; directed a 10-game test phase that secured a 100-title contract expansion."
+    },
+    {
+      "title": "On-Time Delivery & Billing Growth",
+      "badge": "Hands of Victory",
+      "desc": "Directed the entire release and production for the demo on Steam (PC), maintaining zero failed deliveries, meeting all milestones, and securing a 3-month contract extension and additional studio billing."
+    },
+    {
+      "title": "AI-Accelerated Delivery",
+      "badge": "BharatRun",
+      "desc": "Established AI-assisted development workflows to accelerate the engineering pipeline, delivering the MVP before the deadline and securing the full game development contract."
+    },
+    {
+      "title": "Team Scalability",
+      "desc": "Established engineering career progression paths and led performance evaluations for graduate engineers, building a sustainable talent pipeline into core production roles to support studio growth."
+    },
+    {
+      "title": "Studio Prestige",
+      "badge": "The Last Bastion",
+      "desc": "Directed technical delivery, winning Best Hardcore Game (AnimXpress 2022) and earning an Indie Game of the Year nomination (IGDC 2022)."
+    },
+    {
+      "title": "Recognition",
+      "badge": "Desi Adda",
+      "desc": "Received the Best Performer Award at Gameshastra for Desi Adda."
+    }
+  ],
   "tech_stack": {
-    "engines": {
-      "title": "Game Engines",
+    "programming_engines": {
+      "title": "Programming & Engines",
       "items": [
-        { "name": "Unreal", "icon": "images/icons/gameengines/unreal.png" },
+        { "name": "C#", "icon": "images/icons/languages/csharp.png" },
+        { "name": "C++", "icon": "images/icons/languages/cplusplus.png" },
+        { "name": "GDScript", "icon": "images/icons/languages/gdscript.png" },
         { "name": "Unity", "icon": "images/icons/gameengines/unity.png" },
+        { "name": "Unreal Engine", "icon": "images/icons/gameengines/unreal.png" },
         { "name": "Godot", "icon": "images/icons/gameengines/godot.png" },
-        { "name": "Phyre", "icon": "images/icons/gameengines/phyre.png" },
-        { "name": "Vicious", "icon": "images/icons/gameengines/vicious.png" },
+        { "name": "Phyre Engine", "icon": "images/icons/gameengines/phyre.png" },
+        { "name": "Vicious Cycle", "icon": "images/icons/gameengines/vicious.png" },
         { "name": "BlitzMax", "icon": "images/icons/gameengines/blitzmax.png" },
-        { "name": "Torque", "icon": "images/icons/gameengines/torque.png" }
+        { "name": "Torque", "icon": "images/icons/gameengines/torque.png" },
+        { "name": "Playmaker", "icon": "images/icons/frameworks/playmaker.png" },
+        { "name": "Behavior Trees", "icon": "images/icons/frameworks/behavior-trees.png" },
+        { "name": "Unreal GAS", "icon": "images/icons/gameengines/unreal.png" }
       ]
     },
     "platforms": {
-      "title": "Platforms",
+      "title": "Target Platforms",
       "items": [
-        { "name": "Windows", "icon": "images/icons/platforms/windows.png" },
         { "name": "PS2", "icon": "images/icons/platforms/ps2.png" },
-        { "name": "PSP", "icon": "images/icons/platforms/psp.png" },
         { "name": "PS3 Move", "icon": "images/icons/platforms/ps3move.png" },
+        { "name": "PSP", "icon": "images/icons/platforms/psp.png" },
         { "name": "Android", "icon": "images/icons/platforms/android.png" },
         { "name": "iOS", "icon": "images/icons/platforms/ios.png" },
+        { "name": "PC", "icon": "images/icons/platforms/windows.png" },
         { "name": "Web", "icon": "images/icons/platforms/web.png" }
+      ]
+    },
+    "ai_workflows": {
+      "title": "AI-Assisted Workflows",
+      "items": [
+        { "name": "GitHub Copilot", "icon": "images/icons/ai/github-copilot.png" },
+        { "name": "Claude", "icon": "images/icons/ai/claude.png" },
+        { "name": "Cursor", "icon": "images/icons/ai/cursor.png" },
+        { "name": "ChatGPT", "icon": "images/icons/ai/chatgpt.png" },
+        { "name": "Gemini", "icon": "images/icons/ai/gemini.png" },
+        { "name": "Midjourney", "icon": "images/icons/ai/midjourney.png" },
+        { "name": "Meshy", "icon": "images/icons/ai/meshyai.png" }
+      ]
+    },
+    "tools": {
+      "title": "Tools & IDEs",
+      "items": [
+        { "name": "Visual Studio", "icon": "images/icons/tools/visualstudio.png" },
+        { "name": "Rider", "icon": "images/icons/tools/rider.png" },
+        { "name": "Xcode", "icon": "images/icons/tools/xcode.png" },
+        { "name": "ProDG", "icon": "images/icons/gameengines/phyre.png" },
+        { "name": "Git", "icon": "images/icons/tools/git.png" },
+        { "name": "Perforce", "icon": "images/icons/tools/perforce.png" },
+        { "name": "Sourcetree", "icon": "images/icons/tools/sourcetree.png" },
+        { "name": "TortoiseSVN", "icon": "images/icons/tools/svn.png" },
+        { "name": "Jira", "icon": "images/icons/tools/jira.png" },
+        { "name": "Trello", "icon": "images/icons/tools/trello.png" },
+        { "name": "Basecamp", "icon": "images/icons/tools/basecamp.png" }
       ]
     }
   },
@@ -40,17 +115,5 @@
     { "title": "Jolly Rogers Pirates Rumble", "image": "images/games/jolly-rogers-pirates-rumble-banner.webp" },
     { "title": "Captain Kosmo", "image": "images/games/captain-kosmo-banner.webp" },
     { "title": "Cart Kings", "image": "images/games/cart-kings-banner.webp" }
-  ],
-
-  "management": [
-    { "name": "Team Leadership & Hiring", "icon": "images/icons/leadership&production/teamleadership-hiring.png" },
-    { "name": "Strategic Planning & Roadmapping", "icon": "images/icons/leadership&production/strategic-planning-roadmapping.png" },
-    { "name": "Project Lifecycle Management", "icon": "images/icons/leadership&production/project-lifecycle-management.png" },
-    { "name": "Stakeholder Management", "icon": "images/icons/leadership&production/stakeholder-management.png" },
-    { "name": "Agile (Scrum) Methodologies", "icon": "images/icons/leadership&production/agile-scrum.png" },
-    { "name": "P&L, Budgeting & Cost Control", "icon": "images/icons/leadership&production/budgetting.png" },
-    { "name": "Risk Mitigation & Management", "icon": "images/icons/leadership&production/risk-mitigation.png" },
-    { "name": "Vendor & Outsourcing Management", "icon": "images/icons/leadership&production/outsourcing.png" }
   ]
-
 }

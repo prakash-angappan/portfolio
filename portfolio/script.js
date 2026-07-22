@@ -198,8 +198,17 @@
     return parts.join("");
   }
 
+  function renderSkillIcon(item) {
+    if (item.icon) {
+      return `<img src="${escapeAttr(item.icon)}" alt="${escapeAttr(item.name)}" loading="lazy" decoding="async" width="48" height="48">`;
+    }
+    const abbr = escapeHtml(item.abbr || item.name.slice(0, 3));
+    return `<span class="skill-icon-fallback" aria-hidden="true">${abbr}</span>`;
+  }
+
   function renderTechGrid(techStack) {
-    return ["engines", "platforms"]
+    const categoryOrder = ["programming_engines", "ai_workflows", "platforms", "tools"];
+    return categoryOrder
       .map((key) => {
         const category = techStack[key];
         if (!category) return "";
@@ -207,7 +216,7 @@
           .map(
             (item) => `
           <div class="skill-item">
-            <img src="${escapeAttr(item.icon)}" alt="${escapeAttr(item.name)}" loading="lazy" decoding="async" width="44" height="44">
+            ${renderSkillIcon(item)}
             <span>${escapeHtml(item.name)}</span>
           </div>`
           )
@@ -219,6 +228,39 @@
             <div class="skills-container">${itemsHtml}</div>
           </div>`;
       })
+      .join("");
+  }
+
+  function renderDetailCard(item) {
+    const badge = item.badge
+      ? `<span class="team-badge-inline">${escapeHtml(item.badge)}</span>`
+      : "";
+
+    return `
+      <article class="detail-card glass-card">
+        <div class="project-header-row">
+          <div class="header-left-group">
+            <h3>${escapeHtml(item.title)}</h3>
+            ${badge}
+          </div>
+        </div>
+        <p class="project-description">${escapeHtml(item.desc)}</p>
+      </article>`;
+  }
+
+  function renderDetailCards(items) {
+    return (items || []).map(renderDetailCard).join("");
+  }
+
+  function renderBadgeGrid(items) {
+    return (items || [])
+      .map(
+        (item) => `
+      <div class="glass-card mgmt-badge">
+        <img src="${escapeAttr(item.icon)}" alt="" class="mgmt-badge-icon" loading="lazy" decoding="async" width="36" height="36">
+        <span class="mgmt-text-label">${escapeHtml(item.name)}</span>
+      </div>`
+      )
       .join("");
   }
 
@@ -237,18 +279,6 @@
           </div>
         </button>`;
       })
-      .join("");
-  }
-
-  function renderManagement(items) {
-    return (items || [])
-      .map(
-        (item) => `
-      <div class="glass-card mgmt-badge">
-        <img src="${escapeAttr(item.icon)}" alt="" class="mgmt-badge-icon" loading="lazy" decoding="async" width="36" height="36">
-        <span class="mgmt-text-label">${escapeHtml(item.name)}</span>
-      </div>`
-      )
       .join("");
   }
 
@@ -293,8 +323,15 @@
         });
       }
 
-      const mgmtContainer = document.getElementById("management-grid");
-      if (mgmtContainer) mgmtContainer.innerHTML = renderManagement(homeData.management);
+      const competenciesGrid = document.getElementById("core-competencies-grid");
+      if (competenciesGrid) {
+        competenciesGrid.innerHTML = renderBadgeGrid(homeData.core_competencies);
+      }
+
+      const achievementsList = document.getElementById("key-achievements-list");
+      if (achievementsList) {
+        achievementsList.innerHTML = renderDetailCards(homeData.key_achievements);
+      }
 
       isHomeLoaded = true;
     } catch (err) {
@@ -326,13 +363,13 @@
       : "";
 
     const engineIcon = proj.icon
-      ? `<div class="compact-tech-badge"><img src="${escapeAttr(proj.icon)}" title="${escapeAttr(proj.engine)}" alt="${escapeAttr(proj.engine)}" loading="lazy" decoding="async" width="22" height="22"></div>`
+      ? `<div class="compact-tech-badge"><img src="${escapeAttr(proj.icon)}" title="${escapeAttr(proj.engine)}" alt="${escapeAttr(proj.engine)}" loading="lazy" decoding="async" width="36" height="36"></div>`
       : "";
 
     const platformIcons = (proj.platforms || [])
       .map(
         (plat) =>
-          `<div class="compact-tech-badge"><img src="${escapeAttr(plat.icon)}" title="${escapeAttr(plat.name)}" alt="${escapeAttr(plat.name)}" loading="lazy" decoding="async" width="22" height="22"></div>`
+          `<div class="compact-tech-badge"><img src="${escapeAttr(plat.icon)}" title="${escapeAttr(plat.name)}" alt="${escapeAttr(plat.name)}" loading="lazy" decoding="async" width="36" height="36"></div>`
       )
       .join("");
 

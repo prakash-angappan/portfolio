@@ -312,7 +312,7 @@ button:focus-visible,
 
 .tech-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--space-sm);
 }
 
@@ -364,17 +364,33 @@ button:focus-visible,
   min-width: 56px;
 }
 
-.skill-item img {
+.skill-item img,
+.skill-icon-fallback {
   background: #fff;
-  padding: 5px;
+  padding: 2px;
   border-radius: var(--radius-md);
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   margin-bottom: 6px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
+}
+
+.skill-item img {
+  display: block;
+}
+
+.skill-icon-fallback {
+  color: #0f172a;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .skill-item span {
@@ -450,9 +466,42 @@ button:focus-visible,
 }
 
 /* =============================================================================
+   Detail cards (competencies / achievements)
+   ============================================================================= */
+
+.detail-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: var(--space-md);
+}
+
+.detail-card {
+  padding: 22px 24px;
+  background: var(--card-bg-strong);
+  border: 1px solid var(--accent-border);
+}
+
+.detail-card .project-header-row {
+  margin-bottom: 10px;
+}
+
+.detail-card .project-description {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.detail-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+/* =============================================================================
    Leadership grid
    ============================================================================= */
 
+.skills-grid,
 #management-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -679,8 +728,8 @@ button:focus-visible,
   background: rgba(255, 255, 255, 0.85);
   padding: 3px;
   border-radius: 4px;
-  width: 22px;
-  height: 22px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -843,6 +892,7 @@ button:focus-visible,
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .skills-grid,
   #management-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -924,6 +974,7 @@ button:focus-visible,
   }
 
   .featured-grid,
+  .skills-grid,
   #management-grid {
     grid-template-columns: 1fr;
   }

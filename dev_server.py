@@ -169,6 +169,7 @@ class PortfolioHandler(SimpleHTTPRequestHandler):
     # Set by main() before serving
     watcher: FileWatcher | None = None
     document_root: Path = DEFAULT_ROOT
+    livereload_enabled: bool = True
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, directory=str(self.document_root), **kwargs)
@@ -218,9 +219,11 @@ class PortfolioHandler(SimpleHTTPRequestHandler):
         self.send_header("X-Accel-Buffering", "no")
         self.end_headers()
 
-        # Initial hello so the client knows the stream is alive
+        # Initial hello so the client knows the stream is alive.
+        # Start from the current generation so past changes do not trigger reload.
+        since = watcher.generation
         try:
-            self.wfile.write(f"data: {json.dumps({'generation': watcher.generation})}\n\n".encode())
+            self.wfile.write(f"data: {json.dumps({'generation': since})}\n\n".encode())
             self.wfile.flush()
         except (BrokenPipeError, ConnectionResetError, OSError):
             return
@@ -279,7 +282,7 @@ class PortfolioHandler(SimpleHTTPRequestHandler):
             f.close()
 
             # Inject live-reload script into HTML responses
-            if ctype.startswith("text/html"):
+            if self.livereload_enabled and ctype.startswith("text/html"):
                 try:
                     text = raw.decode("utf-8")
                 except UnicodeDecodeError:
@@ -434,6 +437,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         default=POLL_INTERVAL,
         help=f"Filesystem poll interval in seconds (default: {POLL_INTERVAL})",
     )
+    parser.add_argument(
+        "--no-livereload",
+        action="store_true",
+        help="Disable live-reload SSE and script injection",
+    )
     return parser.parse_args(argv)
 
 
@@ -448,11 +456,15 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Error: index.html not found in {root}", file=sys.stderr, flush=True)
         return 1
 
-    watcher = FileWatcher(root, interval=args.poll)
-    watcher.start()
+    livereload_enabled = not args.no_livereload
+    watcher: FileWatcher | None = None
+    if livereload_enabled:
+        watcher = FileWatcher(root, interval=args.poll)
+        watcher.start()
 
     PortfolioHandler.watcher = watcher
     PortfolioHandler.document_root = root
+    PortfolioHandler.livereload_enabled = livereload_enabled
 
     server = ThreadingHTTPServer((args.host, args.port), PortfolioHandler)
     url = f"http://{args.host}:{args.port}/"
@@ -465,7 +477,10 @@ def main(argv: list[str] | None = None) -> int:
     say("=" * 56)
     say(f"  Root:        {root}")
     say(f"  URL:         {url}")
-    say(f"  Live reload: polling every {args.poll}s (stdlib, no deps)")
+    if livereload_enabled:
+        say(f"  Live reload: polling every {args.poll}s (stdlib, no deps)")
+    else:
+        say("  Live reload: disabled")
     say("  Stop:        Ctrl+C")
     say("=" * 56)
 
@@ -477,7 +492,8 @@ def main(argv: list[str] | None = None) -> int:
     except KeyboardInterrupt:
         print("\nShutting down...", flush=True)
     finally:
-        watcher.stop()
+        if watcher is not None:
+            watcher.stop()
         server.server_close()
     return 0
 

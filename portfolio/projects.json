@@ -15,11 +15,11 @@
           "team_size": "Led Team of 3",
           "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/bharatrun-banner.webp",
-          "desc": "An endless runner demo built with Unity 6, focused on maximizing mobile performance.",
+          "desc": "Unity 6 mobile endless-runner vertical slice, optimized for performance and future LiveOps content.",
           "tasks": [
-            "Designed the core technical architecture for the vertical slice, ensuring scalability for future content additions.",
-            "Led the engineering team to deliver a production-ready build within a tight three-month timeline.",
-            "Established a culture of technical ownership and rapid prototyping for new gameplay mechanics."
+            "Owned core technical architecture for a scalable vertical slice ready for content expansion.",
+            "Led a team of 3 to ship a production-ready demo ahead of schedule using AI-assisted workflows.",
+            "Built a culture of technical ownership and rapid prototyping for new gameplay systems."
           ]
         },
         {
@@ -29,10 +29,10 @@
           "team_size": "Led Team of 5",
           "icon": "images/icons/gameengines/unity.png",
           "image": "images/games/hands-of-victory-banner.webp",
-          "desc": "An online multiplayer card game ported from Web to PC.",
+          "desc": "Online multiplayer card game migrated from Web to PC and released as a Steam demo.",
           "tasks": [
-            "Architected the technical migration strategy for a seamless Web-to-PC transition.",
-            "Handled Steam integration and released a demo on the Steam platform."
+            "Owned Web-to-PC migration architecture and Steam integration for a live multiplayer title.",
+            "Led a team of 5 through release with zero failed deliveries, securing a contract extension and added billing."
           ],
           "link": { "label": "Steam", "url": "https://store.steampowered.com/app/2265080/Hands_of_Victory/", "icon": "🎮" }
         },
@@ -48,8 +48,8 @@
           "image": "images/games/railflow-banner.webp",
           "desc": "A mobile management game where you fully control a train to load and unload cargo, remove obstacles, and deliver goods before time runs out.",
           "tasks": [
-            "Directed engineering execution, ensuring the technical design met rigorous mobile standards.",
-            "Mentored team members in scalable system design and efficient C# coding practices."
+            "Directed mobile engineering to meet performance and stability standards for store release.",
+            "Mentored engineers on scalable C# systems and production-ready mobile architecture."
           ],
           "link": { "label": "PlayStore", "url": "https://play.google.com/store/apps/details?id=com.railflow.cargotransport", "icon": "📱" }
         },
@@ -73,8 +73,8 @@
           "image": "images/games/halloween-banner.webp",
           "desc": "A classic 2D puzzle experience built for casual play where you navigate intricate levels, avoid deadly foes, and collect keys to progress.",
           "tasks": [
-            "Oversaw development and mentored a junior developer.",
-            "Ensured smooth gameplay and a high-quality experience."
+            "Mentored a junior developer through level and systems delivery to a polished HTML5 release.",
+            "Owned quality bar for gameplay feel, stability, and ship readiness."
           ],
           "link": { "label": "iXieSite", "url": "https://play.ixiegaming.com/halloween/", "icon": "🌐" }
         }
@@ -94,9 +94,9 @@
           "video": "https://www.youtube.com/embed/T7I799DRj2U",
           "desc": "A combat-focused action RPG set in Indian mythology. Play as the last hero fighting to win back the world from Asuras, featuring high-end graphics and massive battles with 100+ enemies.",
           "tasks": [
-            "Contributed to the game design and level design.",
-            "Architected the technical foundation for a complex combat-focused RPG.",
-            "Spearheaded R&D into the Gameplay Ability System (GAS) and Lyra framework integration."
+            "Contributed to game and level design while owning combat systems architecture.",
+            "Architected the Unreal technical foundation for large-scale combat encounters.",
+            "Led GAS + Lyra R&D that cut gameplay feature iteration time by ~40%."
           ],
           "link": { "label": "YouTube", "url": "#", "icon": "▶️" }
         },
@@ -109,8 +109,8 @@
           "image": "images/games/last-bastion-banner.webp",
           "desc": "An award-winning 2D turn-based roguelite where you fight unique enemies to reclaim a lost kingdom. Features deep strategy mechanics and a heavy, story-driven narrative.",
           "tasks": [
-            "Led a team to fast-track development and release the game on Steam after taking over a project delayed by over a year.",
-            "Developed complex Enemy AI using Behavior Trees for dynamic tactical encounters."
+            "Took over a year-delayed project; led a team of 2 to ship on Steam with award-winning results.",
+            "Built Enemy AI with Behavior Trees for dynamic tactical encounters under tight recovery timelines."
           ],
           "link": { "label": "Steam", "url": "https://store.steampowered.com/app/1520880/The_Last_Bastion/", "icon": "🎮" }
         }

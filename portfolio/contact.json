@@ -1,6 +1,6 @@
 {
   "actions": [
-    { "label": "Download Resume", "link": "PrakashAngappan-Resume.pdf", "icon": "images/icons/contact/resume.png", "type": "download" },
+    { "label": "Download Resume", "link": "PrakashAngappan_Resume.docx", "icon": "images/icons/contact/resume.png", "type": "download" },
     { "label": "LinkedIn", "link": "https://www.linkedin.com/in/prakash-angappan-91b0819/", "icon": "images/icons/contact/linkedin.png", "type": "link" },
     { "label": "aprakash.mca@gmail.com", "link": "mailto:aprakash.mca@gmail.com", "icon": "images/icons/contact/email.png", "type": "contact" },
     { "label": "+91-9900370190", "link": "tel:+919900370190", "icon": "images/icons/contact/phone.png", "type": "contact" }
@@ -10,6 +10,6 @@
     "phone": "+91-9900370190",
     "email": "aprakash.mca@gmail.com",
     "linkedin": "https://linkedin.com/in/prakash-angappan",
-    "resume": "PrakashAngappan-Resume.pdf"
+    "resume": "PrakashAngappan_Resume.docx"
   }
 }

@@ -111,9 +111,9 @@
     }
   },
   "featured_projects": [
-    { "title": "Hands of Victory", "image": "images/games/hands-of-victory-banner.webp" },
-    { "title": "The Last Bastion", "image": "images/games/last-bastion-banner.webp" },
     { "title": "Radiant Dark", "image": "images/games/radiant-dark-banner.webp" },
-    { "title": "BharatRun", "image": "images/games/bharatrun-banner.webp" }
+    { "title": "Jolly Rogers Pirates Rumble", "image": "images/games/jolly-rogers-pirates-rumble-banner.webp" },
+    { "title": "Captain Kosmo", "image": "images/games/captain-kosmo-banner.webp" },
+    { "title": "Cart Kings", "image": "images/games/cart-kings-banner.webp" }
   ]
 }

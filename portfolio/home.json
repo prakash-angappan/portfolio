@@ -2,7 +2,7 @@
   "hero": {
     "name": "Prakash Angappan",
     "title": "Head of Engineering | Game Development",
-    "summary": "Head of Engineering with 17+ years shipping 15+ games across console, PC, and mobile. I lead technical strategy, LiveOps-ready architecture, and predictable delivery for cross-functional teams, owning budgeting, resource planning, and production stability. Recent wins include AI-accelerated pipelines, contract expansions, and zero-slippage Steam releases.",
+    "summary": "Engineering leader with 17+ years shipping 15+ games across console, PC, and mobile. Driving technical strategy, LiveOps-ready architecture, and predictable delivery across Engineering, Design, and Art, while owning budgeting, resource planning, and production stability. Recent wins include AI-accelerated pipelines, contract expansions, and on-time Steam releases.",
     "profile_img": "images/profile.webp",
     "stats": [
       { "label": "Years Experience", "value": "17+" },
@@ -17,7 +17,7 @@
       "desc": "Chose Godot over commercial engines to cut licensing cost on a 2-games/week live catalog; led a 10-game proof phase that unlocked a 100-title contract expansion."
     },
     {
-      "title": "Zero-Slippage Steam Delivery",
+      "title": "On-Time Steam Demo Delivery",
       "badge": "Hands of Victory",
       "desc": "Owned release and production for the PC Steam demo with zero failed deliveries; hit every milestone and secured a 3-month contract extension plus additional studio billing."
     },
@@ -48,7 +48,9 @@
     { "name": "Budgeting & Resources", "icon": "images/icons/leadership&production/budgetting.png" },
     { "name": "Cross-Functional Leadership", "icon": "images/icons/leadership&production/stakeholder-management.png" },
     { "name": "Career Progression & OKRs", "icon": "images/icons/leadership&production/strategic-planning-roadmapping.png" },
-    { "name": "Scope & Priority Planning", "icon": "images/icons/leadership&production/outsourcing.png" }
+    { "name": "Scope & Priority Planning", "icon": "images/icons/leadership&production/outsourcing.png" },
+    { "name": "Agile / Scrum", "icon": "images/icons/leadership&production/agile-scrum.png" },
+    { "name": "Risk & Production Stability", "icon": "images/icons/leadership&production/risk-mitigation.png" }
   ],
   "tech_stack": {
     "programming_engines": {
